@@ -1,0 +1,24 @@
+1 - yarn create next-app {app name}
+2 - yarn eslint --init 
+3 - Edit eslint config file:
+    - In "extends" add:  "plugin:@next/next/recommended"
+    - In "parserOptions" add: "project": ["./tsconfig.json"]
+4 - Now the linter should indicate linting errors
+5 - Add any rules:
+      "react/react-in-jsx-scope": "off",
+      "react/prop-types": "off",
+      "@typescript-eslint/consistent-type-definitions": "warn",
+      "@typescript-eslint/explicit-function-return-type": "off"
+6 - yarn add prettier eslint-plugin-prettier eslint-config-prettier -D
+8 - Edit eslint config file:
+    - In "extends" add: "prettier"
+    - In "plugins" add: "prettier"
+    - In "rules" add if Windows:
+      "prettier/prettier": [
+            "error",
+            {
+                "endOfLine": "auto"
+            }
+        ]
+9 - Create .prettierrc file with prettier rules
+10 - Restart ESlint server extension
