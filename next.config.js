@@ -2,6 +2,14 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  // Use app router based on file system folders and page.tsx files
+  experimental: { appDir: true },
+  // TODO
+  // i18n: {
+  //   locales: ['es', 'en'],
+  //   defaultLocale: 'en',
+  //   localeDetection: true,
+  // },
 }
 
 module.exports = nextConfig
