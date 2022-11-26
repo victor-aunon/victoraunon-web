@@ -18,6 +18,11 @@ body {
   font-family: var(--content-font);
   background-color: var(--color-primary);
   color: var(--color-text);
+  transition: color, background-color 0.3s linear;
+
+  & * {
+    transition: color, background-color 0.3s linear;
+  }
 }
 
 a {
@@ -34,6 +39,7 @@ h5 {
   margin-top: 0;
   font-size: 2.5rem;
   color: var(--color-secondary);
+  width: fit-content;
 }
 
 // @media (prefers-color-scheme: dark) {
@@ -52,6 +58,10 @@ ul {
 
 li {
   list-style: none;
+
+  a {
+    display: block;
+  }
 }
 
 .container {
@@ -60,17 +70,29 @@ li {
   margin: 0 auto;
 }
 
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  @include tablet {
+    flex-direction: row;
+  }
+}
+
 .theme {
   &-light {
     --color-primary: #{$color_primary};
     --color-secondary: #{$color_secondary};
     --color-tertiary: #{$color_tertiary};
+    --color-quaternary: #{$color_quaternary};
     --color-text: #{$color_text};
   }
   &-dark {
     --color-primary: #{$color_primary--dark};
     --color-secondary: #{$color_secondary--dark};
     --color-tertiary: #{$color_tertiary--dark};
+    --color-quaternary: #{$color_quaternary--dark};
     --color-text: #{$color_text--dark};
   }
 }

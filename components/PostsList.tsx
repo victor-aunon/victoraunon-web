@@ -7,7 +7,31 @@ export default function PostsList(): JSX.Element {
     <ul>
       {getAllPostsMetadata().map((post) => (
         <li key={post.slug}>
-          <Link href={`/posts/${post.slug}`}>{post.title}</Link>
+          <Link href={`/posts/${post.slug}`}>
+            <h2>{post.title}</h2>
+          </Link>
+          <p>{post.excerpt}</p>
+          <p>{post.author}</p>
+          <PostDate date={post.date.toString()} />
+          <hr />
+        </li>
+      ))}
+      {getAllPostsMetadata().map((post) => (
+        <li key={post.slug}>
+          <Link href={`/posts/${post.slug}`}>
+            <h2>{post.title}</h2>
+          </Link>
+          <p>{post.excerpt}</p>
+          <p>{post.author}</p>
+          <PostDate date={post.date.toString()} />
+          <hr />
+        </li>
+      ))}
+      {getAllPostsMetadata().map((post) => (
+        <li key={post.slug}>
+          <Link href={`/posts/${post.slug}`}>
+            <h2>{post.title}</h2>
+          </Link>
           <p>{post.excerpt}</p>
           <p>{post.author}</p>
           <PostDate date={post.date.toString()} />

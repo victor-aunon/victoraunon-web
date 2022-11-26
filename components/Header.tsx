@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import styles from 'styles/Header.module.scss'
+import Social from './Social'
 
 export default function Header(): JSX.Element {
   const imageSize = 80
@@ -32,6 +33,7 @@ export default function Header(): JSX.Element {
             </Link>
           </li>
         </ul>
+        <Social parent="navbar" />
       </nav>
     </header>
   )
