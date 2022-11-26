@@ -1,16 +1,14 @@
 // Themes
-$themes: (
-  light: (
-    colorText: #030303,
-    colorBackground: #f3f3f3,
-    colorAccent: #3f51b5,
-  ),
-  dark: (
-    colorText: #ffffff,
-    colorBackground: #1e2124,
-    colorAccent: #d040fb,
-  ),
-);
+//    Light
+$color_primary: #f3f3f3;
+$color_secondary: #3f51b5;
+$color_tertiary: #1e2124;
+$color_text: #030303;
+//    Dark
+$color_primary--dark: #1e2124;
+$color_secondary--dark: #e040fb;
+$color_tertiary--dark: #f3f3f3;
+$color_text--dark: #ffffff;
 
 // Utils
 $border_radius: 10px;

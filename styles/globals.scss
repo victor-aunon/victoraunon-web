@@ -16,13 +16,8 @@ body {
   padding: 0;
   margin: 0;
   font-family: var(--content-font);
-  // background: #f3f3f3;
-  // color: #030303;
-
-  @include themify($themes) {
-    background: themed('colorBackground');
-    color: themed('colorText');
-  }
+  background-color: var(--color-primary);
+  color: var(--color-text);
 }
 
 a {
@@ -37,10 +32,8 @@ h4,
 h5 {
   font-family: var(--titles-font);
   margin-top: 0;
-  @include themify($themes) {
-    color: themed('colorAccent');
-    font-size: 2.5rem;
-  }
+  font-size: 2.5rem;
+  color: var(--color-secondary);
 }
 
 // @media (prefers-color-scheme: dark) {
@@ -65,4 +58,19 @@ li {
   width: 90%;
   max-width: 1500px;
   margin: 0 auto;
+}
+
+.theme {
+  &-light {
+    --color-primary: #{$color_primary};
+    --color-secondary: #{$color_secondary};
+    --color-tertiary: #{$color_tertiary};
+    --color-text: #{$color_text};
+  }
+  &-dark {
+    --color-primary: #{$color_primary--dark};
+    --color-secondary: #{$color_secondary--dark};
+    --color-tertiary: #{$color_tertiary--dark};
+    --color-text: #{$color_text--dark};
+  }
 }
