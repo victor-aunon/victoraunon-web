@@ -1,5 +1,3 @@
-@use 'sass:map';
-
 @mixin mobile {
   @media all and (min-width: 480px) {
     @content;
