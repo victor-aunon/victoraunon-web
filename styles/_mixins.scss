@@ -1,0 +1,45 @@
+@mixin mobile {
+  @media all and (min-width: 480px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media all and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media all and (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin box-sizing($box-model) {
+  box-sizing: $box-model;
+}
+
+@mixin themify($themes) {
+  @each $theme, $map in $themes {
+    // Apply theme-dark/theme/light class to the element which includes themify
+    &.theme-#{$theme} {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), '#{$key}');
+        $theme-map: map-merge(
+          $theme-map,
+          (
+            $key: $value,
+          )
+        ) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}

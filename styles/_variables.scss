@@ -1,0 +1,17 @@
+// Themes
+$themes: (
+  light: (
+    colorText: #030303,
+    colorBackground: #f3f3f3,
+    colorAccent: #3f51b5,
+  ),
+  dark: (
+    colorText: #ffffff,
+    colorBackground: #1e2124,
+    colorAccent: #d040fb,
+  ),
+);
+
+// Utils
+$border_radius: 10px;
+$box_shadow: 1px 3px 6px #ccc;
