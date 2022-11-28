@@ -25,14 +25,10 @@ export default function Header(): JSX.Element {
       <nav className={styles.navbar}>
         <ul>
           <li>
-            <Link href={'/about'} className={styles.navbarLink}>
-              Sobre mí
-            </Link>
+            <Link href={'/about'}>Sobre mí</Link>
           </li>
           <li>
-            <Link href={'/contact'} className={styles.navbarLink}>
-              Contáctame
-            </Link>
+            <Link href={'/contact'}>Contáctame</Link>
           </li>
         </ul>
         <Social parent="navbar" />

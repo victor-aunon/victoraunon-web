@@ -4,6 +4,7 @@ import Providers from './Providers'
 import BodyThemed from './BodyThemed'
 import Header from 'components/Header'
 import Social from 'components/Social'
+import Footer from 'components/Footer'
 
 export default function RootLayout({ children }: LayoutProps): JSX.Element {
   return (
@@ -18,6 +19,7 @@ export default function RootLayout({ children }: LayoutProps): JSX.Element {
             <Social parent="main" />
             {children}
           </main>
+          <Footer />
         </BodyThemed>
       </Providers>
     </html>
