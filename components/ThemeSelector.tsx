@@ -15,7 +15,10 @@ export default function ThemeSelector({
   const { theme, setTheme } = useContext(ThemeContext)
 
   const handleChange = (): void => {
-    setTheme(theme === 'dark' ? 'light' : 'dark')
+    const newTheme = theme === 'dark' ? 'light' : 'dark'
+    setTheme(newTheme)
+    // // Save the theme setting to local storage
+    localStorage.setItem('theme', newTheme)
   }
 
   return (
