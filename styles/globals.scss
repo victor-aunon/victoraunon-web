@@ -10,6 +10,8 @@ body {
 
 html {
   height: 100vh;
+  scroll-behavior: smooth;
+  scroll-padding-top: 50px;
 }
 
 body {
@@ -41,16 +43,6 @@ h5 {
   color: var(--color-secondary);
   width: fit-content;
 }
-
-// @media (prefers-color-scheme: dark) {
-//   html {
-//     color-scheme: dark;
-//   }
-//   body {
-//     color: #ffffff;
-//     background: #1e2124;
-//   }
-// }
 
 ul {
   padding: 0;

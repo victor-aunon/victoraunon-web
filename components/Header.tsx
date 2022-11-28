@@ -17,7 +17,9 @@ export default function Header(): JSX.Element {
           className={`with-theme ${styles.profileImage}`}
         />
         <Link href="/">
-          <h1 className={`${styles.siteName} with-theme`}>Víctor Auñón</h1>
+          <h1 className={`${styles.siteName} with-theme`} id="site-name">
+            Víctor Auñón
+          </h1>
         </Link>
       </div>
       <nav className={styles.navbar}>
