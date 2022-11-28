@@ -1,15 +1,16 @@
 'use client'
 
 import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote'
+import CodeFrame from './CodeFrame'
 
-interface IMDContentProps {
+interface MDContentProps {
   content: MDXRemoteProps
 }
 
-export default function MDContent({ content }: IMDContentProps): JSX.Element {
+export default function MDContent({ content }: MDContentProps): JSX.Element {
   return (
     <>
-      <MDXRemote {...content} />
+      <MDXRemote {...content} components={{ CodeFrame }} />
     </>
   )
 }
