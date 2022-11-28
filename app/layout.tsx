@@ -17,7 +17,7 @@ export default function RootLayout({ children }: LayoutProps): JSX.Element {
           <Header />
           <main className="main">
             <Social parent="main" />
-            {children}
+            <section className="content-section">{children}</section>
           </main>
           <Footer />
         </BodyThemed>

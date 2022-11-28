@@ -37,6 +37,7 @@ pre {
 a {
   color: inherit;
   text-decoration: none;
+  width: fit-content;
 }
 
 h1,
@@ -78,6 +79,10 @@ li {
   @include tablet {
     flex-direction: row;
   }
+}
+
+.content-section {
+  flex: 1 1 100%;
 }
 
 .theme {
