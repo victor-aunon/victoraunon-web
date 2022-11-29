@@ -42,8 +42,11 @@ def blur_image(image):
     name = os.path.basename(image).rsplit(".")[0]
 
     original_image = Image.open(image)
+    ratio = original_image.width / original_image.height
+    height = int(600 / ratio)
     rgb_image = original_image.convert("RGB")
-    blur_image = rgb_image.filter(ImageFilter.GaussianBlur(radius=50))
+    rgb_image.thumbnail(size=(600, height))
+    blur_image = rgb_image.filter(ImageFilter.GaussianBlur(radius=20))
     buffered = BytesIO()
     blur_image.save(
         os.path.join(output_path, f"{name}_blur.{'jpeg'}"),
