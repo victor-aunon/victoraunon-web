@@ -13,7 +13,7 @@ export interface PostMetadata {
   title: string
   author: string
   excerpt: string
-  date: Date
+  date: string
   tags: string[]
   readTime: number
   imageUrl?: string

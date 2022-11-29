@@ -32,7 +32,7 @@ export async function getPostBySlug(slug: string): Promise<Post> {
       author: data.author ?? 'Víctor Auñón',
       excerpt: data.excerpt ?? '',
       tags: (data.tags ?? []).sort(),
-      date: new Date(data.date),
+      date: data.date,
       readTime: parseInt(data.readTime),
       imageUrl: data.imageUrl,
       videoUrl: data.videoUrl,
@@ -50,7 +50,7 @@ export function getPostMetadataBySlug(slug: string): PostMetadata {
     author: data.author ?? 'Víctor Auñón',
     excerpt: data.excerpt ?? '',
     tags: (data.tags ?? []).sort(),
-    date: new Date(data.date),
+    date: data.date,
     readTime: parseInt(data.readTime),
     imageUrl: data.imageUrl,
     videoUrl: data.videoUrl,
@@ -63,5 +63,5 @@ export function getAllPostsMetadata(): PostMetadata[] {
     .map((postName) => getPostMetadataBySlug(postName.replace(/\.mdx/g, '')))
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
 
-  return posts
+  return posts.concat(posts).concat(posts)
 }

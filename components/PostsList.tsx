@@ -1,42 +1,18 @@
-import Link from 'next/link'
 import { getAllPostsMetadata } from 'lib/mdx'
-import PostDate from './PostDate'
+import PostCard from './PostCard'
+
+const postsListStyles: React.CSSProperties = {
+  display: 'grid',
+  gap: '20px',
+  gridTemplateColumns: 'repeat(auto-fill, minmax(330px, 1fr))',
+  gridAutoRows: '15px',
+}
 
 export default function PostsList(): JSX.Element {
   return (
-    <ul>
-      {getAllPostsMetadata().map((post) => (
-        <li key={post.slug}>
-          <Link href={`/posts/${post.slug}`}>
-            <h2>{post.title}</h2>
-          </Link>
-          <p>{post.excerpt}</p>
-          <p>{post.author}</p>
-          <PostDate date={post.date.toString()} />
-          <hr />
-        </li>
-      ))}
-      {getAllPostsMetadata().map((post) => (
-        <li key={post.slug}>
-          <Link href={`/posts/${post.slug}`}>
-            <h2>{post.title}</h2>
-          </Link>
-          <p>{post.excerpt}</p>
-          <p>{post.author}</p>
-          <PostDate date={post.date.toString()} />
-          <hr />
-        </li>
-      ))}
-      {getAllPostsMetadata().map((post) => (
-        <li key={post.slug}>
-          <Link href={`/posts/${post.slug}`}>
-            <h2>{post.title}</h2>
-          </Link>
-          <p>{post.excerpt}</p>
-          <p>{post.author}</p>
-          <PostDate date={post.date.toString()} />
-          <hr />
-        </li>
+    <ul style={postsListStyles} data-grid>
+      {getAllPostsMetadata().map((post, index) => (
+        <PostCard {...post} key={index} />
       ))}
     </ul>
   )

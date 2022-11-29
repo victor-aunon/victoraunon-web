@@ -47,9 +47,17 @@ h4,
 h5 {
   font-family: var(--titles-font);
   margin-top: 0;
-  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
   color: var(--color-secondary);
   width: fit-content;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+h2 {
+  font-size: 2em;
 }
 
 ul {
@@ -92,6 +100,8 @@ li {
     --color-tertiary: #{$color_tertiary};
     --color-quaternary: #{$color_quaternary};
     --color-text: #{$color_text};
+    --color-text-secondary: #{$color_text_secondary};
+    --color-post-card-info: #{$color_post_card_info};
   }
   &-dark {
     --color-primary: #{$color_primary--dark};
@@ -99,5 +109,7 @@ li {
     --color-tertiary: #{$color_tertiary--dark};
     --color-quaternary: #{$color_quaternary--dark};
     --color-text: #{$color_text--dark};
+    --color-text-secondary: #{$color_text_secondary--dark};
+    --color-post-card-info: #{$color_post_card_info--dark};
   }
 }

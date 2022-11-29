@@ -1,0 +1,40 @@
+@import 'styles/variables';
+
+.postCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+  // height: 100%;
+  box-shadow: 3px 3px 6px var(--color-secondary);
+
+  .postCardInfo {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    margin-top: 250px;
+    z-index: 1;
+    background-color: var(--color-post-card-info);
+  }
+
+  .postCardInfoNoImage {
+    @extend .postCardInfo;
+    margin-top: 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .postDate {
+    color: var(--color-text-secondary);
+    font-weight: 600;
+  }
+
+  .postCardText {
+    margin-top: 0.5rem;
+  }
+}
