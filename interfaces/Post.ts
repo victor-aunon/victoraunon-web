@@ -17,5 +17,6 @@ export interface PostMetadata {
   tags: string[]
   readTime: number
   imageUrl?: string
+  imageBlurUrl?: string
   videoUrl?: string
 }

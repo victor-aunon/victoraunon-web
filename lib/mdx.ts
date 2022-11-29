@@ -35,6 +35,7 @@ export async function getPostBySlug(slug: string): Promise<Post> {
       date: data.date,
       readTime: parseInt(data.readTime),
       imageUrl: data.imageUrl,
+      imageBlurUrl: data.imageBlurUrl,
       videoUrl: data.videoUrl,
     },
   }
@@ -53,6 +54,7 @@ export function getPostMetadataBySlug(slug: string): PostMetadata {
     date: data.date,
     readTime: parseInt(data.readTime),
     imageUrl: data.imageUrl,
+    imageBlurUrl: data.imageBlurUrl,
     videoUrl: data.videoUrl,
   }
 }

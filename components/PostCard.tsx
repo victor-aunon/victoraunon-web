@@ -54,9 +54,10 @@ export default function PostCard(postInfo: PostMetadata): JSX.Element {
               objectFit: 'cover',
               zIndex: '0',
             }}
-            placeholder="blur"
-            loading="lazy"
-            blurDataURL={postInfo.imageUrl}
+            placeholder={
+              postInfo.imageBlurUrl === undefined ? undefined : 'blur'
+            }
+            blurDataURL={postInfo.imageBlurUrl}
           ></Image>
         )}
         <div
