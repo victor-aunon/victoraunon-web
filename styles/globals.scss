@@ -73,8 +73,13 @@ li {
 }
 
 p {
-  font-size: 1.1em;
-  line-height: 1.5em;
+  font-size: 1.5em;
+  line-height: 1.8em;
+
+  @include tablet {
+    font-size: 1.1em;
+    line-height: 1.5em;
+  }
 }
 
 .container {

@@ -5,7 +5,7 @@ import styles from 'styles/Header.module.scss'
 import Social from './Social'
 
 export default function Header(): JSX.Element {
-  const imageSize = 80
+  const imageSize = 100
   return (
     <header className={styles.header}>
       <div className={styles.siteIdentity}>
