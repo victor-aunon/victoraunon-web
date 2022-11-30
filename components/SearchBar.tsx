@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useContext } from 'react'
+import { useRouter } from 'next/navigation'
 import { PostsContext } from 'contexts/PostsContext'
 import styles from 'styles/SearchBar.module.scss'
 import { IoIosCloseCircleOutline } from 'react-icons/io'
@@ -14,6 +15,7 @@ export default function SearchBar({ parent }: SearchBarProps): JSX.Element {
   // devices. Otherwise, if the parent is sideBar, it will be visible inside
   // the sideBar in tablets and bigger devices
 
+  const router = useRouter()
   const [search, setSearch] = useState('')
   const { setQuery } = useContext(PostsContext)
 
@@ -28,19 +30,26 @@ export default function SearchBar({ parent }: SearchBarProps): JSX.Element {
     setQuery('')
   }
 
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>): void {
+    event.preventDefault()
+    router.push('/')
+  }
+
   return (
     <div
       className={
         parent === 'main' ? styles.searchBarOnMain : styles.searchBarOnSideBar
       }
     >
-      <input
-        type={'search'}
-        placeholder="Buscar posts"
-        className={styles.searchBarInput}
-        value={search}
-        onChange={handleChange}
-      />
+      <form onSubmit={handleSubmit}>
+        <input
+          type={'search'}
+          placeholder="Buscar posts"
+          className={styles.searchBarInput}
+          value={search}
+          onChange={handleChange}
+        />
+      </form>
       <button className={styles.searchBarDeleteButton} onClick={clearSearch}>
         <IoIosCloseCircleOutline />
       </button>
