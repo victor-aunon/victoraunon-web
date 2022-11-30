@@ -1,0 +1,33 @@
+@import 'styles/variables';
+
+.cloudTag {
+  padding: 1rem;
+  margin: 2rem 0rem;
+  border-radius: 10px;
+  border: 2px solid var(--color-secondary);
+
+  h2 {
+    text-align: center;
+    margin: 0 auto 1rem auto;
+  }
+
+  .tag {
+    margin-right: 1.5rem;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+    color: var(--color-secondary);
+
+    &[data-font-size='small'] {
+      font-size: 1em;
+    }
+    &[data-font-size='normal'] {
+      font-size: 1.3em;
+    }
+    &[data-font-size='big'] {
+      font-size: 1.6em;
+    }
+    &[data-font-size='large'] {
+      font-size: 2em;
+    }
+  }
+}
