@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useContext } from 'react'
-import { useRouter } from 'next/navigation'
+import { useRouter, usePathname } from 'next/navigation'
 import { PostsContext } from 'contexts/PostsContext'
 import styles from 'styles/SearchBar.module.scss'
 import { IoIosCloseCircleOutline } from 'react-icons/io'
@@ -16,6 +16,7 @@ export default function SearchBar({ parent }: SearchBarProps): JSX.Element {
   // the sideBar in tablets and bigger devices
 
   const router = useRouter()
+  const path = usePathname()
   const [search, setSearch] = useState('')
   const { setQuery } = useContext(PostsContext)
 
@@ -32,7 +33,7 @@ export default function SearchBar({ parent }: SearchBarProps): JSX.Element {
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>): void {
     event.preventDefault()
-    router.push('/')
+    if (path !== '/posts') router.push('/')
   }
 
   return (
