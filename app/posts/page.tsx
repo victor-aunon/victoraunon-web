@@ -1,3 +1,7 @@
+import { getAllPostsMetadata } from 'lib/mdx'
+
+import PostsList from 'components/PostsList'
+
 export default function Posts(): JSX.Element {
-  return <p>Esta es la página de posts</p>
+  return <PostsList allPosts={getAllPostsMetadata()} />
 }

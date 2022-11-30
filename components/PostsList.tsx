@@ -1,24 +1,12 @@
 'use client'
+
 import { useContext, useEffect, useState } from 'react'
+import { useSearchParams, usePathname } from 'next/navigation'
+import styles from 'styles/PostsList.module.scss'
 import { PostsContext } from 'contexts/PostsContext'
 import { PostMetadata } from 'interfaces/Post'
 import PostCard from './PostCard'
-
-const postsListStyles: React.CSSProperties = {
-  display: 'grid',
-  gap: '20px',
-  gridTemplateColumns: 'repeat(auto-fill, minmax(330px, 1fr))',
-  gridAutoRows: '15px',
-}
-
-const noResultsStyles: React.CSSProperties = {
-  width: '100%',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  height: '400px',
-  fontSize: '1.5rem',
-}
+import PostCardSimple from './PostCardSimple'
 
 interface PostsListProps {
   allPosts: PostMetadata[]
@@ -28,6 +16,9 @@ export default function PostsList({ allPosts }: PostsListProps): JSX.Element {
   const { posts, setPosts, query } = useContext(PostsContext)
   const [filteredPosts, setFilteredPosts] = useState(allPosts)
   setPosts(allPosts)
+  const urlParams = useSearchParams()
+  const path = usePathname()
+  const tag = urlParams.get('tag')
 
   useEffect(() => {
     if (query !== '') {
@@ -48,13 +39,37 @@ export default function PostsList({ allPosts }: PostsListProps): JSX.Element {
   return (
     <>
       {filteredPosts.length > 0 ? (
-        <ul style={postsListStyles} data-grid>
-          {filteredPosts.map((post, index) => (
-            <PostCard {...post} key={index} />
-          ))}
-        </ul>
+        <>
+          {path === '/posts' && (
+            <h3 className={styles.postsListsQueryTitle}>
+              {`Posts ${tag !== null ? 'con el tag ' : ''}`}
+              {tag !== null ? <span>{tag}</span> : ''}
+              {`${query !== '' ? ' y que incluyen ' : ''}`}
+              {query !== '' ? <span>{query}</span> : ''}
+            </h3>
+          )}
+          <ul
+            className={
+              path === '/posts' ? styles.postsListWithTag : styles.postsList
+            }
+            data-grid
+          >
+            {path === '/posts'
+              ? filteredPosts
+                  .filter((post) => {
+                    if (tag === null) return post
+                    else return post.tags.includes(tag)
+                  })
+                  .map((post, index) => (
+                    <PostCardSimple {...post} key={index} />
+                  ))
+              : filteredPosts.map((post, index) => (
+                  <PostCard {...post} key={index} />
+                ))}
+          </ul>
+        </>
       ) : (
-        <div style={noResultsStyles}>
+        <div className={styles.noResults}>
           No hay posts que coincidan con tu búsqueda 🫂
         </div>
       )}
