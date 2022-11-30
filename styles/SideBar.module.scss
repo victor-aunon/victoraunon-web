@@ -1,0 +1,16 @@
+@import 'styles/variables';
+@import 'styles/mixins';
+
+.sideBar {
+  display: none;
+  position: sticky;
+  top: 5vh;
+  height: max-content;
+  padding: 0.5rem;
+
+  @include desktop {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 300px;
+  }
+}

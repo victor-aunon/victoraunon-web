@@ -2,10 +2,15 @@
 
 import { useEffect, useState } from 'react'
 import { ThemeContext } from 'contexts/ThemeContext'
+import { PostsContext } from 'contexts/PostsContext'
 import { LayoutProps } from 'interfaces/Layout'
+import { PostMetadata } from 'interfaces/Post'
+// import usePosts from 'hooks/usePosts'
 
 export default function Providers({ children }: LayoutProps): JSX.Element {
   const [theme, setTheme] = useState('dark')
+  const [posts, setPosts] = useState<PostMetadata[]>([])
+  const [query, setQuery] = useState('')
 
   function getDefaultTheme(): string {
     let isBrowserDark = true
@@ -20,11 +25,15 @@ export default function Providers({ children }: LayoutProps): JSX.Element {
     return localStorageTheme ?? browserDefaultTheme
   }
 
-  useEffect(() => setTheme(getDefaultTheme()), [])
+  useEffect(() => {
+    setTheme(getDefaultTheme())
+  }, [])
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
-      {children}
+      <PostsContext.Provider value={{ posts, setPosts, query, setQuery }}>
+        {children}
+      </PostsContext.Provider>
     </ThemeContext.Provider>
   )
 }

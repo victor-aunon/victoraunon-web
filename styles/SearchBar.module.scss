@@ -1,0 +1,56 @@
+@import 'styles/variables';
+@import 'styles/mixins';
+
+.searchBarContainer {
+  position: relative;
+
+  .searchBarInput {
+    border: 2px solid var(--color-secondary);
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    font-family: var(--content-font);
+    font-size: 1em;
+    padding: 0.5rem 2rem 0.5rem 0.5rem;
+    color: var(--color-text);
+    background-color: var(--color-input-background);
+  }
+
+  .searchBarDeleteButton {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text);
+
+    &:active {
+      & * {
+        transform: scale(0.9);
+      }
+    }
+  }
+}
+
+.searchBarOnMain {
+  @extend .searchBarContainer;
+  display: block;
+
+  @include desktop {
+    display: none;
+  }
+}
+
+.searchBarOnSideBar {
+  @extend .searchBarContainer;
+  display: none;
+
+  @include desktop {
+    display: block;
+  }
+}
