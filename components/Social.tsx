@@ -12,8 +12,20 @@ export default function Social({ parent }: SocialProps): JSX.Element {
     return (
       <aside className={styles.socialOnMain}>
         <ThemeSelector parent={parent} />
-        <FaLinkedin />
-        <FaInstagram />
+        <a
+          href="https://www.linkedin.com/in/angelaunon"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <FaLinkedin />
+        </a>
+        <a
+          href="https://www.instagram.com/victor.aunon/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <FaInstagram />
+        </a>
         <a
           href="#site-name"
           className={styles.goUpButton}

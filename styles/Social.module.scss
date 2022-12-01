@@ -8,6 +8,11 @@
   padding: 1rem;
   font-size: 3em;
   gap: 2.5rem;
+
+  a {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .socialOnNav {
