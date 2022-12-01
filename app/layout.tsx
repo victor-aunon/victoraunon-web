@@ -1,5 +1,6 @@
 import 'styles/globals.scss'
 import nextConfig from 'next.config'
+import { getAllPostsMetadata } from 'lib/mdx'
 import { LayoutProps } from 'interfaces/Layout'
 import { SiteConfig } from 'interfaces/SiteConfig'
 import Providers from './Providers'
@@ -35,7 +36,7 @@ export default function RootLayout({ children }: LayoutProps): JSX.Element {
           <main className="main">
             <Social parent="main" />
             <section className="content-section">{children}</section>
-            <SideBar />
+            <SideBar allPosts={getAllPostsMetadata()} />
           </main>
           <Footer />
         </BodyThemed>

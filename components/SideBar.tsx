@@ -1,8 +1,20 @@
+'use client'
+
 import styles from 'styles/SideBar.module.scss'
+import { useContext } from 'react'
+import { PostsContext } from 'contexts/PostsContext'
+import { PostMetadata } from 'interfaces/Post'
 import SearchBar from './SearchBar'
 import CloudTag from './CloudTag'
 
-export default function SideBar(): JSX.Element {
+interface SideBarProps {
+  allPosts: PostMetadata[]
+}
+
+export default function SideBar({ allPosts }: SideBarProps): JSX.Element {
+  const { setPosts } = useContext(PostsContext)
+  setPosts(allPosts)
+
   return (
     <aside className={styles.sideBar}>
       <SearchBar parent={'sideBar'} />
