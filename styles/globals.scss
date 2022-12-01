@@ -136,6 +136,7 @@ p {
 
   li {
     list-style: square;
+    margin-left: 1.5rem;
 
     :where(ol, ul) li {
       list-style: disc;
@@ -147,6 +148,12 @@ p {
     &::marker {
       color: var(--color-secondary);
       font-size: 2em;
+    }
+
+    & > a {
+      font-size: 1.1em;
+      color: var(--color-secondary);
+      margin-bottom: 0.4rem;
     }
   }
 }
