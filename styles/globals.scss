@@ -125,3 +125,28 @@ p {
     --color-input-background: #{$color_input_background--dark};
   }
 }
+
+// Legal pages
+.legal-content {
+  margin-top: 2rem;
+
+  ol {
+    padding: 0 1rem;
+  }
+
+  li {
+    list-style: square;
+
+    :where(ol, ul) li {
+      list-style: disc;
+      &::marker {
+        font-size: 1.5em;
+      }
+    }
+
+    &::marker {
+      color: var(--color-secondary);
+      font-size: 2em;
+    }
+  }
+}
