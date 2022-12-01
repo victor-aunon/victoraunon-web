@@ -1,7 +1,7 @@
 import nextConfig from 'next.config'
 import { SiteConfig } from 'interfaces/SiteConfig'
 
-export default function Posts(): JSX.Element {
+export default function Legal(): JSX.Element {
   const { holder, address, email, name, cif, website } =
     nextConfig.siteConfig as SiteConfig
   return (

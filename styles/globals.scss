@@ -113,6 +113,7 @@ p {
     --color-text-secondary: #{$color_text_secondary};
     --color-post-card-info: #{$color_post_card_info};
     --color-input-background: #{$color_input_background};
+    --color-alternative-row: #{$color_alternative_row};
   }
   &-dark {
     --color-primary: #{$color_primary--dark};
@@ -123,6 +124,7 @@ p {
     --color-text-secondary: #{$color_text_secondary--dark};
     --color-post-card-info: #{$color_post_card_info--dark};
     --color-input-background: #{$color_input_background--dark};
+    --color-alternative-row: #{$color_alternative_row--dark};
   }
 }
 
@@ -154,6 +156,25 @@ p {
       font-size: 1.1em;
       color: var(--color-secondary);
       margin-bottom: 0.4rem;
+    }
+  }
+
+  .cookies-table {
+    width: 100%;
+
+    tr:nth-of-type(even) {
+      background-color: var(--color-alternative-row);
+    }
+
+    th {
+      font-size: 1.2rem;
+      color: var(--color-secondary);
+    }
+
+    td,
+    th {
+      text-align: center;
+      padding: 0.5rem 0.5rem;
     }
   }
 }
