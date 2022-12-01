@@ -1,4 +1,4 @@
-import { getPostBySlug } from 'lib/mdx'
+import { getPostBySlug, getAllPostsSlug, GetAllPostsSlug } from 'lib/mdx'
 import { Post } from 'interfaces/Post'
 import MDContent from 'components/MDContent'
 import { ParsedUrlQuery } from 'querystring'
@@ -30,6 +30,6 @@ export default async function PostPage({
   )
 }
 
-export function generateStaticParams(): Params[] {
-  return [{ slug: 'primer-post' }]
+export function generateStaticParams(): GetAllPostsSlug[] {
+  return getAllPostsSlug()
 }

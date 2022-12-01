@@ -10,6 +10,10 @@ import { Post, PostMetadata } from 'interfaces/Post'
 
 const postsDir = path.join(process.cwd(), 'mdposts')
 
+export interface GetAllPostsSlug {
+  slug: PostMetadata['slug']
+}
+
 export async function getPostBySlug(slug: string): Promise<Post> {
   const fullPath = path.join(postsDir, `${slug}.mdx`)
   const fileContent = fs.readFileSync(fullPath, 'utf-8')
@@ -66,4 +70,13 @@ export function getAllPostsMetadata(): PostMetadata[] {
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
 
   return posts.concat(posts).concat(posts)
+}
+
+export function getAllPostsSlug(): GetAllPostsSlug[] {
+  const postFiles = fs.readdirSync(postsDir)
+  return postFiles.map((post) => {
+    return {
+      slug: post.replace('.mdx', ''),
+    }
+  })
 }
