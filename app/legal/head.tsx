@@ -7,14 +7,14 @@ export default function Head(): JSX.Element {
   return (
     <>
       <CommonHead />
-      <title>{`${name} - Política de Privacidad`}</title>
-      <link rel="canonical" href={`https://${website}/privacy`} />
+      <title>{`${name} - Aviso legal`}</title>
+      <link rel="canonical" href={`https://${website}/legal`} />
       <meta name="description" content="" />
       <meta name="robots" content="noindex, nofollow, noarchive" />
       {/* OPEN GRAPH */}
       <meta property="og:type" content="website" />
-      <meta property="og:url" content={`https://${website}/privacy`} />
-      <meta property="og:title" content={`${name} - Política de Privacidad`} />
+      <meta property="og:url" content={`https://${website}/legal`} />
+      <meta property="og:title" content={`${name} - Aviso legal`} />
       <meta property="og:image" content={siteImage} />
       <meta property="og:locale" content="es_ES" />
     </>
