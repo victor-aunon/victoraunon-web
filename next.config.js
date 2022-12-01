@@ -22,6 +22,15 @@ const nextConfig = {
       },
     ],
   },
+  siteConfig: {
+    name: 'Víctor Auñón',
+    website: 'victoraunon.com',
+    cif: '53607525-E',
+    address: 'C/ San Valeriano 27B, bajo A, CP 46900 Torrent, València',
+    holder: 'Angel Auñón García',
+    email: 'hola@victoraunon.com',
+    siteImage: 'https://github.com/victor-aunon.png?size=200',
+  },
 }
 
 module.exports = nextConfig
