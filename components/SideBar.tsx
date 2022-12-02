@@ -1,7 +1,7 @@
 'use client'
 
 import styles from 'styles/SideBar.module.scss'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { PostsContext } from 'contexts/PostsContext'
 import { PostMetadata } from 'interfaces/Post'
 import SearchBar from './SearchBar'
@@ -13,7 +13,10 @@ interface SideBarProps {
 
 export default function SideBar({ allPosts }: SideBarProps): JSX.Element {
   const { setPosts } = useContext(PostsContext)
-  setPosts(allPosts)
+
+  useEffect(() => {
+    setPosts(allPosts)
+  }, [])
 
   return (
     <aside className={styles.sideBar}>

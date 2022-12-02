@@ -15,12 +15,12 @@ interface PostsListProps {
 export default function PostsList({ allPosts }: PostsListProps): JSX.Element {
   const { posts, setPosts, query } = useContext(PostsContext)
   const [filteredPosts, setFilteredPosts] = useState(allPosts)
-  setPosts(allPosts)
   const urlParams = useSearchParams()
   const path = usePathname()
   const tag = urlParams.get('tag')
 
   useEffect(() => {
+    setPosts(allPosts)
     if (query !== '') {
       setFilteredPosts(
         posts.filter(
