@@ -1,6 +1,6 @@
 import nextConfig from 'next.config'
 import { SiteConfig } from 'interfaces/SiteConfig'
-import CookiesTable from './CookiesTable'
+import CookiesTable from '../../components/CookiesTable'
 
 export default function Cookies(): JSX.Element {
   const { name } = nextConfig.siteConfig as SiteConfig
