@@ -162,7 +162,7 @@ p {
   .cookies-table {
     width: 100%;
 
-    tr:nth-of-type(even) {
+    tbody tr:nth-of-type(even) {
       background-color: var(--color-alternative-row);
     }
 
