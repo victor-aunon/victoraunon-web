@@ -20,11 +20,11 @@ export default function RootLayout({ children }: LayoutProps): JSX.Element {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: ` {
-          '@context': 'https://schema.org',
-          '@type': 'Organization',
-          "url": 'https://${website}',
-          "logo": '${siteImage}',
+            __html: `{
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "url": "https://${website}",
+          "logo": "${siteImage}"
         }`,
           }}
         ></script>
