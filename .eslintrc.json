@@ -16,6 +16,7 @@
     "sourceType": "module",
     "project": ["./tsconfig.json"]
   },
+  "ignorePatterns": ["cypress/support/*"],
   "plugins": ["react", "prettier"],
   "rules": {
     "prettier/prettier": [
@@ -28,6 +29,7 @@
     "react/prop-types": "off",
     "@typescript-eslint/consistent-type-definitions": "warn",
     "@typescript-eslint/triple-slash-reference": "off",
-    "no-case-declarations": "off"
+    "no-case-declarations": "off",
+    "no-useless-return": "off"
   }
 }
