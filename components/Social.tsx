@@ -1,5 +1,10 @@
 import styles from 'styles/Social.module.scss'
-import { FaLinkedin, FaInstagram, FaArrowCircleUp } from 'react-icons/fa'
+import {
+  FaLinkedin,
+  FaInstagram,
+  FaArrowCircleUp,
+  FaGithub,
+} from 'react-icons/fa'
 
 import ThemeSelector from 'components/ThemeSelector'
 
@@ -12,6 +17,13 @@ export default function Social({ parent }: SocialProps): JSX.Element {
     return (
       <aside className={styles.socialOnMain}>
         <ThemeSelector parent={parent} />
+        <a
+          href="https://github.com/victor-aunon"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <FaGithub />
+        </a>
         <a
           href="https://www.linkedin.com/in/angelaunon"
           target="_blank"
@@ -38,8 +50,27 @@ export default function Social({ parent }: SocialProps): JSX.Element {
   return (
     <div className={styles.socialOnNav}>
       <ThemeSelector parent={parent} />
-      <FaLinkedin />
-      <FaInstagram />
+      <a
+        href="https://github.com/victor-aunon"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <FaGithub />
+      </a>
+      <a
+        href="https://www.linkedin.com/in/angelaunon"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <FaLinkedin />
+      </a>
+      <a
+        href="https://www.instagram.com/victor.aunon/"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <FaInstagram />
+      </a>
     </div>
   )
 }
