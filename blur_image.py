@@ -8,13 +8,11 @@ import os
 from PIL import Image, ImageFilter
 
 path = os.path.dirname(os.path.abspath((__file__)))
-output_path = os.path.join(path, "public", "images")
-
 
 try:
-    os.mkdir(output_path)
-except OSError as e:
-    print(e)
+    os.mkdir(os.path.join(path, "public", "images"))
+except OSError:
+    print(os.path.join(path, "public", "images"), "already exists")
 
 
 def parse_args():
@@ -33,20 +31,32 @@ def parse_args():
         help=("The image you want to blur"),
     )
 
+    parser.add_argument(
+        "--radius",
+        required=False,
+        default=20,
+        type=int,
+        help=(
+            "The gaussian blur radius to use for blurring the image, "
+            "default is 20"
+        ),
+    )
+
     return parser.parse_args()
 
 
-def blur_image(image):
+def blur_image(image, radius):
     print("Processing", image, "...")
 
     name = os.path.basename(image).rsplit(".")[0]
+    output_path = os.path.join(path, os.path.dirname(image))
 
     original_image = Image.open(image)
     ratio = original_image.width / original_image.height
     height = int(600 / ratio)
     rgb_image = original_image.convert("RGB")
     rgb_image.thumbnail(size=(600, height))
-    blur_image = rgb_image.filter(ImageFilter.GaussianBlur(radius=20))
+    blur_image = rgb_image.filter(ImageFilter.GaussianBlur(radius=radius))
     buffered = BytesIO()
     blur_image.save(
         os.path.join(output_path, f"{name}_blur.{'jpeg'}"),
@@ -63,7 +73,7 @@ def blur_image(image):
 def main():
     args = parse_args()
 
-    blur_image(args.image)
+    blur_image(args.image, args.radius)
 
 
 if __name__ == "__main__":
