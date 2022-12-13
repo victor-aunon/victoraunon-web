@@ -22,20 +22,19 @@ export default function Layout({
   const { title, imageUrl, author, date } = getPostMetadataBySlug(params.slug)
   return (
     <>
-      <head>
-        {/* <!-- Article rich snippet --> */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: `{
+      {/* <!-- Article rich snippet --> */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: `{
           "@context": "https://schema.org",
           "@type": "Article",
           "headline": "${title}",
           ${
             imageUrl !== undefined
-              ? `"image" : ["https://${website}${imageUrl}"]`
+              ? `"image" : ["https://${website}${imageUrl}"],`
               : ''
-          },
+          }
           "datePublished": "${new Date(date).toISOString()}",
           "author": [{
             "@type": "Person",
@@ -43,9 +42,8 @@ export default function Layout({
             "url" : "https://${website}/about"
           }]
         }`,
-          }}
-        ></script>
-      </head>
+        }}
+      ></script>
       <section>
         <ReadProgressBar />
         {children}
