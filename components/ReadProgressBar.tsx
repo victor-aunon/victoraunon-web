@@ -22,7 +22,7 @@ export default function ReadProgressBar(): JSX.Element {
 
   useEffect(() => {
     // Do not show progress bar if post height is lower than window height
-    setTimeout(() => {
+    const timeOut = setTimeout(() => {
       if (typeof window !== 'undefined') {
         const width = window.innerWidth
         const height = window.innerHeight
@@ -33,7 +33,10 @@ export default function ReadProgressBar(): JSX.Element {
         setPostHeight(post?.getBoundingClientRect().height ?? 0)
       }
     }, 10)
-    return () => window.removeEventListener('resize', handleWindowResize)
+    return () => {
+      window.removeEventListener('resize', handleWindowResize)
+      clearTimeout(timeOut)
+    }
   }, [windowDim])
 
   return (

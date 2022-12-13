@@ -33,14 +33,17 @@ export default function PostCard(postInfo: PostMetadata): JSX.Element {
   }
 
   useEffect(() => {
-    setTimeout(() => {
+    const timeOut = setTimeout(() => {
       if (typeof window !== 'undefined') {
         window.addEventListener('resize', resizeElement)
         resizeElement()
         setWindowWidth(window.innerWidth)
       }
     }, 50)
-    return () => window.removeEventListener('resize', resizeElement)
+    return () => {
+      window.removeEventListener('resize', resizeElement)
+      clearTimeout(timeOut)
+    }
   }, [windowWidth, query])
 
   return (
