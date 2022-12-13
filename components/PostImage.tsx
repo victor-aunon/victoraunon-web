@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Lightbox from './Lightbox'
 
 interface PostImageProps {
   imageURL: string
@@ -23,14 +23,7 @@ export default function PostImage({
 }: PostImageProps): JSX.Element {
   return (
     <div style={postImageDivStyles}>
-      <Image
-        src={imageURL}
-        alt={imageAlt}
-        fill={true}
-        placeholder="blur"
-        blurDataURL={blurImageURL}
-        style={{ objectFit: 'contain' }}
-      ></Image>
+      <Lightbox image={imageURL} alt={imageAlt} imageBlur={blurImageURL} />
     </div>
   )
 }
