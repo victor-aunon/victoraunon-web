@@ -1,6 +1,7 @@
 import { getPostBySlug, getAllPostsSlug, GetAllPostsSlug } from 'lib/mdx'
 import { Post } from 'interfaces/Post'
 import MDContent from 'components/MDContent'
+import CommentsBox from 'components/CommentsBox'
 import { ParsedUrlQuery } from 'querystring'
 
 async function getPost(slug: string): Promise<Post> {
@@ -26,6 +27,11 @@ export default async function PostPage({
     <article>
       <p>{metadata.title}</p>
       <MDContent content={content} />
+      <CommentsBox
+        slug={slug}
+        title={metadata.title}
+        shortname={process.env.REACT_APP_DISQUS_SHORTNAME as string}
+      />
     </article>
   )
 }
