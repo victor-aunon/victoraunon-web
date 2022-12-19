@@ -1,9 +1,14 @@
+'use client'
+
 import nextConfig from 'next.config'
 import { SiteConfig } from 'interfaces/SiteConfig'
+import useCookieConsent from 'hooks/useCookieConsent'
 import CookiesTable from '../../components/CookiesTable'
 
 export default function Cookies(): JSX.Element {
   const { name } = nextConfig.siteConfig as SiteConfig
+  const { denyConsent } = useCookieConsent()
+
   return (
     <section className="legal-content">
       <h1 className="legal-title">Política de cookies</h1>
@@ -198,8 +203,9 @@ export default function Cookies(): JSX.Element {
         Puede gestionar sus preferencias de cookies en esta web pulsando el
         siguiente botón
       </p>
-      {/* button#revoke-consent.cookie-consent-btn(data-cc="c-settings") Gestionar
-      cookies */}
+      <button className="revoke-cookies-button" onClick={() => denyConsent()}>
+        Revocar consentimiento
+      </button>
     </section>
   )
 }

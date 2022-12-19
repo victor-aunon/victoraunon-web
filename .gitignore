@@ -21,6 +21,7 @@
 *.pem
 .vscode
 .eslintcache
+analytics*
 
 # debug
 npm-debug.log*

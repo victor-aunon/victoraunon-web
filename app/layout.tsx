@@ -10,6 +10,7 @@ import Social from 'components/Social'
 import Footer from 'components/Footer'
 import SideBar from 'components/SideBar'
 import SearchBar from 'components/SearchBar'
+import CookieBanner from 'components/CookieBanner'
 
 export default function RootLayout({ children }: LayoutProps): JSX.Element {
   const { siteImage, website } = nextConfig.siteConfig as SiteConfig
@@ -39,6 +40,7 @@ export default function RootLayout({ children }: LayoutProps): JSX.Element {
             <SideBar allPosts={getAllPostsMetadata()} />
           </main>
           <Footer />
+          <CookieBanner />
         </BodyThemed>
       </Providers>
     </html>

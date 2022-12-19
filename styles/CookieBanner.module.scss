@@ -1,0 +1,263 @@
+@import 'styles/mixins';
+
+.cookieBanner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: fixed;
+  bottom: 5px;
+  left: 50%;
+  width: 95%;
+  max-width: 1200px;
+  transform: translateX(-50%);
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  padding: 1rem;
+  border-radius: 20px;
+  border: 1px solid var(--color-secondary);
+  align-items: center;
+  z-index: 10;
+  opacity: 0;
+  animation: appear 0.5s linear 0.8s forwards;
+
+  @keyframes appear {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  a {
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  .cookieOptions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 80%;
+    max-width: 400px;
+  }
+
+  @include tablet {
+    flex-direction: row;
+  }
+}
+
+.cookieButton {
+  background: none;
+  padding: 0.4rem;
+  font-family: var(--titles-font);
+  font-weight: 600;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  transition: all 0.1s ease-in-out;
+
+  &:hover {
+    filter: drop-shadow(0px 0px 6px var(--color-quaternary));
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+.cookieButtonPrimary {
+  @extend .cookieButton;
+  background-color: var(--color-secondary);
+  color: var(--color-primary);
+  border-color: var(--color-secondary);
+}
+
+.cookieButtonSecondary {
+  @extend .cookieButton;
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+  border-color: var(--color-secondary);
+}
+
+.cookiesPreferencesFullWindow {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000cc;
+  z-index: 20;
+
+  .cookiesPreferencesPanel {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    min-height: 600px;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-primary);
+    border-radius: 20px;
+    border: 1px solid var(--color-secondary);
+
+    .cookiesPreferencesTitle {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 1rem 1rem 0.5rem 1rem;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--color-secondary);
+
+      .closeButton {
+        background: none;
+        border: none;
+        color: var(--color-secondary);
+        font-size: 1.8em;
+
+        &:hover {
+          filter: drop-shadow(0px 0px 10px var(--color-quaternary));
+        }
+
+        &:active {
+          filter: drop-shadow(0px 0px 10px var(--color-quaternary));
+          transform: scale(0.9);
+        }
+      }
+    }
+
+    .cookiesPreferencesOptions {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0.7rem;
+      border-top: 1px solid var(--color-secondary);
+      gap: 1rem;
+
+      & .cookieButtonSecondary:nth-last-of-type(1) {
+        margin-left: auto;
+      }
+    }
+
+    .cookiesPreferencesSelectorContainer {
+      padding: 1rem;
+      margin-bottom: auto;
+      // Make it scrollable
+      overflow-y: auto;
+
+      a {
+        font-weight: 600;
+        text-decoration: underline;
+      }
+
+      .cookiesSectionAccordionElement {
+        background-color: var(--color-alternative-row);
+        margin-bottom: 0.5rem;
+        border-radius: 10px;
+        overflow: hidden;
+
+        .accordionTitle {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          overflow: hidden;
+
+          .accordionTabLabel {
+            width: 100%;
+            display: flex;
+            padding: 1rem;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+
+            h3 {
+              margin: 0 auto 0 1em;
+            }
+
+            &::before {
+              content: '\276F';
+              text-align: center;
+              color: var(--color-secondary);
+              font-weight: bold;
+              font-size: 1.5em;
+              transition: all 0.35s;
+            }
+          }
+
+          .accordionTab {
+            position: absolute;
+            opacity: 0;
+            z-index: -1;
+
+            &:checked {
+              & + .accordionTabLabel::before {
+                transform: rotate(90deg);
+              }
+              & ~ .accordionTabContent {
+                max-height: max-content;
+              }
+            }
+          }
+
+          .accordionTabContent {
+            max-height: 0;
+            padding: 0 1rem;
+            transition: all 0.35s ease-in-out;
+          }
+        }
+      }
+    }
+  }
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+
+    &::before {
+      position: absolute;
+      content: '';
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      border-radius: 50%;
+      transition: 0.4s;
+    }
+  }
+
+  input:checked + .slider {
+    background-color: var(--color-secondary);
+  }
+
+  input:focus + .slider {
+    box-shadow: 0 0 1px var(--color-secondary);
+  }
+
+  input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+}
