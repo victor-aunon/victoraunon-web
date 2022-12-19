@@ -158,23 +158,23 @@ p {
       margin-bottom: 0.4rem;
     }
   }
+}
 
-  .cookies-table {
-    width: 100%;
+.cookies-table {
+  width: 100%;
 
-    tbody tr:nth-of-type(even) {
-      background-color: var(--color-alternative-row);
-    }
+  tbody tr:nth-of-type(even) {
+    background-color: var(--color-alternative-row);
+  }
 
-    th {
-      font-size: 1.2rem;
-      color: var(--color-secondary);
-    }
+  th {
+    font-size: 1.2rem;
+    color: var(--color-secondary);
+  }
 
-    td,
-    th {
-      text-align: center;
-      padding: 0.5rem 0.5rem;
-    }
+  td,
+  th {
+    text-align: center;
+    padding: 0.5rem 0.5rem;
   }
 }

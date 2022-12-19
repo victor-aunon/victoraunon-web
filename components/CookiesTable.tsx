@@ -1,6 +1,10 @@
 import cookies from '../app/cookies/cookies'
 
-export default function CookiesTable(): JSX.Element {
+interface CookiesTableProps {
+  cookieType?: string
+}
+
+export default function CookiesTable(props: CookiesTableProps): JSX.Element {
   return (
     <table className="cookies-table">
       <thead>
@@ -12,14 +16,18 @@ export default function CookiesTable(): JSX.Element {
         </tr>
       </thead>
       <tbody>
-        {cookies.map((cookie) => (
-          <tr key={cookie.name}>
-            <td>{cookie.name}</td>
-            <td>{cookie.description}</td>
-            <td>{cookie.persistence}</td>
-            <td>{cookie.type}</td>
-          </tr>
-        ))}
+        {cookies
+          .filter((cookie) =>
+            cookie.type === props.cookieType ? props.cookieType : cookie.type
+          )
+          .map((cookie) => (
+            <tr key={cookie.name}>
+              <td>{cookie.name}</td>
+              <td>{cookie.description}</td>
+              <td>{cookie.persistence}</td>
+              <td>{cookie.type}</td>
+            </tr>
+          ))}
       </tbody>
     </table>
   )
