@@ -18,7 +18,9 @@ export default function CookiesTable(props: CookiesTableProps): JSX.Element {
       <tbody>
         {cookies
           .filter((cookie) =>
-            cookie.type === props.cookieType ? props.cookieType : cookie.type
+            props.cookieType !== undefined
+              ? cookie.typeSlug === props.cookieType
+              : cookie.typeSlug
           )
           .map((cookie) => (
             <tr key={cookie.name}>
