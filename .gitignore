@@ -8,7 +8,6 @@
 # testing
 /coverage
 /public/images/test-images
-/mdposts/*-test.mdx
 
 # next.js
 /.next/

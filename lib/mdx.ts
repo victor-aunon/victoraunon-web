@@ -67,18 +67,19 @@ export function getPostMetadataBySlug(slug: string): PostMetadata {
 
 export function getAllPostsMetadata(): PostMetadata[] {
   const postFiles = fs.readdirSync(postsDir)
-  const posts = postFiles
+  return postFiles
+    .filter((file) => file.match(/.mdx$/))
     .map((postName) => getPostMetadataBySlug(postName.replace(/\.mdx/g, '')))
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
-
-  return posts.concat(posts).concat(posts)
 }
 
 export function getAllPostsSlug(): GetAllPostsSlug[] {
   const postFiles = fs.readdirSync(postsDir)
-  return postFiles.map((post) => {
-    return {
-      slug: post.replace('.mdx', ''),
-    }
-  })
+  return postFiles
+    .filter((file) => file.match(/.mdx$/))
+    .map((post) => {
+      return {
+        slug: post.replace('.mdx', ''),
+      }
+    })
 }

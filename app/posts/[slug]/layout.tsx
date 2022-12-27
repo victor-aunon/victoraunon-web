@@ -3,7 +3,6 @@ import { getPostMetadataBySlug } from 'lib/mdx'
 import nextConfig from 'next.config'
 import { ParsedUrlQuery } from 'querystring'
 import { SiteConfig } from 'interfaces/SiteConfig'
-// import ReadProgressBar from 'components/ReadProgressBar'
 
 interface Params extends ParsedUrlQuery {
   slug: string
@@ -44,10 +43,7 @@ export default function Layout({
         }`,
         }}
       ></script>
-      <section>
-        {/* <ReadProgressBar /> */}
-        {children}
-      </section>
+      <section>{children}</section>
     </>
   )
 }
