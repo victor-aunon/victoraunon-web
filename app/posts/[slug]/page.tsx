@@ -1,8 +1,6 @@
 import { getPostBySlug, getAllPostsSlug, GetAllPostsSlug } from 'lib/mdx'
 import { Post } from 'interfaces/Post'
-import MDContent from 'components/MDContent'
-import PostTags from 'components/PostTags'
-import CommentsBox from 'components/CommentsBox'
+import Article from 'components/Article'
 import { ParsedUrlQuery } from 'querystring'
 
 async function getPost(slug: string): Promise<Post> {
@@ -15,27 +13,17 @@ interface Params extends ParsedUrlQuery {
   slug: string
 }
 
-interface PostProps {
+interface PostPageProps {
   params: Params
 }
 
 export default async function PostPage({
   params,
-}: PostProps): Promise<JSX.Element> {
+}: PostPageProps): Promise<JSX.Element> {
   const { slug } = params
   const { content, metadata } = await getPost(slug)
-  return (
-    <article>
-      <p>{metadata.title}</p>
-      <MDContent content={content} />
-      <PostTags tags={metadata.tags} />
-      <CommentsBox
-        slug={slug}
-        title={metadata.title}
-        shortname={process.env.REACT_APP_DISQUS_SHORTNAME as string}
-      />
-    </article>
-  )
+  const commentsBoxShortname = process.env.REACT_APP_DISQUS_SHORTNAME as string
+  return <Article {...{ content, metadata, commentsBoxShortname }} />
 }
 
 export function generateStaticParams(): GetAllPostsSlug[] {
