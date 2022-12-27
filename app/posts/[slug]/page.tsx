@@ -1,6 +1,7 @@
 import { getPostBySlug, getAllPostsSlug, GetAllPostsSlug } from 'lib/mdx'
 import { Post } from 'interfaces/Post'
 import MDContent from 'components/MDContent'
+import PostTags from 'components/PostTags'
 import CommentsBox from 'components/CommentsBox'
 import { ParsedUrlQuery } from 'querystring'
 
@@ -27,6 +28,7 @@ export default async function PostPage({
     <article>
       <p>{metadata.title}</p>
       <MDContent content={content} />
+      <PostTags tags={metadata.tags} />
       <CommentsBox
         slug={slug}
         title={metadata.title}
