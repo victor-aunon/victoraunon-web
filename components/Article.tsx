@@ -2,10 +2,11 @@
 
 import { useRef } from 'react'
 import { Post } from 'interfaces/Post'
+import ReadProgressBar from 'components/ReadProgressBar'
+import PostInfo from 'components/PostInfo'
 import MDContent from 'components/MDContent'
 import PostTags from 'components/PostTags'
 import CommentsBox from 'components/CommentsBox'
-import ReadProgressBar from 'components/ReadProgressBar'
 
 interface ArticleProps {
   content: Post['content']
@@ -14,14 +15,14 @@ interface ArticleProps {
 }
 
 export default function Article(props: ArticleProps): JSX.Element {
-  const { title, slug, tags } = props.metadata
+  const { title, slug, tags, date, author, readTime } = props.metadata
   const { content, commentsBoxShortname } = props
   const articleRef = useRef(null)
   return (
     <>
       <ReadProgressBar articleRef={articleRef} />
       <article ref={articleRef}>
-        <p>{title}</p>
+        <PostInfo {...{ author, date, readTime }} />
         <MDContent content={content} />
         <PostTags tags={tags} />
       </article>
