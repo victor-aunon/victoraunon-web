@@ -1,17 +1,16 @@
-'use client'
-
-import { useContext } from 'react'
 import Link from 'next/link'
-import { PostsContext } from 'contexts/PostsContext'
+import { PostMetadata } from 'interfaces/Post'
 import styles from 'styles/CloudTag.module.scss'
 
 interface TagsMap {
   [key: string]: number
 }
 
-export default function CloudTag(): JSX.Element {
-  const { posts } = useContext(PostsContext)
+interface CloudTagProps {
+  posts: PostMetadata[]
+}
 
+export default function CloudTag({ posts }: CloudTagProps): JSX.Element {
   const getFontSize = (count: number): string => {
     if (count > 30) return 'large'
     if (count > 20) return 'big'

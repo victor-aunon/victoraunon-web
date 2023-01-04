@@ -2,7 +2,7 @@
 
 import React, { useState, useContext } from 'react'
 import { useRouter, usePathname } from 'next/navigation'
-import { PostsContext } from 'contexts/PostsContext'
+import { QueryContext } from 'contexts/QueryContext'
 import styles from 'styles/SearchBar.module.scss'
 import { IoIosCloseCircleOutline } from 'react-icons/io'
 
@@ -18,12 +18,15 @@ export default function SearchBar({ parent }: SearchBarProps): JSX.Element {
   const router = useRouter()
   const path = usePathname()
   const [search, setSearch] = useState('')
-  const { setQuery } = useContext(PostsContext)
+  const [queryTimeout, setQueryTimeout] = useState(setTimeout(() => {}))
+  const { setQuery } = useContext(QueryContext)
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>): void {
     const searchValue = e.target.value.toLowerCase()
     setSearch(searchValue)
-    setTimeout(() => setQuery(searchValue), 800)
+    clearTimeout(queryTimeout)
+    const newQueryTimeout = setTimeout(() => setQuery(searchValue), 500)
+    setQueryTimeout(newQueryTimeout)
   }
 
   function clearSearch(): void {

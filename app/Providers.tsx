@@ -2,14 +2,11 @@
 
 import { useEffect, useState } from 'react'
 import { ThemeContext } from 'contexts/ThemeContext'
-import { PostsContext } from 'contexts/PostsContext'
+import { QueryContext } from 'contexts/QueryContext'
 import { LayoutProps } from 'interfaces/Layout'
-import { PostMetadata } from 'interfaces/Post'
-// import usePosts from 'hooks/usePosts'
 
 export default function Providers({ children }: LayoutProps): JSX.Element {
   const [theme, setTheme] = useState('dark')
-  const [posts, setPosts] = useState<PostMetadata[]>([])
   const [query, setQuery] = useState('')
 
   function getDefaultTheme(): string {
@@ -31,9 +28,9 @@ export default function Providers({ children }: LayoutProps): JSX.Element {
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
-      <PostsContext.Provider value={{ posts, setPosts, query, setQuery }}>
+      <QueryContext.Provider value={{ query, setQuery }}>
         {children}
-      </PostsContext.Provider>
+      </QueryContext.Provider>
     </ThemeContext.Provider>
   )
 }

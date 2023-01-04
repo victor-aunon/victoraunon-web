@@ -4,14 +4,14 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect, useRef, useContext } from 'react'
 import styles from 'styles/PostCard.module.scss'
-import { PostsContext } from 'contexts/PostsContext'
+import { QueryContext } from 'contexts/QueryContext'
 import { PostMetadata } from 'interfaces/Post'
 import PostDate from './PostDate'
 
 export default function PostCard(postInfo: PostMetadata): JSX.Element {
   const [gridRowEnd, setGridRowEnd] = useState(15)
   const [windowWidth, setWindowWidth] = useState(1000)
-  const { query } = useContext(PostsContext)
+  const { query } = useContext(QueryContext)
   const gridItemRef = useRef<HTMLLIElement>(null)
 
   const resizeElement = (): void => {

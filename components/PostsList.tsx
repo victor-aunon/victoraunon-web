@@ -1,9 +1,9 @@
 'use client'
 
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useMemo } from 'react'
 import { useSearchParams, usePathname } from 'next/navigation'
 import styles from 'styles/PostsList.module.scss'
-import { PostsContext } from 'contexts/PostsContext'
+import { QueryContext } from 'contexts/QueryContext'
 import { PostMetadata } from 'interfaces/Post'
 import PostCard from './PostCard'
 import PostCardSimple from './PostCardSimple'
@@ -13,27 +13,22 @@ interface PostsListProps {
 }
 
 export default function PostsList({ allPosts }: PostsListProps): JSX.Element {
-  const { posts, setPosts, query } = useContext(PostsContext)
-  const [filteredPosts, setFilteredPosts] = useState(allPosts)
+  const { query } = useContext(QueryContext)
   const urlParams = useSearchParams()
   const path = usePathname()
   const tag = urlParams.get('tag')
 
-  useEffect(() => {
-    setPosts(allPosts)
+  const filteredPosts = useMemo(() => {
     if (query !== '') {
-      setFilteredPosts(
-        posts.filter(
-          (post) =>
-            post.slug.toLowerCase().includes(query) ||
-            post.title.toLowerCase().includes(query) ||
-            post.excerpt.toLowerCase().includes(query) ||
-            post.tags.join(' ').toLowerCase().includes(query)
-        )
+      return allPosts.filter(
+        (post) =>
+          post.slug.toLowerCase().includes(query) ||
+          post.title.toLowerCase().includes(query) ||
+          post.excerpt.toLowerCase().includes(query) ||
+          post.tags.join(' ').toLowerCase().includes(query)
       )
-    } else {
-      setFilteredPosts(allPosts)
     }
+    return allPosts
   }, [query])
 
   return (
