@@ -1,0 +1,11 @@
+.filterSelect {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  font-family: var(---content-font);
+  font-weight: 600;
+  font-size: 1.1em;
+  color: var(--color-secondary);
+}

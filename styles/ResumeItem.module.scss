@@ -1,0 +1,99 @@
+@import 'styles/variables';
+@import 'styles/mixins';
+
+.resumeItem {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  box-shadow: 3px 3px 6px var(--color-secondary);
+
+  .title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    h2 {
+      width: 75%;
+    }
+
+    span {
+      font-family: var(--titles-font);
+      font-weight: 600;
+      font-size: 2em;
+      color: var(--color-text-secondary);
+    }
+  }
+
+  .mainImageAndDescription {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    gap: 1rem;
+
+    @include tablet {
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .imageContainer {
+      position: relative;
+      flex: 0 0 400px;
+    }
+  }
+
+  .showMoreButton {
+    background: none;
+    width: 160px;
+    padding: 0.3rem;
+    margin: 1rem;
+    font-size: 1.1em;
+    font-family: var(---content-font);
+    border-radius: 10px;
+    color: var(--color-text);
+    border: 3px solid var(--color-secondary);
+
+    &:hover {
+      color: var(--color-secondary);
+    }
+  }
+
+  .objectives {
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    gap: 1rem;
+
+    @include tablet {
+      flex-direction: row-reverse;
+    }
+
+    .imageContainer {
+      position: relative;
+      flex: 0 0 300px;
+    }
+  }
+
+  .interestingLinks {
+    flex-direction: column;
+    gap: 0.5rem;
+
+    p {
+      margin-bottom: 0;
+    }
+
+    .link {
+      font-weight: 600;
+      font-size: 1.1em;
+      color: var(--color-secondary);
+
+      &:before {
+        content: '▶';
+        color: var(--color-secondary);
+        margin-right: 5px;
+      }
+    }
+  }
+}
