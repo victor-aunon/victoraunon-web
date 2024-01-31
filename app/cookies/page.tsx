@@ -1,12 +1,11 @@
 'use client'
 
-import nextConfig from 'next.config'
-import { SiteConfig } from 'interfaces/SiteConfig'
+import { siteConfig } from 'app/commonMetadata'
 import useCookieConsent from 'hooks/useCookieConsent'
 import CookiesTable from '../../components/CookiesTable'
 
 export default function Cookies(): JSX.Element {
-  const { name } = nextConfig.siteConfig as SiteConfig
+  const { name } = siteConfig
   const { denyConsent } = useCookieConsent()
 
   return (

@@ -1,4 +1,25 @@
 import ContactForm from 'components/ContactForm'
+import {
+  siteConfig,
+  commonMetadata,
+  commonMetaOpenGraph,
+} from 'app/commonMetadata'
+import type { Metadata } from 'next'
+
+const { name, website } = siteConfig
+
+export const metadata: Metadata = {
+  ...commonMetadata,
+  title: `${name} - Contáctame`,
+  alternates: {
+    canonical: `https://${website}/contact`,
+  },
+  openGraph: {
+    ...commonMetaOpenGraph,
+    url: `https://${website}/contact`,
+    title: `${name} - Contáctame`,
+  },
+}
 
 export default function Contact(): JSX.Element {
   return (

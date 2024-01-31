@@ -2,7 +2,7 @@ import nextConfig from 'next.config'
 import { getPostMetadataBySlug } from 'lib/mdx'
 import { SiteConfig } from 'interfaces/SiteConfig'
 import { ParsedUrlQuery } from 'querystring'
-import CommonHead from 'app/CommonHead'
+import CommonHead from 'app/commonMetadata'
 
 interface Params extends ParsedUrlQuery {
   slug: string

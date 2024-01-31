@@ -1,9 +1,27 @@
-import nextConfig from 'next.config'
-import { SiteConfig } from 'interfaces/SiteConfig'
+import {
+  siteConfig,
+  commonMetadata,
+  commonMetaOpenGraph,
+} from 'app/commonMetadata'
+import type { Metadata } from 'next'
+
+const { holder, address, email, name, cif, website } = siteConfig
+
+export const metadata: Metadata = {
+  ...commonMetadata,
+  title: `${name} - Política de Privacidad`,
+  alternates: {
+    canonical: `https://${website}/privacy`,
+  },
+  robots: 'noindex, nofollow, noarchive',
+  openGraph: {
+    ...commonMetaOpenGraph,
+    url: `https://${website}/privacy`,
+    title: `${name} - Política de Privacidad`,
+  },
+}
 
 export default function Privacy(): JSX.Element {
-  const { holder, address, email, name, cif, website } =
-    nextConfig.siteConfig as SiteConfig
   return (
     <section className="legal-content">
       <h1 className="legal-title">Política de Privacidad</h1>

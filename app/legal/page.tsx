@@ -1,9 +1,27 @@
-import nextConfig from 'next.config'
-import { SiteConfig } from 'interfaces/SiteConfig'
+import {
+  siteConfig,
+  commonMetadata,
+  commonMetaOpenGraph,
+} from 'app/commonMetadata'
+import type { Metadata } from 'next'
+
+const { holder, address, email, name, cif, website } = siteConfig
+
+export const metadata: Metadata = {
+  ...commonMetadata,
+  title: `${name} - Aviso legal`,
+  alternates: {
+    canonical: `https://${website}/legal`,
+  },
+  robots: 'noindex, nofollow, noarchive',
+  openGraph: {
+    ...commonMetaOpenGraph,
+    url: `https://${website}/legal`,
+    title: `${name} - Aviso legal`,
+  },
+}
 
 export default function Legal(): JSX.Element {
-  const { holder, address, email, name, cif, website } =
-    nextConfig.siteConfig as SiteConfig
   return (
     <section className="legal-content">
       <h1 className="legal-title">Aviso legal</h1>
