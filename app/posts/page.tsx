@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import { getAllPostsMetadata } from 'lib/mdx'
 import { PostsList } from 'components/Posts'
 import {
@@ -23,5 +24,9 @@ export const metadata: Metadata = {
 }
 
 export default function Posts(): JSX.Element {
-  return <PostsList allPosts={getAllPostsMetadata()} />
+  return (
+    <Suspense>
+      <PostsList allPosts={getAllPostsMetadata()} />
+    </Suspense>
+  )
 }

@@ -22,6 +22,7 @@ export const commonMetaOpenGraph: Metadata['openGraph'] = {
 }
 
 export const commonMetadata: Metadata = {
+  metadataBase: new URL(`https://${siteConfig.website}`),
   title: siteConfig.name,
   alternates: {
     canonical: `https://${siteConfig.website}`,

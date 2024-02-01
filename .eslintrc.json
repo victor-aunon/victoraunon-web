@@ -18,6 +18,12 @@
   },
   "ignorePatterns": ["cypress/support/*"],
   "plugins": ["react", "prettier"],
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "18.2.0"
+    }
+  },
   "rules": {
     "prettier/prettier": [
       "error",
