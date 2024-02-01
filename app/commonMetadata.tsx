@@ -13,6 +13,7 @@ export const siteConfig: SiteConfig = {
 
 export const commonMetaOpenGraph: Metadata['openGraph'] = {
   type: 'website',
+  description: '',
   url: `https://${siteConfig.website}`,
   title: siteConfig.name,
   images: [{ url: siteConfig.siteImage, width: 200, height: 200 }],

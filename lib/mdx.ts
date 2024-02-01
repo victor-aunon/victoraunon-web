@@ -55,7 +55,7 @@ export function getPostMetadataBySlug(slug: string): PostMetadata {
     title: data.title ?? slug,
     author: data.author ?? 'Víctor Auñón',
     excerpt: data.excerpt ?? '',
-    description: data.description ?? '',
+    description: data.description ?? data.excerpt ?? '',
     tags: (data.tags ?? []).sort(),
     date: data.date,
     readTime: parseInt(data.readTime),

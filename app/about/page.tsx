@@ -3,7 +3,28 @@ import { readFileSync } from 'fs'
 import styles from 'styles/AboutMe.module.scss'
 import AboutMeProfileImage from 'components/AboutMeProfileImage'
 import ResumeList from 'components/ResumeList'
-import { ResumeItemProps } from 'interfaces/ResumeItem'
+import {
+  siteConfig,
+  commonMetadata,
+  commonMetaOpenGraph,
+} from 'app/commonMetadata'
+import type { Metadata } from 'next'
+import type { ResumeItemProps } from 'interfaces/ResumeItem'
+
+const { name, website } = siteConfig
+
+export const metadata: Metadata = {
+  ...commonMetadata,
+  title: `${name} - Sobre mí`,
+  alternates: {
+    canonical: `https://${website}/about`,
+  },
+  openGraph: {
+    ...commonMetaOpenGraph,
+    url: `https://${website}/about`,
+    title: `${name} - Sobre mí`,
+  },
+}
 
 const aboutDir = path.join(process.cwd(), 'app', 'about')
 
