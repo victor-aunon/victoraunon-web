@@ -1,4 +1,4 @@
-import { Exo, Red_Hat_Display } from '@next/font/google'
+import { Exo, Red_Hat_Display } from 'next/font/google'
 
 export const titlesFont = Exo({
   weight: ['400', '600'],

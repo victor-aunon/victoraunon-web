@@ -1,7 +1,7 @@
 import { getPostBySlug, getAllPostsSlug, GetAllPostsSlug } from 'lib/mdx'
-import { Post } from 'interfaces/Post'
-import Article from 'components/Article'
-import { ParsedUrlQuery } from 'querystring'
+import { Article } from 'components/Posts/Article'
+import type { ParsedUrlQuery } from 'querystring'
+import type { Post } from 'types/Post'
 
 async function getPost(slug: string): Promise<Post> {
   const post = await getPostBySlug(slug)

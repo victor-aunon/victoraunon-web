@@ -6,7 +6,7 @@ import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeHighlight from 'rehype-highlight'
 import 'highlight.js/styles/atom-one-dark.css'
-import { Post, PostMetadata } from 'interfaces/Post'
+import { Post, PostMetadata } from 'types/Post'
 
 const postsDir = path.join(process.cwd(), 'mdposts')
 
@@ -55,7 +55,7 @@ export function getPostMetadataBySlug(slug: string): PostMetadata {
     title: data.title ?? slug,
     author: data.author ?? 'Víctor Auñón',
     excerpt: data.excerpt ?? '',
-    description: data.description ?? '',
+    description: data.description ?? data.excerpt ?? '',
     tags: (data.tags ?? []).sort(),
     date: data.date,
     readTime: parseInt(data.readTime),

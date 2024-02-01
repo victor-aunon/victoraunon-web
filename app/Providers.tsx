@@ -3,13 +3,14 @@
 import { useEffect, useState } from 'react'
 import { ThemeContext } from 'contexts/ThemeContext'
 import { QueryContext } from 'contexts/QueryContext'
-import { LayoutProps } from 'interfaces/Layout'
+import type { LayoutProps } from 'types/Layout'
+import type { Theme } from 'types/SiteConfig'
 
 export default function Providers({ children }: LayoutProps): JSX.Element {
-  const [theme, setTheme] = useState('dark')
+  const [theme, setTheme] = useState<Theme>('dark')
   const [query, setQuery] = useState('')
 
-  function getDefaultTheme(): string {
+  function getDefaultTheme(): Theme {
     let isBrowserDark = true
     let localStorageTheme: string | null = null
     if (typeof window !== 'undefined') {
@@ -18,8 +19,8 @@ export default function Providers({ children }: LayoutProps): JSX.Element {
       // Get theme value from local storage
       localStorageTheme = localStorage.getItem('theme')
     }
-    const browserDefaultTheme = isBrowserDark ? 'dark' : 'light'
-    return localStorageTheme ?? browserDefaultTheme
+    const browserDefaultTheme: Theme = isBrowserDark ? 'dark' : 'light'
+    return (localStorageTheme as Theme) ?? browserDefaultTheme
   }
 
   useEffect(() => {

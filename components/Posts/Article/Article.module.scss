@@ -1,0 +1,10 @@
+@import 'styles/variables';
+
+.article {
+  max-width: calc($text_width + 7ch);
+  margin-inline: auto;
+
+  h1, h2, h3, h4, h5 {
+    margin-block: 1rem;
+  }
+}

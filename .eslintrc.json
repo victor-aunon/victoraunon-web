@@ -29,6 +29,7 @@
     "react/prop-types": "off",
     "@typescript-eslint/consistent-type-definitions": "warn",
     "@typescript-eslint/triple-slash-reference": "off",
+    "@typescript-eslint/strict-boolean-expressions": "off",
     "no-case-declarations": "off",
     "no-useless-return": "off"
   }
