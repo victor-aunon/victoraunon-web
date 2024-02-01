@@ -1,6 +1,7 @@
 import { createContext } from 'react'
+import type { Theme } from 'types/SiteConfig'
 
 export const ThemeContext = createContext({
-  theme: '',
-  setTheme: (theme: string) => {},
+  theme: 'dark' as Theme,
+  setTheme: (theme: Theme) => {},
 })

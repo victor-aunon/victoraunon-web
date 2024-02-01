@@ -1,5 +1,5 @@
 import { getAllPostsMetadata } from 'lib/mdx'
-import PostsList from 'components/PostsList'
+import { PostsList } from 'components/Posts'
 import {
   siteConfig,
   commonMetadata,

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import type { SiteConfig } from 'interfaces/SiteConfig'
+import type { SiteConfig } from 'types/SiteConfig'
 
 export const siteConfig: SiteConfig = {
   name: 'Víctor Auñón',

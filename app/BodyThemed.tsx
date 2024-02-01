@@ -2,7 +2,7 @@
 
 import { useContext } from 'react'
 import { titlesFont, contentFont } from 'app/fonts'
-import { LayoutProps } from 'interfaces/Layout'
+import { LayoutProps } from 'types/Layout'
 import { ThemeContext } from 'contexts/ThemeContext'
 
 export default function BodyThemed({ children }: LayoutProps): JSX.Element {

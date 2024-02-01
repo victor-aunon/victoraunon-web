@@ -2,7 +2,7 @@
 
 import { siteConfig } from 'app/commonMetadata'
 import useCookieConsent from 'hooks/useCookieConsent'
-import CookiesTable from '../../components/CookiesTable'
+import { CookiesTable } from 'components/Cookies'
 
 export default function Cookies(): JSX.Element {
   const { name } = siteConfig
