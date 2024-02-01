@@ -79,7 +79,7 @@ h2 {
 
 li {
   list-style: none;
-  max-width: var(--p-max-width, 65ch);
+  max-width: $text_width;
   text-wrap: pretty;
 
   a {
@@ -90,7 +90,7 @@ li {
 p {
   font-size: 1.1em;
   line-height: 1.3em;
-  max-width: var(--p-max-width, 65ch);
+  max-width: $text_width;
   text-wrap: pretty;
 
   @include tablet {

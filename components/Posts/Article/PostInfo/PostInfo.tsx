@@ -18,12 +18,14 @@ export default function PostInfo(props: PostInfoProps): JSX.Element {
 
   return (
     <div className={styles.postInfo}>
-      <span>{`Publicado el ${postedDate}`}</span>
-      <span>{`por ${author}`}</span>
       <span className={styles.readTime}>
         <FiClock />
         {readTime}&apos;
       </span>
+      <div>
+        <span>{`Publicado el ${postedDate}  `}</span>
+        <span>{`por ${author}`}</span>
+      </div>
     </div>
   )
 }

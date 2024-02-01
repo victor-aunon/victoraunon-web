@@ -7,6 +7,7 @@ import { PostInfo } from './PostInfo'
 import { PostTags } from './PostTags'
 import { ReadProgressBar } from './ReadProgressBar'
 import type { Post } from 'types/Post'
+import styles from './Article.module.scss'
 
 interface ArticleProps {
   content: Post['content']
@@ -21,7 +22,7 @@ export default function Article(props: ArticleProps): JSX.Element {
   return (
     <>
       <ReadProgressBar articleRef={articleRef} />
-      <article ref={articleRef}>
+      <article ref={articleRef} className={styles.article}>
         <PostInfo {...{ author, date, readTime }} />
         <MDContent content={content} />
         <PostTags tags={tags} />
