@@ -1,11 +1,26 @@
 @import './variables';
 @import './mixins';
 
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 *,
 * *,
 html,
 body {
   box-sizing: border-box;
+}
+
+/* remove default spacing */
+/* force styling of type through styling, rather than elements */
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
 }
 
 html {
@@ -17,21 +32,22 @@ html {
 body {
   display: flex;
   flex-direction: column;
-  padding: 0;
-  margin: 0;
+  min-height: 100svh;
   font-family: var(--content-font);
   background-color: var(--color-primary);
   color: var(--color-text);
   transition: color, background-color 0.3s linear;
-  min-height: 100vh;
 
   & * {
     transition: color, background-color 0.3s linear;
   }
 }
 
-pre {
-  margin: 0;
+img,
+picture,
+video {
+  display: block;
+  max-width: 100%;
 }
 
 a {
@@ -46,10 +62,11 @@ h3,
 h4,
 h5 {
   font-family: var(--titles-font);
-  margin-top: 0;
   margin-bottom: 0.5rem;
   color: var(--color-secondary);
   width: fit-content;
+  text-wrap: balance;
+  font-weight: 600;
 }
 
 h1 {
@@ -60,12 +77,10 @@ h2 {
   font-size: 2em;
 }
 
-ul {
-  padding: 0;
-}
-
 li {
   list-style: none;
+  max-width: var(--p-max-width, 65ch);
+  text-wrap: pretty;
 
   a {
     display: block;
@@ -75,6 +90,8 @@ li {
 p {
   font-size: 1.1em;
   line-height: 1.3em;
+  max-width: var(--p-max-width, 65ch);
+  text-wrap: pretty;
 
   @include tablet {
     font-size: 1.1em;
