@@ -1,3 +1,5 @@
+@import 'styles/mixins';
+
 .postsListsQueryTitle {
   color: var(--color-text);
 
@@ -13,6 +15,11 @@
   gap: 20px;
   grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
   grid-auto-rows: 15px;
+  margin-top: 2rem;
+
+  @include desktop {
+    margin-top: 0;
+  }
 }
 
 .noResults {

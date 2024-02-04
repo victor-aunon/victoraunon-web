@@ -4,7 +4,7 @@ import { Social } from 'components/Social'
 import styles from './Header.module.scss'
 
 export default function Header(): JSX.Element {
-  const imageSize = 100
+  const imageSize = 80
   return (
     <header className={styles.header}>
       <div className={styles.siteIdentity}>
@@ -12,13 +12,13 @@ export default function Header(): JSX.Element {
           src={`https://github.com/victor-aunon.png?size=${imageSize}`}
           width={imageSize}
           height={imageSize}
-          alt="Picture of Víctor Auñón"
+          alt="Photo of Víctor Auñón"
           className={`with-theme ${styles.profileImage}`}
         />
         <Link href="/">
-          <h1 className={`${styles.siteName} with-theme`} id="site-name">
+          <p className={`${styles.siteName} with-theme`} id="site-name">
             Víctor Auñón
-          </h1>
+          </p>
         </Link>
       </div>
       <nav className={styles.navbar}>
