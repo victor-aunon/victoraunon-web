@@ -1,0 +1,64 @@
+.postTOC {
+  width: fit-content;
+  margin-inline: auto -1rem;
+  padding: 0.5rem 1rem;
+  top: 2vh;
+  position: sticky;
+  background-color: var(--color-primary);
+  border: 3px solid var(--color-secondary);
+  border-radius: 10px;
+  z-index: 100;
+  max-width: 380px;
+}
+
+.TOCHeader {
+  font-size: 1.2rem;
+  color: var(--color-secondary);
+  cursor: pointer;
+}
+
+.TOC-link {
+  display: block;
+  font-size: 1.1rem;
+  margin-block: 0.25rem;
+  cursor: pointer;
+}
+
+.TOC-link-before {
+  &::before {
+    content: '●';
+    color: var(--color-secondary);
+    margin-right: 0.25rem;
+  }
+}
+
+.H1 {
+  font-weight: 600;
+  @extend .TOC-link;
+}
+.H2 {
+  font-weight: 600;
+  margin-left: 0.5rem;
+  @extend .TOC-link;
+  @extend .TOC-link-before;
+}
+.H3 {
+  font-weight: 600;
+  margin-left: 1rem;
+  @extend .TOC-link;
+  @extend .TOC-link-before;
+}
+.H4 {
+  margin-left: 1.5rem;
+  @extend .TOC-link;
+  @extend .TOC-link-before;
+}
+.H5 {
+  margin-left: 2rem;
+  @extend .TOC-link;
+}
+.H6 {
+  margin-left: 2.5rem;
+  @extend .TOC-link;
+  @extend .TOC-link-before;
+}
