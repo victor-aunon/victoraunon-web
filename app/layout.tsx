@@ -3,6 +3,7 @@ import Script from 'next/script'
 import { getAllPostsMetadata } from 'lib/mdx'
 import Providers from './Providers'
 import BodyThemed from './BodyThemed'
+import { CloudTag } from 'components/CloudTag'
 import { CookieBanner } from 'components/Cookies'
 import { Footer } from 'components/Footer'
 import { Header } from 'components/Header'
@@ -67,6 +68,7 @@ export default function RootLayout({ children }: LayoutProps): JSX.Element {
             <section className="content-section">{children}</section>
             <SideBar allPosts={getAllPostsMetadata()} />
           </main>
+          <CloudTag posts={getAllPostsMetadata()} parent="main" />
           <Footer />
           <CookieBanner />
         </BodyThemed>

@@ -5,6 +5,7 @@ import { CommentsBox } from 'components/CommentsBox'
 import MDContent from './MDContent'
 import { PostInfo } from './PostInfo'
 import { PostTags } from './PostTags'
+import { PostTOC } from './PostTOC'
 import { ReadProgressBar } from './ReadProgressBar'
 import type { Post } from 'types/Post'
 import styles from './Article.module.scss'
@@ -24,6 +25,7 @@ export default function Article(props: ArticleProps): JSX.Element {
       <ReadProgressBar articleRef={articleRef} />
       <article ref={articleRef} className={styles.article}>
         <PostInfo {...{ author, date, readTime }} />
+        <PostTOC />
         <MDContent content={content} />
         <PostTags tags={tags} />
       </article>

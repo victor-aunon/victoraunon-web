@@ -1,6 +1,6 @@
 'use client'
 
-import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote'
+import { MDXRemote, type MDXRemoteProps } from 'next-mdx-remote'
 import { CodeFrame } from './CodeFrame'
 import PostImage from './PostImage'
 

@@ -11,7 +11,7 @@ interface SearchBarProps {
 }
 
 export default function SearchBar({ parent }: SearchBarProps): JSX.Element {
-  // If the parent is main, then the searchbar will be visible in mobile
+  // If the parent is main, then the searchBar will be visible in mobile
   // devices. Otherwise, if the parent is sideBar, it will be visible inside
   // the sideBar in tablets and bigger devices
 
