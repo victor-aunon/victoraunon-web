@@ -10,8 +10,8 @@ interface SideBarProps {
 export default function SideBar({ allPosts }: SideBarProps): JSX.Element {
   return (
     <aside className={styles.sideBar}>
-      <SearchBar parent={'sideBar'} />
-      <CloudTag posts={allPosts} />
+      <SearchBar parent="sideBar" />
+      <CloudTag posts={allPosts} parent="sideBar" />
     </aside>
   )
 }

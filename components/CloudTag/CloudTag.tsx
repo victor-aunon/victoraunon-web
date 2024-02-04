@@ -8,9 +8,13 @@ interface TagsMap {
 
 interface CloudTagProps {
   posts: PostMetadata[]
+  parent: 'sideBar' | 'main'
 }
 
-export default function CloudTag({ posts }: CloudTagProps): JSX.Element {
+export default function CloudTag({
+  posts,
+  parent,
+}: CloudTagProps): JSX.Element {
   const getFontSize = (count: number): string => {
     if (count > 30) return 'large'
     if (count > 20) return 'big'
@@ -31,7 +35,11 @@ export default function CloudTag({ posts }: CloudTagProps): JSX.Element {
   }, {})
 
   return (
-    <div className={styles.cloudTag}>
+    <div
+      className={
+        parent === 'main' ? styles.cloudTagOnMain : styles.cloudTagOnSideBar
+      }
+    >
       <h2>Tags populares</h2>
       {/* Sort the tags according to their frequency and take the first 20 tags */}
       {Object.entries(tags)
