@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import styles from './PostTOC.module.scss'
 
 const tagNames = ['H1', 'H2', 'H3', 'H4', 'H5', 'H6']
+const keys = [...Array(9).keys()].map((k) => `${k + 1}`)
 
 interface TOCElement {
   type?: string
@@ -23,6 +24,23 @@ export default function PostTOC(): JSX.Element {
     }
     setTOC(TOC)
   }, [])
+
+  useEffect(() => {
+    if (TOC.length === 0) return
+    window.addEventListener('keydown', onKeyDown)
+
+    return () => {
+      window.removeEventListener('keydown', onKeyDown)
+    }
+  }, [TOC])
+
+  function onKeyDown(event: KeyboardEvent): void {
+    if (!keys.includes(event.key)) return
+    const element = TOC.at(Number(event.key) - 1)
+    if (!element) return
+    const DOMElement = document.querySelector(getID(element?.value ?? ''))
+    if (DOMElement) DOMElement.scrollIntoView()
+  }
 
   function getID(value: string): string {
     return `#${value.toLowerCase().replace(' ', '-').replace('.', '')}`
