@@ -6,6 +6,8 @@ import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeHighlight from 'rehype-highlight'
 import 'highlight.js/styles/atom-one-dark.css'
+// Import all common languages for syntax highlighting
+import 'highlight.js/lib/common'
 import { Post, PostMetadata } from 'types/Post'
 
 const postsDir = path.join(process.cwd(), 'mdposts')

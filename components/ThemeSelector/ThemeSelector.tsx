@@ -1,6 +1,6 @@
 'use client'
 
-import { useContext } from 'react'
+import { useContext, type JSX } from 'react'
 import { ThemeContext } from 'contexts/ThemeContext'
 import { FaSun, FaMoon } from 'react-icons/fa'
 import styles from './ThemeSelector.module.scss'

@@ -1,7 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
+  turbopack: {
+    root: __dirname,
+  },
   // TODO
   // i18n: {
   //   locales: ['es', 'en'],

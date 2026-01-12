@@ -1,11 +1,11 @@
 'use client'
 
-import { RefObject, useEffect, useState } from 'react'
+import { RefObject, useEffect, useState, type JSX } from 'react'
 import { motion, useScroll, useSpring } from 'framer-motion'
 import styles from './ReadProgressBar.module.scss'
 
 interface ReadProgressBarProps {
-  articleRef: RefObject<HTMLElement>
+  articleRef: RefObject<HTMLElement | null>
 }
 
 export default function ReadProgressBar({

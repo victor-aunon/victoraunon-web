@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type JSX } from 'react'
 import { ThemeContext } from 'contexts/ThemeContext'
 import { QueryContext } from 'contexts/QueryContext'
 import type { LayoutProps } from 'types/Layout'

@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { Social } from 'components/Social'
 import styles from './Header.module.scss'
 
+import type { JSX } from 'react'
+
 export default function Header(): JSX.Element {
   const imageSize = 80
   return (

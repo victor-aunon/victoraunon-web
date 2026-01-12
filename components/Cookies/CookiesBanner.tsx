@@ -1,10 +1,11 @@
 'use client'
-
 import useCookieConsent from 'hooks/useCookieConsent'
 import CookiesTable from './CookiesTable'
 import Link from 'next/link'
 import { SlClose } from 'react-icons/sl'
 import styles from './CookiesBanner.module.scss'
+
+import type { JSX } from 'react'
 
 export default function CookieBanner(): JSX.Element {
   const {

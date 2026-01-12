@@ -7,6 +7,8 @@ import {
 import { ThemeSelector } from 'components/ThemeSelector'
 import styles from './Social.module.scss'
 
+import type { JSX } from 'react'
+
 interface SocialProps {
   parent: 'navbar' | 'main'
 }

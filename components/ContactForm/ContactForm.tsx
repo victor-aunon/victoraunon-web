@@ -1,9 +1,10 @@
 'use client'
-
 import Link from 'next/link'
 import ReCAPTCHA from 'react-google-recaptcha'
 import useFormValidation from 'hooks/useFormValidation'
 import styles from './ContactForm.module.scss'
+
+import type { JSX } from 'react'
 
 interface ContactFormProps {
   formId: string

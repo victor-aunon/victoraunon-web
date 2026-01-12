@@ -1,8 +1,9 @@
 'use client'
-
 import { MDXRemote, type MDXRemoteProps } from 'next-mdx-remote'
 import { CodeFrame } from './CodeFrame'
 import PostImage from './PostImage'
+
+import type { JSX } from 'react'
 
 interface MDContentProps {
   content: MDXRemoteProps

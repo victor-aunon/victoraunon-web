@@ -1,6 +1,6 @@
 'use client'
 
-import { useContext } from 'react'
+import { useContext, type JSX } from 'react'
 import Image from 'next/image'
 import { ThemeContext } from 'contexts/ThemeContext'
 

@@ -1,3 +1,4 @@
+import type { JSX } from 'react'
 export default function PostDate({ date }: { date: string }): JSX.Element {
   // TODO locale
   const dateTranslated = Intl.DateTimeFormat('es', {

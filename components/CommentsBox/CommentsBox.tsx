@@ -1,7 +1,8 @@
 'use client'
-
 import { DiscussionEmbed } from 'disqus-react'
 import { siteConfig } from 'app/commonMetadata'
+
+import type { JSX } from 'react'
 
 interface CommentsBoxProps {
   slug: string

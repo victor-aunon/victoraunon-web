@@ -1,6 +1,6 @@
 'use client'
 
-import { useContext, useState } from 'react'
+import { useContext, useState, type JSX } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 import { QueryContext } from 'contexts/QueryContext'
 import { IoIosCloseCircleOutline } from 'react-icons/io'

@@ -1,6 +1,6 @@
 'use client'
 
-import { useContext } from 'react'
+import { useContext, type JSX } from 'react'
 import { titlesFont, contentFont } from 'app/fonts'
 import { LayoutProps } from 'types/Layout'
 import { ThemeContext } from 'contexts/ThemeContext'

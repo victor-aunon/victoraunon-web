@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import styles from './Footer.module.scss'
 
+import type { JSX } from 'react'
+
 export default function Footer(): JSX.Element {
   const year = new Date().getFullYear()
   return (

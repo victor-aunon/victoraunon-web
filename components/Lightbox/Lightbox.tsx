@@ -1,7 +1,7 @@
 'use client'
 
 import useLightbox from 'hooks/useLightbox'
-import { useRef } from 'react'
+import { useRef, type JSX } from 'react'
 import Image from 'next/image'
 import { SlClose } from 'react-icons/sl'
 import styles from './Lightbox.module.scss'

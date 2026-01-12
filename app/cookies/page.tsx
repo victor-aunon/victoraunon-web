@@ -1,8 +1,9 @@
 'use client'
-
 import { siteConfig } from 'app/commonMetadata'
 import useCookieConsent from 'hooks/useCookieConsent'
 import { CookiesTable } from 'components/Cookies'
+
+import type { JSX } from 'react'
 
 export default function Cookies(): JSX.Element {
   const { name } = siteConfig

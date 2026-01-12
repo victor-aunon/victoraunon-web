@@ -5,6 +5,8 @@ import {
 } from 'app/commonMetadata'
 import type { Metadata } from 'next'
 
+import type { JSX } from 'react'
+
 const { holder, address, email, name, cif, website } = siteConfig
 
 export const metadata: Metadata = {

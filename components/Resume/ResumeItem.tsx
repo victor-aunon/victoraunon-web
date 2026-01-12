@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, type JSX } from 'react'
 import Link from 'next/link'
 import { Lightbox } from 'components/Lightbox'
 import type { ResumeItemProps } from 'types/ResumeItem'

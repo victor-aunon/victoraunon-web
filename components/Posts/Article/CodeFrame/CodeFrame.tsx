@@ -1,5 +1,7 @@
 import styles from './CodeFrame.module.scss'
 
+import type { JSX } from 'react'
+
 interface CodeFrameProps {
   file: string
   language: string

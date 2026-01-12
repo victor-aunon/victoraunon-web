@@ -1,9 +1,10 @@
 'use client'
-
 import Link from 'next/link'
 import PostDate from './PostDate'
 import type { PostMetadata } from 'types/Post'
 import styles from './PostCardSimple.module.scss'
+
+import type { JSX } from 'react'
 
 export default function PostCardSimple(postInfo: PostMetadata): JSX.Element {
   return (

@@ -11,6 +11,8 @@ import type { Metadata } from 'next'
 import type { ResumeItemProps } from 'types/ResumeItem'
 import styles from './AboutMe.module.scss'
 
+import type { JSX } from 'react'
+
 const { name, website } = siteConfig
 
 export const metadata: Metadata = {

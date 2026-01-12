@@ -4,7 +4,7 @@ import {
   commonMetaOpenGraph,
 } from 'app/commonMetadata'
 import type { Metadata } from 'next'
-import type { ReactNode } from 'react'
+import type { ReactNode, JSX } from 'react'
 
 const { name, website } = siteConfig
 

@@ -1,5 +1,7 @@
 import cookies from 'app/cookies/cookies'
 
+import type { JSX } from 'react'
+
 interface CookiesTableProps {
   cookieType?: string
 }

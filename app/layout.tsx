@@ -13,6 +13,8 @@ import { Social } from 'components/Social'
 import { commonMetadata, siteConfig } from './commonMetadata'
 import type { LayoutProps } from 'types/Layout'
 
+import type { JSX } from 'react'
+
 export const metadata = commonMetadata
 
 export default function RootLayout({ children }: LayoutProps): JSX.Element {

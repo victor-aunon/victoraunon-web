@@ -1,4 +1,4 @@
-import { Suspense } from 'react'
+import { Suspense, type JSX } from 'react'
 import { getAllPostsMetadata } from 'lib/mdx'
 import { PostsList } from 'components/Posts'
 

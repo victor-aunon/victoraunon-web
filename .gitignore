@@ -21,6 +21,7 @@
 .vscode
 .eslintcache
 analytics*
+.yarn
 
 # debug
 npm-debug.log*

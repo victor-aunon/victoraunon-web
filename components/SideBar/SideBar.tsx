@@ -3,6 +3,8 @@ import { SearchBar } from 'components/SearchBar'
 import type { PostMetadata } from 'types/Post'
 import styles from './SideBar.module.scss'
 
+import type { JSX } from 'react'
+
 interface SideBarProps {
   allPosts: PostMetadata[]
 }

@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { ReactNode, type JSX } from 'react'
 import Script from 'next/script'
 import { getPostMetadataBySlug } from 'lib/mdx'
 import { ParsedUrlQuery } from 'querystring'
@@ -16,13 +16,14 @@ interface Params extends ParsedUrlQuery {
 }
 
 interface LayoutPostProps {
-  params: Params
+  params: Promise<Params>
   children: ReactNode
 }
 
-export async function generateMetadata({
-  params,
-}: LayoutPostProps): Promise<Metadata> {
+export async function generateMetadata(
+  props: LayoutPostProps
+): Promise<Metadata> {
+  const params = await props.params
   const { slug } = params
   const { title, imageUrl, description, author, tags, date, videoUrl } =
     getPostMetadataBySlug(slug)
@@ -55,10 +56,13 @@ export async function generateMetadata({
   return metadata
 }
 
-export default function Layout({
-  children,
-  params,
-}: LayoutPostProps): JSX.Element {
+export default async function Layout(
+  props: LayoutPostProps
+): Promise<JSX.Element> {
+  const params = await props.params
+
+  const { children } = props
+
   const { title, imageUrl, author, date } = getPostMetadataBySlug(params.slug)
   return (
     <>

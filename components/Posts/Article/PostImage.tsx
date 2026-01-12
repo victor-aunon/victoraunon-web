@@ -1,5 +1,7 @@
 import { Lightbox } from 'components/Lightbox'
 
+import type { JSX } from 'react'
+
 interface PostImageProps {
   imageURL: string
   imageAlt: string

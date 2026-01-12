@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef } from 'react'
+import { useRef, type JSX } from 'react'
 import { CommentsBox } from 'components/CommentsBox'
 import MDContent from './MDContent'
 import { PostInfo } from './PostInfo'

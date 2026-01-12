@@ -1,6 +1,6 @@
 'use client'
 
-import { useContext, useMemo } from 'react'
+import { useContext, useMemo, type JSX } from 'react'
 import { useSearchParams, usePathname } from 'next/navigation'
 import { QueryContext } from 'contexts/QueryContext'
 import { PostCard, PostCardSimple } from './PostCard'

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, type JSX } from 'react'
 import { ResumeItem } from 'components/Resume'
 import type { ResumeItemProps } from 'types/ResumeItem'
 import styles from './ResumeList.module.scss'

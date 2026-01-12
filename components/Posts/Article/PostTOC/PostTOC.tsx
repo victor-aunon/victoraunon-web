@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type JSX } from 'react'
 import styles from './PostTOC.module.scss'
 
 const tagNames = ['H1', 'H2', 'H3', 'H4', 'H5', 'H6']

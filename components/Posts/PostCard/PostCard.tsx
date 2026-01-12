@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef, useContext } from 'react'
+import { useState, useEffect, useRef, useContext, type JSX } from 'react'
 import { QueryContext } from 'contexts/QueryContext'
 import Image from 'next/image'
 import Link from 'next/link'

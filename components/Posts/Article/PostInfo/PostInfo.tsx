@@ -2,6 +2,8 @@ import { FiClock } from 'react-icons/fi'
 import type { PostMetadata } from 'types/Post'
 import styles from './PostInfo.module.scss'
 
+import type { JSX } from 'react'
+
 interface PostInfoProps {
   author: PostMetadata['author']
   date: PostMetadata['date']

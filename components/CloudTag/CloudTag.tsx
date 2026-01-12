@@ -2,6 +2,8 @@ import Link from 'next/link'
 import type { PostMetadata } from 'types/Post'
 import styles from './CloudTag.module.scss'
 
+import type { JSX } from 'react'
+
 interface TagsMap {
   [key: string]: number
 }

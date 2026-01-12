@@ -3,6 +3,8 @@ import { Article } from 'components/Posts/Article'
 import type { ParsedUrlQuery } from 'querystring'
 import type { Post } from 'types/Post'
 
+import type { JSX } from 'react'
+
 async function getPost(slug: string): Promise<Post> {
   const post = await getPostBySlug(slug)
 
@@ -14,12 +16,13 @@ interface Params extends ParsedUrlQuery {
 }
 
 interface PostPageProps {
-  params: Params
+  params: Promise<Params>
 }
 
-export default async function PostPage({
-  params,
-}: PostPageProps): Promise<JSX.Element> {
+export default async function PostPage(
+  props: PostPageProps
+): Promise<JSX.Element> {
+  const params = await props.params
   const { slug } = params
   const { content, metadata } = await getPost(slug)
   const commentsBoxShortname = process.env.REACT_APP_DISQUS_SHORTNAME as string

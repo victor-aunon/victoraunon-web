@@ -2,6 +2,8 @@ import Link from 'next/link'
 import type { PostMetadata } from 'types/Post'
 import styles from './PostTags.module.scss'
 
+import type { JSX } from 'react'
+
 interface PostTagsProps {
   tags: PostMetadata['tags']
 }
