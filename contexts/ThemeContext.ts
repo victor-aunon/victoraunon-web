@@ -3,5 +3,5 @@ import type { Theme } from 'types/SiteConfig'
 
 export const ThemeContext = createContext({
   theme: 'dark' as Theme,
-  setTheme: (theme: Theme) => {},
+  setTheme: (_theme: Theme) => {},
 })

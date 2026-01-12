@@ -1,5 +1,5 @@
 import { getPostBySlug, getAllPostsSlug, GetAllPostsSlug } from 'lib/mdx'
-import { Article } from 'components/Posts/Article'
+import ClientArticle from './ClientArticle'
 import type { ParsedUrlQuery } from 'querystring'
 import type { Post } from 'types/Post'
 
@@ -26,7 +26,7 @@ export default async function PostPage(
   const { slug } = params
   const { content, metadata } = await getPost(slug)
   const commentsBoxShortname = process.env.REACT_APP_DISQUS_SHORTNAME as string
-  return <Article {...{ content, metadata, commentsBoxShortname }} />
+  return <ClientArticle {...{ content, metadata, commentsBoxShortname }} />
 }
 
 export function generateStaticParams(): GetAllPostsSlug[] {

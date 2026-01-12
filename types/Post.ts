@@ -3,7 +3,7 @@ import { MDXRemoteSerializeResult } from 'next-mdx-remote'
 export interface Post {
   content: MDXRemoteSerializeResult<
     Record<string, unknown>,
-    Record<string, string>
+    Record<string, unknown>
   >
   metadata: PostMetadata
 }

@@ -12,7 +12,7 @@ export default function ReadProgressBar({
   articleRef,
 }: ReadProgressBarProps): JSX.Element {
   const { scrollYProgress } = useScroll({
-    target: articleRef,
+    target: articleRef as RefObject<HTMLElement>,
   })
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 200,
