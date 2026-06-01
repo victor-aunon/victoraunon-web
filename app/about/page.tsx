@@ -9,7 +9,6 @@ import {
 } from 'app/commonMetadata'
 import type { Metadata } from 'next'
 import type { ResumeItemProps } from 'types/ResumeItem'
-import styles from './AboutMe.module.scss'
 
 import type { JSX } from 'react'
 
@@ -40,8 +39,8 @@ export default function AboutMe(): JSX.Element {
 
   return (
     <>
-      <section className={styles.aboutMeIntroduction}>
-        <div className={styles.aboutMeMainImage}>
+      <section className="flex flex-col md:flex-row gap-4 w-[95%] mx-auto mt-6 min-h-[350px]">
+        <div className="relative flex-none w-[350px] h-[350px] mx-auto">
           <AboutMeProfileImage />
         </div>
         <p>

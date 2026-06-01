@@ -1,6 +1,5 @@
 import { FiClock } from 'react-icons/fi'
 import type { PostMetadata } from 'types/Post'
-import styles from './PostInfo.module.scss'
 
 import type { JSX } from 'react'
 
@@ -19,8 +18,8 @@ export default function PostInfo(props: PostInfoProps): JSX.Element {
   }).format(new Date(date))
 
   return (
-    <div className={styles.postInfo}>
-      <span className={styles.readTime}>
+    <div className="flex flex-row justify-between items-baseline gap-1 mt-4 mb-2 text-zinc-400 px-1 py-1 rounded-lg shadow-sm">
+      <span className="flex flex-row items-center gap-1 text-2xl">
         <FiClock />
         {readTime}&apos;
       </span>

@@ -5,7 +5,6 @@ import { useSearchParams, usePathname } from 'next/navigation'
 import { QueryContext } from 'contexts/QueryContext'
 import { PostCard, PostCardSimple } from './PostCard'
 import type { PostMetadata } from 'types/Post'
-import styles from './PostsList.module.scss'
 
 interface PostsListProps {
   allPosts: PostMetadata[]
@@ -35,19 +34,22 @@ export default function PostsList({ allPosts }: PostsListProps): JSX.Element {
       {filteredPosts.length > 0 ? (
         <>
           {path === '/posts' && (
-            <h3 className={styles.postsListsQueryTitle}>
-              {`Posts ${tag !== null ? 'con el tag ' : ''}`}
-              {tag !== null ? <span>{tag}</span> : ''}
-              {`${query !== '' ? ' y que incluyen ' : ''}`}
-              {query !== '' ? <span>{query}</span> : ''}
+            <h3 className="text-sm text-zinc-400 mb-4">
+              {`Posts ${tag !== null ? 'con el tag ' : ' '}`}
+              {tag !== null ? (
+                <span className="text-zinc-100 font-semibold">{tag}</span>
+              ) : (
+                ' '
+              )}
+              {`${query !== '' ? ' y que incluyen ' : ' '}`}
+              {query !== '' ? (
+                <span className="text-zinc-100 font-semibold">{query}</span>
+              ) : (
+                ' '
+              )}
             </h3>
           )}
-          <ul
-            className={
-              path === '/posts' ? styles.postsListWithTag : styles.postsList
-            }
-            data-grid
-          >
+          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 list-none p-0">
             {path === '/posts'
               ? filteredPosts
                   .filter((post) => {
@@ -63,7 +65,7 @@ export default function PostsList({ allPosts }: PostsListProps): JSX.Element {
           </ul>
         </>
       ) : (
-        <div className={styles.noResults}>
+        <div className="text-center text-zinc-400 py-16">
           No hay posts que coincidan con tu búsqueda 🫂
         </div>
       )}

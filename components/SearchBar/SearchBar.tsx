@@ -3,17 +3,16 @@
 import { useContext, useState, type JSX } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 import { QueryContext } from 'contexts/QueryContext'
-import { IoIosCloseCircleOutline } from 'react-icons/io'
-import styles from './SearchBar.module.scss'
+import { Search, X } from 'lucide-react'
+import { Input } from 'components/ui/input'
 
 interface SearchBarProps {
   parent: 'sideBar' | 'main'
 }
 
 export default function SearchBar({ parent }: SearchBarProps): JSX.Element {
-  // If the parent is main, then the searchBar will be visible in mobile
-  // devices. Otherwise, if the parent is sideBar, it will be visible inside
-  // the sideBar in tablets and bigger devices
+  // If the parent is main, the searchBar is visible on mobile.
+  // If the parent is sideBar, it's visible inside the sidebar on tablets+.
 
   const router = useRouter()
   const path = usePathname()
@@ -29,34 +28,31 @@ export default function SearchBar({ parent }: SearchBarProps): JSX.Element {
     setQueryTimeout(newQueryTimeout)
   }
 
-  function clearSearch(): void {
-    setSearch('')
-    setQuery('')
-  }
-
   function handleSubmit(event: React.FormEvent<HTMLFormElement>): void {
     event.preventDefault()
     if (path !== '/posts') router.push('/')
   }
 
+  const containerClass =
+    parent === 'main'
+      ? 'flex items-center gap-2 w-full md:hidden'
+      : 'flex items-center gap-2 w-full hidden md:flex'
+
   return (
-    <div
-      className={
-        parent === 'main' ? styles.searchBarOnMain : styles.searchBarOnSideBar
-      }
-    >
-      <form onSubmit={handleSubmit}>
-        <input
-          type={'search'}
+    <div className={containerClass}>
+      <form onSubmit={handleSubmit} className="relative flex-1">
+        <Search
+          className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400 pointer-events-none"
+          size={16}
+        />
+        <Input
+          type="search"
           placeholder="Buscar posts"
-          className={styles.searchBarInput}
           value={search}
           onChange={handleChange}
+          className="pl-9 bg-zinc-900 border-zinc-700 text-zinc-100 placeholder:text-zinc-500 focus-visible:ring-zinc-600"
         />
       </form>
-      <button className={styles.searchBarDeleteButton} onClick={clearSearch}>
-        <IoIosCloseCircleOutline />
-      </button>
     </div>
   )
 }

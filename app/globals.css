@@ -1,0 +1,112 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: var(--font-open-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Clash Display', ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --radius: 0.5rem;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    border-color: hsl(var(--border));
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 50px;
+    color-scheme: dark;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100svh;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: var(--font-sans);
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  img,
+  picture,
+  video {
+    display: block;
+    max-width: 100%;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Clash Display', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    text-wrap: balance;
+    line-heigth: 1.2;
+    word-spacing: 0.45rem;
+    color: hsl(var(--foreground));
+  }
+
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4,
+  .prose h5,
+  .prose h6 {
+    font-family: 'Clash Display', sans-serif !important;
+    font-weight: 600 !important;
+    line-heigth: 1.2 !important;
+    letter-spacing: -0.04em !important;
+  }
+
+  .prose a {
+    text-decoration: none !important;
+  }
+
+  .prose pre {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}

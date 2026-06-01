@@ -2,15 +2,15 @@ import { useState } from 'react'
 
 interface UseLightBox {
   isLightboxVisible: boolean
-  showLightbox: VoidFunction
+  toggleLightbox: VoidFunction
 }
 
 export default function useLightbox(): UseLightBox {
   const [lightboxVisible, setLightboxVisible] = useState(false)
 
-  function showLightbox(): void {
+  function toggleLightbox(): void {
     return setLightboxVisible(!lightboxVisible)
   }
 
-  return { isLightboxVisible: lightboxVisible, showLightbox }
+  return { isLightboxVisible: lightboxVisible, toggleLightbox }
 }

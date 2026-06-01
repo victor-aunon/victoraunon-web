@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import type { PostMetadata } from 'types/Post'
-import styles from './CloudTag.module.scss'
+import { Badge } from 'components/ui/badge'
 
 import type { JSX } from 'react'
 
@@ -10,55 +10,38 @@ interface TagsMap {
 
 interface CloudTagProps {
   posts: PostMetadata[]
-  parent: 'sideBar' | 'main'
 }
 
-export default function CloudTag({
-  posts,
-  parent,
-}: CloudTagProps): JSX.Element {
-  const getFontSize = (count: number): string => {
-    if (count > 30) return 'large'
-    if (count > 20) return 'big'
-    if (count > 10) return 'normal'
-    return 'small'
-  }
-
-  // Calculate the number of tags and their repetitions across the posts
+export default function CloudTag({ posts }: CloudTagProps): JSX.Element {
+  // Calculate the number of occurrences of each tag across all posts
   const tags = posts.reduce<TagsMap>((tagsMap, post) => {
     post.tags.forEach((tag) => {
-      if (tag in tagsMap) {
-        tagsMap[tag] = tagsMap[tag] + 1
-      } else {
-        tagsMap[tag] = 1
-      }
+      tagsMap[tag] = (tagsMap[tag] ?? 0) + 1
     })
     return tagsMap
   }, {})
 
   return (
-    <div
-      className={
-        parent === 'main' ? styles.cloudTagOnMain : styles.cloudTagOnSideBar
-      }
-    >
-      <h2>Tags populares</h2>
-      {/* Sort the tags according to their frequency and take the first 20 tags */}
-      {Object.entries(tags)
-        .sort((tag1, tag2) => (tag2[1] > tag1[1] ? 1 : -1))
-        .slice(0, 20)
-        .map((tag) => {
-          const [tagName, count] = tag
-          return (
-            <span
-              key={tagName}
-              className={styles.tag}
-              data-font-size={getFontSize(count)}
-            >
-              <Link href={`/posts?tag=${tagName}`}>{tagName}</Link>
-            </span>
-          )
-        })}
+    <div className="mt-4">
+      <h2 className="text-lg font-semibold text-zinc-100 mb-3">
+        Tags populares
+      </h2>
+      <div className="flex flex-wrap gap-2 mt-4">
+        {/* Sort tags by frequency, take the top 20 */}
+        {Object.entries(tags)
+          .sort((a, b) => b[1] - a[1])
+          .slice(0, 20)
+          .map(([tagName]) => (
+            <Link key={tagName} href={`/posts?tag=${tagName}`}>
+              <Badge
+                variant="secondary"
+                className="cursor-pointer hover:bg-zinc-600 transition-colors text-zinc-200"
+              >
+                {tagName}
+              </Badge>
+            </Link>
+          ))}
+      </div>
     </div>
   )
 }

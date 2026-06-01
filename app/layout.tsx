@@ -1,9 +1,8 @@
-import 'styles/globals.scss'
+import './globals.css'
 import Script from 'next/script'
 import { getAllPostsMetadata } from 'lib/mdx'
 import Providers from './Providers'
-import BodyThemed from './BodyThemed'
-import { CloudTag } from 'components/CloudTag'
+import { openSans } from './fonts'
 import { CookieBanner } from 'components/Cookies'
 import { Footer } from 'components/Footer'
 import { Header } from 'components/Header'
@@ -14,14 +13,19 @@ import { commonMetadata, siteConfig } from './commonMetadata'
 import type { LayoutProps } from 'types/Layout'
 
 import type { JSX } from 'react'
+import type { Metadata } from 'next'
 
-export const metadata = commonMetadata
+export const metadata: Metadata = commonMetadata
 
 export default function RootLayout({ children }: LayoutProps): JSX.Element {
   const { siteImage, website } = siteConfig
   return (
-    <html lang="en">
+    <html lang="en" className={`dark ${openSans.variable}`}>
       <head>
+        <link
+          href="https://api.fontshare.com/v2/css?f[]=clash-display@1&amp;display=swap"
+          rel="stylesheet"
+        />
         {/* Meta tags that are not available in Next metadata */}
         <meta httpEquiv="X-UA-Compatible, refresh" content="IE=edge" />
         {/* <!-- Google business logo snippet --> */}
@@ -62,18 +66,19 @@ export default function RootLayout({ children }: LayoutProps): JSX.Element {
         />
       </head>
       <Providers>
-        <BodyThemed>
+        <body
+          className={`flex flex-col min-h-svh w-[90%] max-w-[1500px] mx-auto bg-zinc-950 text-zinc-100`}
+        >
           <Header />
           <SearchBar parent="main" />
-          <main className="main">
+          <main className="flex flex-col lg:flex-row gap-6 pb-12">
             <Social parent="main" />
-            <section className="content-section">{children}</section>
+            <section className="flex-1">{children}</section>
             <SideBar allPosts={getAllPostsMetadata()} />
           </main>
-          <CloudTag posts={getAllPostsMetadata()} parent="main" />
           <Footer />
           <CookieBanner />
-        </BodyThemed>
+        </body>
       </Providers>
     </html>
   )

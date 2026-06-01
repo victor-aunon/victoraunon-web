@@ -3,7 +3,6 @@
 import { useState, type JSX } from 'react'
 import { ResumeItem } from 'components/Resume'
 import type { ResumeItemProps } from 'types/ResumeItem'
-import styles from './ResumeList.module.scss'
 
 interface ResumeListProps {
   resumeItems: ResumeItemProps[]
@@ -22,12 +21,13 @@ export default function ResumeList({
 
   return (
     <>
-      <div className={styles.filterSelect}>
+      <div className="flex flex-row justify-end gap-4 my-6 font-semibold text-lg text-zinc-400">
         <label htmlFor="sort-resume-items">Filtrar elementos</label>
         <select
           name="sort-resume-items"
           id="sort-resume-items"
           onChange={handleSelectChange}
+          className="bg-zinc-900 border border-zinc-600 rounded px-2 py-1 text-zinc-200"
         >
           <option value="older">Antiguos primero</option>
           <option value="newer">Actuales primero</option>

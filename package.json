@@ -8,17 +8,24 @@
     "start": "next start",
     "lint": "eslint .",
     "prepare": "husky install",
+    "test": "jest",
     "test:form": "cypress run --component ./components/ContactForm.tsx"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.2.4",
+    "@tailwindcss/postcss": "^4.2.2",
+    "@tailwindcss/typography": "^0.5.19",
     "@types/node": "^20.0.0",
     "@types/react": "19.2.8",
     "@types/react-dom": "19.2.3",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "cookies-next": "^2.1.1",
     "disqus-react": "^1.1.5",
     "framer-motion": "^11.0.0",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.6.0",
+    "lucide-react": "^1.7.0",
     "next": "16.1.1",
     "next-mdx-remote": "^5.0.0",
     "react": "19.2.3",
@@ -29,6 +36,8 @@
     "rehype-highlight": "^7.0.0",
     "rehype-slug": "^6.0.0",
     "sharp": "^0.31.3",
+    "tailwind-merge": "^3.5.0",
+    "tailwindcss": "^4.0.0",
     "typescript": "^5.1.0"
   },
   "devDependencies": {
@@ -51,8 +60,7 @@
     "jest": "^29.3.1",
     "jest-environment-jsdom": "^29.3.1",
     "lint-staged": "^13.0.3",
-    "prettier": "^2.8.0",
-    "sass": "^1.56.1"
+    "prettier": "^2.8.0"
   },
   "lint-staged": {
     "{*.js,*.ts,*.jsx,*.tsx}": [

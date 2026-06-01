@@ -1,17 +1,10 @@
-import { Exo, Red_Hat_Display } from 'next/font/google'
+import { Open_Sans } from 'next/font/google'
 
-export const titlesFont = Exo({
-  weight: ['400', '600'],
-  subsets: ['latin-ext'],
+export const openSans = Open_Sans({
+  weight: ['400', '500', '600', '700'],
+  subsets: ['latin'],
   style: ['normal'],
-  fallback: ['arial', 'sans-serif'],
-  variable: '--titles-font',
-})
-
-export const contentFont = Red_Hat_Display({
-  weight: ['400', '600'],
-  subsets: ['latin-ext'],
-  style: ['normal'],
-  fallback: ['helvetica', 'sans-serif'],
-  variable: '--content-font',
+  fallback: ['ui-sans-serif', 'system-ui', 'sans-serif'],
+  variable: '--font-open-sans',
+  display: 'swap',
 })
