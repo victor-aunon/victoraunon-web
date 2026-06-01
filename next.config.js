@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  experimental: {
+    viewTransition: true,
+  },
   turbopack: {
     root: __dirname,
   },

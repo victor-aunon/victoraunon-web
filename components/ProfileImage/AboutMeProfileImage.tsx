@@ -1,17 +1,13 @@
 'use client'
 
-import { useContext, type JSX } from 'react'
+import { type JSX } from 'react'
 import Image from 'next/image'
-import { ThemeContext } from 'contexts/ThemeContext'
 
+// Dark mode is permanent — always use the lavanda variant
 export default function AboutMeProfileImage(): JSX.Element {
-  const { theme } = useContext(ThemeContext)
-
   return (
     <Image
-      src={`/images/aboutme/recorte_cuadrado_${
-        theme === 'dark' ? 'lavanda' : 'azul'
-      }.jpg`}
+      src="/images/aboutme/recorte_cuadrado_lavanda.jpg"
       alt={'Foto de Víctor Auñón'}
       fill={true}
       style={{

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import type { PostMetadata } from 'types/Post'
-import styles from './PostTags.module.scss'
+import { Badge } from 'components/ui/badge'
 
 import type { JSX } from 'react'
 
@@ -10,13 +10,20 @@ interface PostTagsProps {
 
 export default function PostTags({ tags }: PostTagsProps): JSX.Element {
   return (
-    <section className={styles.postTagsSection}>
-      <h3>Tags relacionados:</h3>
-      <div className={styles.tagsContainer}>
+    <section className="mt-10 pt-8 border-t border-zinc-800">
+      <h3 className="text-sm font-semibold uppercase tracking-widest text-zinc-400 mb-3">
+        Tags relacionados:
+      </h3>
+      <div className="flex flex-wrap gap-2">
         {tags.map((tag) => (
-          <div key={`postTag-${tag}`} className={styles.tag}>
-            <Link href={`/posts?tag=${tag}`}>{tag}</Link>
-          </div>
+          <Link key={`postTag-${tag}`} href={`/posts?tag=${tag}`}>
+            <Badge
+              variant="secondary"
+              className="cursor-pointer hover:bg-zinc-600 transition-colors text-zinc-200"
+            >
+              {tag}
+            </Badge>
+          </Link>
         ))}
       </div>
     </section>

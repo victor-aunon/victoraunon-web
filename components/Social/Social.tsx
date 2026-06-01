@@ -1,11 +1,11 @@
+'use client'
+
 import {
   FaLinkedin,
   FaInstagram,
   FaArrowCircleUp,
   FaGithub,
 } from 'react-icons/fa'
-import { ThemeSelector } from 'components/ThemeSelector'
-import styles from './Social.module.scss'
 
 import type { JSX } from 'react'
 
@@ -14,14 +14,17 @@ interface SocialProps {
 }
 
 export default function Social({ parent }: SocialProps): JSX.Element {
-  if (parent === 'main')
+  const linkClass =
+    'text-zinc-400 hover:text-zinc-100 transition-colors flex items-center justify-center'
+
+    if (parent === 'main')
     return (
-      <aside className={styles.socialOnMain}>
-        <ThemeSelector parent={parent} />
+      <aside className="hidden lg:flex flex-col gap-6 sticky top-40 self-start bg-zinc-900 rounded-2xl p-4 text-3xl">
         <a
           href="https://github.com/victor-aunon"
           target="_blank"
           rel="noreferrer"
+          className={linkClass}
         >
           <FaGithub />
         </a>
@@ -29,6 +32,7 @@ export default function Social({ parent }: SocialProps): JSX.Element {
           href="https://www.linkedin.com/in/angelaunon"
           target="_blank"
           rel="noreferrer"
+          className={linkClass}
         >
           <FaLinkedin />
         </a>
@@ -36,25 +40,26 @@ export default function Social({ parent }: SocialProps): JSX.Element {
           href="https://www.instagram.com/victor.aunon/"
           target="_blank"
           rel="noreferrer"
+          className={linkClass}
         >
           <FaInstagram />
         </a>
-        <a
-          href="#site-name"
-          className={styles.goUpButton}
-          data-go-up-text="Ir al principio"
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className={linkClass}
+          aria-label="Ir al principio"
         >
           <FaArrowCircleUp />
-        </a>
+        </button>
       </aside>
     )
   return (
-    <div className={styles.socialOnNav}>
-      <ThemeSelector parent={parent} />
+    <div className="flex flex-row justify-center gap-6 w-full py-3 text-2xl lg:hidden">
       <a
         href="https://github.com/victor-aunon"
         target="_blank"
         rel="noreferrer"
+        className={linkClass}
       >
         <FaGithub />
       </a>
@@ -62,6 +67,7 @@ export default function Social({ parent }: SocialProps): JSX.Element {
         href="https://www.linkedin.com/in/angelaunon"
         target="_blank"
         rel="noreferrer"
+        className={linkClass}
       >
         <FaLinkedin />
       </a>
@@ -69,6 +75,7 @@ export default function Social({ parent }: SocialProps): JSX.Element {
         href="https://www.instagram.com/victor.aunon/"
         target="_blank"
         rel="noreferrer"
+        className={linkClass}
       >
         <FaInstagram />
       </a>

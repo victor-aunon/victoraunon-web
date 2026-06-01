@@ -2,7 +2,6 @@
 
 import { RefObject, useEffect, useState, type JSX } from 'react'
 import { motion, useScroll, useSpring } from 'framer-motion'
-import styles from './ReadProgressBar.module.scss'
 
 interface ReadProgressBarProps {
   articleRef: RefObject<HTMLElement | null>
@@ -52,7 +51,7 @@ export default function ReadProgressBar({
 
   return (
     <motion.div
-      className={styles.progressBar}
+      className="fixed top-0 left-0 right-0 h-1 bg-indigo-500 origin-left z-50"
       style={{ scaleX, display: barDisplay }}
     ></motion.div>
   )
