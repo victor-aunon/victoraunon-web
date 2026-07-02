@@ -8,8 +8,8 @@ interface CookiesTableProps {
 
 export default function CookiesTable(props: CookiesTableProps): JSX.Element {
   return (
-    <table className="cookies-table">
-      <thead>
+    <table className="w-full my-4">
+      <thead className="text-indigo-400 text-xl font-semibold">
         <tr>
           <th>Cookie</th>
           <th>Finalidad</th>
@@ -25,11 +25,11 @@ export default function CookiesTable(props: CookiesTableProps): JSX.Element {
               : cookie.typeSlug
           )
           .map((cookie) => (
-            <tr key={cookie.name}>
-              <td>{cookie.name}</td>
-              <td>{cookie.description}</td>
-              <td>{cookie.persistence}</td>
-              <td>{cookie.type}</td>
+            <tr className="even:bg-gray-800" key={cookie.name}>
+              <td className="p-[0.5rem]">{cookie.name}</td>
+              <td className="p-[0.5rem]">{cookie.description}</td>
+              <td className="p-[0.5rem]">{cookie.persistence}</td>
+              <td className="p-[0.5rem]">{cookie.type}</td>
             </tr>
           ))}
       </tbody>

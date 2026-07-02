@@ -7,7 +7,7 @@ import type { Metadata } from 'next'
 
 import type { JSX } from 'react'
 
-const { holder, address, email, name, cif, website } = siteConfig
+const { holder, email, name, website } = siteConfig
 
 export const metadata: Metadata = {
   ...commonMetadata,
@@ -25,9 +25,9 @@ export const metadata: Metadata = {
 
 export default function Privacy(): JSX.Element {
   return (
-    <section className="legal-content">
-      <h1 className="legal-title">Política de Privacidad</h1>
-      <p>
+    <section className="mt-8">
+      <h1 className="text-4xl pb-1.5">Política de Privacidad</h1>
+      <p className="max-w-[65ch] text-pretty">
         <strong>{name}</strong> pone a su disposición a través de la página web
         https://{website} la presente política de privacidad con la finalidad de
         informarle, de forma detallada, sobre cómo tratamos sus datos personales
@@ -37,53 +37,48 @@ export default function Privacy(): JSX.Element {
         modo que pueda conocer las nuevas condiciones de privacidad
         introducidas.
       </p>
-      <p>
+      <p className="max-w-[65ch] text-pretty">
         En cumplimiento del Reglamento (UE) 2016/679, General de Protección de
         Datos y de la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de
         Datos Personales y garantía de los derechos digitales le informamos de
         lo siguiente:
       </p>
-      <ol>
-        <li>
-          <h2 className="legal-title">Datos identificativos</h2>
+
+      <ol className="py-4">
+        <li className="list-[square] ml-6 marker:text-2xl">
+          <h2 className="text-2xl">Datos identificativos</h2>
           <p>
             Titular: <strong>{holder}</strong>
-          </p>
-          <p>
-            CIF: <strong>{cif}</strong>
-          </p>
-          <p>
-            Domicilio: <strong>{address}</strong>
           </p>
           <p>
             Correo electrónico: <strong>{email}</strong>
           </p>
         </li>
-        <li>
-          <h2 className="legal-title">
+        <li className="list-[square] ml-6 marker:text-2xl">
+          <h2 className="text-2xl">
             ¿Con qué finalidad tratamos sus datos personales?
           </h2>
-          <p>
+          <p className="max-w-[65ch] text-pretty">
             En <strong>{name}</strong> recabamos y tratamos su información
             personal con carácter general para gestionar la relación que
             mantenemos con Ud. siendo las principales finalidades que tenemos
             identificadas las siguientes:
           </p>
           <ul>
-            <li>
-              <p>
+            <li className="list-disc marker:text-xl ml-6">
+              <p className="max-w-[65ch] text-pretty">
                 Gestión y contratación de los productos y servicios ofrecidos
                 por nuestra empresa.
               </p>
             </li>
-            <li>
-              <p>
+            <li className="list-disc marker:text-xl ml-6">
+              <p className="max-w-[65ch] text-pretty">
                 Canalizar las solicitudes de información, sugerencias y
                 reclamaciones que nos pueda hacer llegar.
               </p>
             </li>
-            <li>
-              <p>
+            <li className="list-disc marker:text-xl ml-6">
+              <p className="max-w-[65ch] text-pretty">
                 Mantenerle informado sobre eventos, ofertas, productos y
                 servicios que puedan resultar de su interés a través de
                 distintos canales de comunicación siempre y cuando Ud. haya
@@ -92,9 +87,9 @@ export default function Privacy(): JSX.Element {
             </li>
           </ul>
         </li>
-        <li>
-          <h2 className="legal-title">¿Cómo recabamos su información?</h2>
-          <p>
+        <li className="list-[square] ml-6 marker:text-2xl">
+          <h2 className="text-2xl">¿Cómo recabamos su información?</h2>
+          <p className="max-w-[65ch] text-pretty">
             Recabamos su información personal a través de diferentes medios,
             pero siempre será informado en el momento de la recogida mediante
             cláusulas informativas sobre el responsable del tratamiento, la
@@ -103,13 +98,13 @@ export default function Privacy(): JSX.Element {
             que puede ejercer los derechos que le asisten en materia de
             protección de datos.
           </p>
-          <p>
+          <p className="max-w-[65ch] text-pretty">
             En general, la información personal que tratamos se limita a datos
             identificativos (nombre y apellidos, fecha de nacimiento, domicilio,
             DNI, teléfono y correo electrónico), servicios contratados y datos
             de pago y facturación.
           </p>
-          <p>
+          <p className="max-w-[65ch] text-pretty">
             <strong>{name}</strong> utiliza redes sociales y esta es otra forma
             de llegar a usted. La información recogida a través de los mensajes
             y comunicaciones que publica puede contener información personal que
@@ -121,9 +116,9 @@ export default function Privacy(): JSX.Element {
             en que su información es recogida, tratada y compartida.
           </p>
         </li>
-        <li>
-          <h2 className="legal-title">Responsabilidad del usuario</h2>
-          <p>
+        <li className="list-[square] ml-6 marker:text-2xl">
+          <h2 className="text-2xl">Responsabilidad del usuario</h2>
+          <p className="max-w-[65ch] text-pretty">
             Al facilitarnos sus datos a través de canales electrónicos, el
             usuario garantiza que es mayor de 14 años y que los datos
             facilitados a <strong>{name}</strong> son verdaderos, exactos,
@@ -135,9 +130,9 @@ export default function Privacy(): JSX.Element {
             perjuicios, directos o indirectos, que pudieran derivarse.
           </p>
         </li>
-        <li>
-          <h2 className="legal-title">¿Cuánto conservamos su información?</h2>
-          <p>
+        <li className="list-[square] ml-6 marker:text-2xl">
+          <h2 className="text-2xl">¿Cuánto conservamos su información?</h2>
+          <p className="max-w-[65ch] text-pretty">
             En <strong>{name}</strong> sólo conservamos su información por el
             periodo de tiempo necesario para cumplir con la finalidad para la
             que fue recogida, dar cumplimiento a las obligaciones legales que
@@ -145,7 +140,7 @@ export default function Privacy(): JSX.Element {
             pudieran derivar del cumplimiento de la finalidad por la que los
             datos fueron recabados.{' '}
           </p>
-          <p>
+          <p className="max-w-[65ch] text-pretty">
             Si en algún momento hemos recogido sus datos para dirigirnos a usted
             como potencial usuario de nuestros servicios o dar respuesta a una
             solicitud de información realizada por su parte, dichos datos serán
@@ -153,7 +148,7 @@ export default function Privacy(): JSX.Element {
             eliminarse transcurrido dicho plazo si no se ha formalizado una
             relación contractual o en el momento en que así nos lo solicite.
           </p>
-          <p>
+          <p className="max-w-[65ch] text-pretty">
             En todo caso, y por regla general, mantendremos su información
             personal mientras exista una relación contractual que nos vincule o
             usted no ejerza su derecho de supresión y/o limitación del
@@ -163,34 +158,32 @@ export default function Privacy(): JSX.Element {
             tipo de responsabilidad que tuviera que ser atendida.
           </p>
         </li>
-        <li>
-          <h2 className="legal-title">¿A quién comunicamos sus datos?</h2>
-          <p>
+        <li className="list-[square] ml-6 marker:text-2xl">
+          <h2 className="text-2xl">¿A quién comunicamos sus datos?</h2>
+          <p className="max-w-[65ch] text-pretty">
             En general, en <strong>{name}</strong> no compartimos su información
             personal, salvo aquellas cesiones que debemos realizar en base a
             obligaciones legales impuestas.
           </p>
-          <p>
+          <p className="max-w-[65ch] text-pretty">
             Asimismo, su información personal estará a disposición de las
             Administraciones Públicas, Jueces y Tribunales, para la atención de
             posibles responsabilidades nacidas del tratamiento.
           </p>
         </li>
-        <li>
-          <h2 className="legal-title">
-            Transferencias internacionales de datos
-          </h2>
-          <p>
+        <li className="list-[square] ml-6 marker:text-2xl">
+          <h2 className="text-2xl">Transferencias internacionales de datos</h2>
+          <p className="max-w-[65ch] text-pretty">
             No existen transferencias internacionales de sus datos a países
             fuera del Espacio Económico Europeo (EEE).
           </p>
         </li>
-        <li>
-          <h2 className="legal-title">
+        <li className="list-[square] ml-6 marker:text-2xl">
+          <h2 className="text-2xl">
             ¿Cuáles son sus derechos con relación al tratamiento de sus datos y
             cómo puede ejercerlos?
           </h2>
-          <p>
+          <p className="max-w-[65ch] text-pretty">
             La normativa en materia de protección de datos permite que pueda
             ejercer sus derechos de acceso, rectificación, supresión y
             portabilidad de datos y oposición y limitación a su tratamiento, así
@@ -199,8 +192,8 @@ export default function Privacy(): JSX.Element {
           </p>
           <p>Estos derechos se caracterizan por lo siguiente:</p>
           <ul>
-            <li>
-              <p>
+            <li className="list-disc marker:text-xl ml-6">
+              <p className="max-w-[65ch] text-pretty">
                 Su ejercicio es gratuito, salvo que se trate de solicitudes
                 manifiestamente infundadas o excesivas (p. ej., carácter
                 repetitivo), en cuyo caso <strong>{name}</strong> podrá cobrar
@@ -208,21 +201,21 @@ export default function Privacy(): JSX.Element {
                 negarse a actuar
               </p>
             </li>
-            <li>
-              <p>
+            <li className="list-disc marker:text-xl ml-6">
+              <p className="max-w-[65ch] text-pretty">
                 Puede ejercer los derechos directamente o por medio de tu
                 representante legal o voluntario.
               </p>
             </li>
-            <li>
-              <p>
+            <li className="list-disc marker:text-xl ml-6">
+              <p className="max-w-[65ch] text-pretty">
                 Debemos responder a su solicitud en el plazo de un mes, aunque,
                 si se tiene en cuenta la complejidad y número de solicitudes, se
                 puede prorrogar el plazo en otros dos meses más.
               </p>
             </li>
-            <li>
-              <p>
+            <li className="list-disc marker:text-xl ml-6">
+              <p className="max-w-[65ch] text-pretty">
                 Tenemos la obligación de informarle sobre los medios para
                 ejercitar estos derechos, los cuales deben ser accesibles y sin
                 poder denegarle el ejercicio del derecho por el solo motivo de
@@ -231,8 +224,8 @@ export default function Privacy(): JSX.Element {
                 cuando sea posible, salvo que nos solicite que sea de otro modo.
               </p>
             </li>
-            <li>
-              <p>
+            <li className="list-disc marker:text-xl ml-6">
+              <p className="max-w-[65ch] text-pretty">
                 Si <strong>{name}</strong> no da curso a la solicitud, le
                 informará, a más tardar en un mes, de las razones de su no
                 actuación y la posibilidad de reclamar ante una Autoridad de
@@ -240,106 +233,113 @@ export default function Privacy(): JSX.Element {
               </p>
             </li>
           </ul>
-          <p>
+          <p className="max-w-[65ch] text-pretty">
             A fin de facilitar su ejercicio, le facilitamos los enlaces al
             formulario de solicitud de cada uno de los derechos:
           </p>
           <ul>
-            <li>
+            <li className="list-disc marker:text-xl ml-6">
               <a
                 href="https://www.aepd.es/media/formularios/formulario-derecho-de-acceso.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="font-semibold hover:underline"
               >
                 Formulario ejercicio del derecho de acceso
               </a>
             </li>
-            <li>
+            <li className="list-disc marker:text-xl ml-6">
               <a
                 href="https://www.aepd.es/media/formularios/formulario-derecho-de-rectificacion.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="font-semibold hover:underline"
               >
                 Formulario de ejercicio del derecho de rectificación
               </a>
             </li>
-            <li>
+            <li className="list-disc marker:text-xl ml-6">
               <a
                 href="https://www.aepd.es/media/formularios/formulario-derecho-de-oposicion.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="font-semibold hover:underline"
               >
                 Formulario de ejercicio del derecho de oposición
               </a>
             </li>
-            <li>
+            <li className="list-disc marker:text-xl ml-6">
               <a
                 href="https://www.aepd.es/media/formularios/formulario-derecho-de-supresion.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="font-semibold hover:underline"
               >
                 Formulario de ejercicio del derecho de supresión (derecho “al
                 olvido”)
               </a>
             </li>
-            <li>
+            <li className="list-disc marker:text-xl ml-6">
               <a
                 href="https://www.aepd.es/media/formularios/formulario-derecho-de-limitacion.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="font-semibold hover:underline"
               >
                 Formulario de ejercicio del derecho a la limitación del
                 tratamiento
               </a>
             </li>
-            <li>
+            <li className="list-disc marker:text-xl ml-6">
               <a
                 href="https://www.aepd.es/media/formularios/formulario-derecho-de-portabilidad.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="font-semibold hover:underline"
               >
                 Formulario de ejercicios del derecho a la portabilidad
               </a>
             </li>
-            <li>
+            <li className="list-disc marker:text-xl ml-6">
               <a
                 href="https://www.aepd.es/media/formularios/formulario-derecho-de-oposicion-decisiones-automatizadas.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="font-semibold hover:underline"
               >
                 Formulario de ejercicio a no ser objeto de decisiones
                 individuales automatizadas
               </a>
             </li>
           </ul>
-          <p>
+          <p className="max-w-[65ch] text-pretty">
             Para ejercer sus derechos <strong>{name}</strong> pone a su
             disposición los siguientes medios:
           </p>
           <ol>
-            <li>
-              <p>
+            <li className="list-disc marker:text-xl ml-6">
+              <p className="max-w-[65ch] text-pretty">
                 Mediante solicitud escrita y firmada dirigida a{' '}
-                <strong>{holder}</strong>, {address}. Ref. Ejercicio de Derechos
+                <strong>{holder}</strong>, {email}. Ref. Ejercicio de Derechos
                 LOPD.
               </p>
             </li>
-            <li>
-              <p>
+            <li className="list-disc marker:text-xl ml-6">
+              <p className="max-w-[65ch] text-pretty">
                 Enviando formulario escaneado y firmado a la dirección de correo
                 electrónico {email} indicando en el asunto Ejercicio de Derechos
                 LOPD
               </p>
             </li>
           </ol>
-          <p>
+          <p className="max-w-[65ch] text-pretty">
             En ambos casos, deberá acreditar su identidad acompañando fotocopia
             o en su caso, copia escaneada, de su DNI o documento equivalente
             para poder verificar que sólo damos respuesta al interesado o su
             representante legal, debiendo aportar en este caso documento
             acreditativo de la representación.
           </p>
-          <p>
+          <p className="max-w-[65ch] text-pretty">
             Asimismo, y especialmente si considera que no ha obtenido
             satisfacción plena en el ejercicio de sus derechos, le informamos
             que podrá presentar una reclamación ante la autoridad nacional de
@@ -347,28 +347,28 @@ export default function Privacy(): JSX.Element {
             Protección de Datos, C/ Jorge Juan, 6 – 28001 Madrid.
           </p>
         </li>
-        <li>
-          <h2 className="legal-title">¿Cómo protegemos su información</h2>
-          <p>
+        <li className="list-[square] ml-6 marker:text-2xl">
+          <h2 className="text-2xl">¿Cómo protegemos su información</h2>
+          <p className="max-w-[65ch] text-pretty">
             En <strong>{name}</strong> nos comprometemos a proteger su
             información personal.
           </p>
-          <p>
+          <p className="max-w-[65ch] text-pretty">
             Utilizamos medidas, controles y procedimientos de carácter físico,
             organizativo y tecnológico, razonablemente fiables y efectivos,
             orientados a preservar la integridad y la seguridad de sus datos y
             garantizar su privacidad.
           </p>
-          <p>
+          <p className="max-w-[65ch] text-pretty">
             Además, todo el personal con acceso a los datos personales ha sido
             formado y tiene conocimiento de sus obligaciones con relación a los
             tratamientos de sus datos personales.
           </p>
-          <p>
+          <p className="max-w-[65ch] text-pretty">
             Todas estas medidas de seguridad son revisadas de forma periódica
             para garantizar su adecuación y efectividad.
           </p>
-          <p>
+          <p className="max-w-[65ch] text-pretty">
             Sin embargo, la seguridad absoluta no se puede garantizar y no
             existe ningún sistema de seguridad que sea impenetrable por lo que,
             en el caso de cualquier información objeto de tratamiento y bajo
