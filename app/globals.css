@@ -109,4 +109,14 @@
     margin: 0 !important;
     padding: 0 !important;
   }
+
+  li {
+    list-style: none;
+    max-width: 65ch;
+    text-wrap: pretty;
+
+    a {
+      display: block;
+    }
+  }
 }

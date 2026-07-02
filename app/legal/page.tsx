@@ -7,7 +7,7 @@ import type { Metadata } from 'next'
 
 import type { JSX } from 'react'
 
-const { holder, address, email, name, cif, website } = siteConfig
+const { holder, email, name, website } = siteConfig
 
 export const metadata: Metadata = {
   ...commonMetadata,
@@ -25,12 +25,12 @@ export const metadata: Metadata = {
 
 export default function Legal(): JSX.Element {
   return (
-    <section className="legal-content">
-      <h1 className="legal-title">Aviso legal</h1>
-      <h2 className="legal-title">
+    <section className="mt-8">
+      <h1 className="text-4xl pb-1.5">Aviso legal</h1>
+      <h2 className="text-2xl">
         LEY DE LOS SERVICIOS DE LA SOCIEDAD DE LA INFORMACIÓN (LSSI)
       </h2>
-      <p>
+      <p className="max-w-[65ch] text-pretty">
         <strong>{name}</strong>, responsable del sitio web, en adelante Titular,
         pone a disposición de los usuarios el presente documento, con el que
         pretende dar cumplimiento a las obligaciones dispuestas en la Ley
@@ -38,13 +38,13 @@ export default function Legal(): JSX.Element {
         del Comercio Electrónico (LSSICE), así como informar a todos los
         usuarios del sitio web respecto a cuáles son las condiciones de uso.
       </p>
-      <p>
+      <p className="max-w-[65ch] text-pretty">
         Toda persona que acceda a este sitio web asume el papel de usuario,
         comprometiéndose a la observancia y cumplimiento riguroso de las
         disposiciones aquí dispuestas, así como a cualquier otra disposición
         legal que fuera de aplicación.
       </p>
-      <p>
+      <p className="max-w-[65ch] text-pretty">
         <strong>{name}</strong> se reserva el derecho de modificar cualquier
         tipo de información que pudiera aparecer en el sitio web, sin que exista
         obligación de preavisar o poner en conocimiento de los usuarios dichas
@@ -52,32 +52,26 @@ export default function Legal(): JSX.Element {
         sitio web de <strong>{website}</strong>.
       </p>
 
-      <ol>
-        <li>
-          <h2 className="legal-title">Datos identificativos</h2>
+      <ol className="py-4">
+        <li className="list-[square] ml-6 marker:text-2xl">
+          <h2 className="text-2xl">Datos identificativos</h2>
           <p>
             Titular: <strong>{holder}</strong>
-          </p>
-          <p>
-            CIF: <strong>{cif}</strong>
-          </p>
-          <p>
-            Domicilio: <strong>{address}</strong>
           </p>
           <p>
             Correo electrónico: <strong>{email}</strong>
           </p>
         </li>
-        <li>
-          <h2 className="legal-title">Objeto</h2>
-          <p>
+        <li className="list-[square] ml-6 marker:text-2xl">
+          <h2 className="text-2xl">Objeto</h2>
+          <p className="max-w-[65ch] text-pretty">
             A través del Sitio Web, les ofrecemos a los Usuarios la posibilidad
             de acceder a la información sobre nuestros servicios.
           </p>
         </li>
-        <li>
-          <h2 className="legal-title">Privacidad y tratamiento de datos</h2>
-          <p>
+        <li className="list-[square] ml-6 marker:text-2xl">
+          <h2 className="text-2xl">Privacidad y tratamiento de datos</h2>
+          <p className="max-w-[65ch] text-pretty">
             Cuando para el acceso a determinados contenidos o servicio sea
             necesario facilitar datos de carácter personal, los Usuarios
             garantizarán su veracidad, exactitud, autenticidad y vigencia. El
@@ -86,9 +80,9 @@ export default function Legal(): JSX.Element {
             indicados en la sección de <strong>Política de Privacidad</strong>.
           </p>
         </li>
-        <li>
-          <h2 className="legal-title">Propiedad industrial e intelectual</h2>
-          <p>
+        <li className="list-[square] ml-6 marker:text-2xl">
+          <h2 className="text-2xl">Propiedad industrial e intelectual</h2>
+          <p className="max-w-[65ch] text-pretty">
             El Usuario reconoce y acepta que todos los contenidos que se
             muestran en el Sitio Web y en especial, diseños, textos, imágenes,
             logos, iconos, botones, software, nombres comerciales, marcas, o
@@ -115,7 +109,7 @@ export default function Legal(): JSX.Element {
             autorización específicamente otorgada a tal efecto por el Titular o
             el tercero titular de los derechos afectados.
           </p>
-          <p>
+          <p className="max-w-[65ch] text-pretty">
             Los contenidos, textos, fotografías, diseños, logotipos, imágenes,
             programas de ordenador, códigos fuente y, en general, cualquier
             creación intelectual existente en este Sitio Web, así como el propio
@@ -132,7 +126,7 @@ export default function Legal(): JSX.Element {
             ninguna forma ni en ningún medio, a menos que se cuente con la
             autorización previa, por escrito, de la citada Entidad.
           </p>
-          <p>
+          <p className="max-w-[65ch] text-pretty">
             Asimismo, queda prohibido suprimir, eludir y/o manipular el
             «copyright» así como los dispositivos técnicos de protección, o
             cualesquiera mecanismos de información que pudieren contener los
@@ -143,14 +137,14 @@ export default function Legal(): JSX.Element {
             legítimos derechos de propiedad intelectual e industrial.
           </p>
         </li>
-        <li>
-          <h2 className="legal-title">
+        <li className="list-[square] ml-6 marker:text-2xl">
+          <h2 className="text-2xl">
             Obligaciones y responsabilidades del usuario del Sitio Web
           </h2>
           <p>El Usuario se compromete a:</p>
           <ol>
-            <li>
-              <p>
+            <li className="list-disc marker:text-xl ml-6">
+              <p className="max-w-[65ch] text-pretty">
                 Hacer un uso adecuado y lícito del Sitio Web, así como de los
                 contenidos y servicios, de conformidad con: (i) la legislación
                 aplicable en cada momento; (ii) las Condiciones Generales de Uso
@@ -158,14 +152,14 @@ export default function Legal(): JSX.Element {
                 aceptadas y (iv) el orden público.
               </p>
             </li>
-            <li>
-              <p>
+            <li className="list-disc marker:text-xl ml-6">
+              <p className="max-w-[65ch] text-pretty">
                 Proveerse de todos los medios y requerimientos técnicos que se
                 precisen para acceder al Sitio Web.
               </p>
             </li>
-            <li>
-              <p>
+            <li className="list-disc marker:text-xl ml-6">
+              <p className="max-w-[65ch] text-pretty">
                 Facilitar información veraz al cumplimentar con sus datos de
                 carácter personal los formularios contenidos en el Sitio Web y a
                 mantenerlos actualizados en todo momento de forma que responda,
@@ -181,8 +175,8 @@ export default function Legal(): JSX.Element {
             deberá asimismo abstenerse de:
           </p>
           <ol>
-            <li>
-              <p>
+            <li className="list-disc marker:text-xl ml-6">
+              <p className="max-w-[65ch] text-pretty">
                 Hacer un uso no autorizado o fraudulento del Sitio Web y/o de
                 los contenidos con fines o efectos ilícitos, prohibidos en las
                 presentes Condiciones Generales de Uso, lesivos de los derechos
@@ -192,35 +186,35 @@ export default function Legal(): JSX.Element {
                 clase de contenidos almacenados en cualquier equipo informático.
               </p>
             </li>
-            <li>
-              <p>
+            <li className="list-disc marker:text-xl ml-6">
+              <p className="max-w-[65ch] text-pretty">
                 Acceder o intentar acceder a recursos o áreas restringidas del
                 Sitio Web, sin cumplir las condiciones exigidas para dicho
                 acceso.
               </p>
             </li>
-            <li>
-              <p>
+            <li className="list-disc marker:text-xl ml-6">
+              <p className="max-w-[65ch] text-pretty">
                 Provocar daños en los sistemas físicos o lógicos del Sitio Web,
                 de sus proveedores o de terceros.
               </p>
             </li>
-            <li>
-              <p>
+            <li className="list-disc marker:text-xl ml-6">
+              <p className="max-w-[65ch] text-pretty">
                 Introducir o difundir en la red virus informáticos o
                 cualesquiera otros sistemas físicos o lógicos que sean
                 susceptibles de provocar daños en los sistemas físicos o lógicos
                 del Titular, proveedores o de terceros.
               </p>
             </li>
-            <li>
-              <p>
+            <li className="list-disc marker:text-xl ml-6">
+              <p className="max-w-[65ch] text-pretty">
                 Intentar acceder, utilizar y/o manipular los datos del Titular,
                 terceros proveedores y otros Usuarios.
               </p>
             </li>
-            <li>
-              <p>
+            <li className="list-disc marker:text-xl ml-6">
+              <p className="max-w-[65ch] text-pretty">
                 Reproducir o copiar, distribuir, permitir el acceso del público
                 a través de cualquier modalidad de comunicación pública,
                 transformar o modificar los contenidos, a menos que se cuente
@@ -228,8 +222,8 @@ export default function Legal(): JSX.Element {
                 o ello resulte legalmente permitido.
               </p>
             </li>
-            <li>
-              <p>
+            <li className="list-disc marker:text-xl ml-6">
+              <p className="max-w-[65ch] text-pretty">
                 Suprimir, ocultar o manipular las notas sobre derechos de
                 propiedad intelectual o industrial y demás datos identificativos
                 de los derechos del Titular o de terceros incorporados a los
@@ -238,8 +232,8 @@ export default function Legal(): JSX.Element {
                 los contenidos.
               </p>
             </li>
-            <li>
-              <p>
+            <li className="list-disc marker:text-xl ml-6">
+              <p className="max-w-[65ch] text-pretty">
                 Obtener e intentar obtener los contenidos empleando para ello
                 medios o procedimientos distintos de los que, según los casos,
                 se hayan puesto a su disposición a este efecto o se hayan
@@ -249,8 +243,8 @@ export default function Legal(): JSX.Element {
                 Sitio web y/o de los contenidos.
               </p>
             </li>
-            <li>
-              <p>
+            <li className="list-disc marker:text-xl ml-6">
+              <p className="max-w-[65ch] text-pretty">
                 En particular, y a título meramente indicativo y no exhaustivo,
                 el Usuario se compromete a no transmitir, difundir o poner a
                 disposición de terceros informaciones, datos, contenidos,
@@ -259,31 +253,31 @@ export default function Legal(): JSX.Element {
                 clase de material que:
               </p>
               <ul>
-                <li>
-                  <p>
+                <li className="list-disc marker:text-xl ml-6">
+                  <p className="max-w-[65ch] text-pretty">
                     De cualquier forma, sea contrario, menosprecie o atente
                     contra los derechos fundamentales y las libertades públicas
                     reconocidas constitucionalmente, en los Tratados
                     Internacionales y en el resto de la legislación vigente.
                   </p>
                 </li>
-                <li>
-                  <p>
+                <li className="list-disc marker:text-xl ml-6">
+                  <p className="max-w-[65ch] text-pretty">
                     Induzca, incite o promueva actuaciones delictivas,
                     denigratorias, difamatorias, violentas o, en general,
                     contrarias a la ley, a la moral, a las buenas costumbres
                     generalmente aceptadas o al orden público.
                   </p>
                 </li>
-                <li>
-                  <p>
+                <li className="list-disc marker:text-xl ml-6">
+                  <p className="max-w-[65ch] text-pretty">
                     Induzca, incite o promueva actuaciones, actitudes o
                     pensamientos discriminatorios por razón de sexo, raza,
                     religión, creencias, edad o condición.
                   </p>
                 </li>
-                <li>
-                  <p>
+                <li className="list-disc marker:text-xl ml-6">
+                  <p className="max-w-[65ch] text-pretty">
                     Incorpore, ponga a disposición o permita acceder a
                     productos, elementos, mensajes y/o servicios delictivos,
                     violentos, ofensivos, nocivos, degradantes o, en general,
@@ -291,37 +285,37 @@ export default function Legal(): JSX.Element {
                     generalmente aceptadas o al orden público.
                   </p>
                 </li>
-                <li>
-                  <p>
+                <li className="list-disc marker:text-xl ml-6">
+                  <p className="max-w-[65ch] text-pretty">
                     Induzca o pueda inducir a un estado inaceptable de ansiedad
                     o temor.
                   </p>
                 </li>
-                <li>
-                  <p>
+                <li className="list-disc marker:text-xl ml-6">
+                  <p className="max-w-[65ch] text-pretty">
                     Induzca o incite a involucrarse en prácticas peligrosas, de
                     riesgo o nocivas para la salud y el equilibrio psíquico.
                   </p>
                 </li>
-                <li>
-                  <p>
+                <li className="list-disc marker:text-xl ml-6">
+                  <p className="max-w-[65ch] text-pretty">
                     Se encuentra protegido por la legislación en materia de
                     protección intelectual o industrial perteneciente al Titular
                     o a terceros sin que haya sido autorizado el uso que se
                     pretenda realizar.
                   </p>
                 </li>
-                <li>
-                  <p>
+                <li className="list-disc marker:text-xl ml-6">
+                  <p className="max-w-[65ch] text-pretty">
                     Sea contrario al honor, a la intimidad personal y familiar o
                     a la propia imagen de las personas.
                   </p>
                 </li>
-                <li>
+                <li className="list-disc marker:text-xl ml-6">
                   <p>Constituya cualquier tipo de publicidad.</p>
                 </li>
-                <li>
-                  <p>
+                <li className="list-disc marker:text-xl ml-6">
+                  <p className="max-w-[65ch] text-pretty">
                     Incluya cualquier tipo de virus o programa que impida el
                     normal funcionamiento del Sitio Web.
                   </p>
@@ -329,7 +323,7 @@ export default function Legal(): JSX.Element {
               </ul>
             </li>
           </ol>
-          <p>
+          <p className="max-w-[65ch] text-pretty">
             Si para acceder a algunos de los servicios y/o contenidos del Sitio
             Web, se le proporcionara una contraseña, se obliga a usarla de
             manera diligente, manteniéndola en todo momento en secreto. En
@@ -352,9 +346,9 @@ export default function Legal(): JSX.Element {
             Titular.
           </p>
         </li>
-        <li>
-          <h2 className="legal-title">Responsabilidades</h2>
-          <p>
+        <li className="list-[square] ml-6 marker:text-2xl">
+          <h2 className="text-2xl">Responsabilidades</h2>
+          <p className="max-w-[65ch] text-pretty">
             No se garantiza el acceso continuado, ni la correcta visualización,
             descarga o utilidad de los elementos e informaciones contenidas en
             la web que puedan verse impedidos, dificultados o interrumpidos por
@@ -362,7 +356,7 @@ export default function Legal(): JSX.Element {
             responsable de las decisiones que pudieran adoptarse como
             consecuencia del acceso a los contenidos o informaciones ofrecidas.
           </p>
-          <p>
+          <p className="max-w-[65ch] text-pretty">
             Se podrá interrumpir el servicio, o resolver de modo inmediato la
             relación con el Usuario, si se detecta que un uso de su Sitio Web, o
             de cualquiera de los servicios ofertados en el mismo, es contrario a
@@ -370,15 +364,15 @@ export default function Legal(): JSX.Element {
             responsable por daños, perjuicios, pérdidas, reclamaciones o gastos
             derivados del uso del Sitio Web.
           </p>
-          <p>
+          <p className="max-w-[65ch] text-pretty">
             Únicamente será responsable de eliminar, lo antes posible, los
             contenidos que puedan generar tales perjuicios, siempre que así se
             notifique. En especial no seremos responsables de los perjuicios que
             se pudieran derivar, entre otros, de:
           </p>
           <ol>
-            <li>
-              <p>
+            <li className="list-disc marker:text-xl ml-6">
+              <p className="max-w-[65ch] text-pretty">
                 Interferencias, interrupciones, fallos, omisiones, averías
                 telefónicas, retrasos, bloqueos o desconexiones en el
                 funcionamiento del sistema electrónico, motivadas por
@@ -387,18 +381,18 @@ export default function Legal(): JSX.Element {
                 del Titular.{' '}
               </p>
             </li>
-            <li>
-              <p>
+            <li className="list-disc marker:text-xl ml-6">
+              <p className="max-w-[65ch] text-pretty">
                 Intromisiones ilegítimas mediante el uso de programas malignos
                 de cualquier tipo y a través de cualquier medio de comunicación,
                 tales como virus informáticos o cualesquiera otros.
               </p>
             </li>
-            <li>
+            <li className="list-disc marker:text-xl ml-6">
               <p>Abuso indebido o inadecuado del Sitio Web.</p>
             </li>
-            <li>
-              <p>
+            <li className="list-disc marker:text-xl ml-6">
+              <p className="max-w-[65ch] text-pretty">
                 Errores de seguridad o navegación producidos por un mal
                 funcionamiento del navegador o por el uso de versiones no
                 actualizadas del mismo. El administrador del Sitio web se
@@ -407,7 +401,7 @@ export default function Legal(): JSX.Element {
               </p>
             </li>
           </ol>
-          <p>
+          <p className="max-w-[65ch] text-pretty">
             El Titular declina cualquier responsabilidad por los daños y
             perjuicios de toda naturaleza que pudieran deberse a la mala
             utilización de los servicios de libre disposición y uso por parte de
@@ -419,7 +413,7 @@ export default function Legal(): JSX.Element {
             perjuicios por un uso ilícito o incorrecto de dichos servicios,
             podrá ser el Usuario reclamado por los daños o perjuicios causados.
           </p>
-          <p>
+          <p className="max-w-[65ch] text-pretty">
             Usted mantendrá al Titular indemne frente a cualesquiera daños y
             perjuicios que se deriven de reclamaciones, acciones o demandas de
             terceros como consecuencia de su acceso o uso del Sitio Web.
@@ -431,15 +425,15 @@ export default function Legal(): JSX.Element {
             Sitio Web.
           </p>
         </li>
-        <li>
-          <h2 className="legal-title">Hipervínculos</h2>
-          <p>
+        <li className="list-[square] ml-6 marker:text-2xl">
+          <h2 className="text-2xl">Hipervínculos</h2>
+          <p className="max-w-[65ch] text-pretty">
             El Usuario se obliga a no reproducir de ningún modo, ni siquiera
             mediante un hiperenlace o hipervínculo, el Sitio Web, así como
             ninguno de sus contenidos, salvo autorización expresa y por escrito
             del responsable del fichero.
           </p>
-          <p>
+          <p className="max-w-[65ch] text-pretty">
             El Sitio Web puede incluir enlaces a otros sitios web, gestionados
             por terceros, con objeto de facilitar el acceso del Usuario a la
             información de empresas colaboradoras y/o patrocinadoras. Conforme
@@ -448,7 +442,7 @@ export default function Legal(): JSX.Element {
             ofertante de los servicios y/o información que se puedan ofrecer a
             terceros a través de los enlaces de terceros.
           </p>
-          <p>
+          <p className="max-w-[65ch] text-pretty">
             Se concede al Usuario un derecho limitado, revocable y no exclusivo
             a crear enlaces a la página principal del Sitio Web exclusivamente
             para uso privado y no comercial. Los sitios web que incluyan enlace
@@ -468,15 +462,15 @@ export default function Legal(): JSX.Element {
             Sitio Web, después de lo cual deberá proceder de inmediato a su
             eliminación.
           </p>
-          <p>
+          <p className="max-w-[65ch] text-pretty">
             El Titular del Sitio Web no puede controlar la información,
             contenidos, productos o servicios facilitados por otros sitios web
             que tengan establecidos enlaces con destino al Sitio Web.
           </p>
         </li>
-        <li>
-          <h2 className="legal-title">Protección de datos</h2>
-          <p>
+        <li className="list-[square] ml-6 marker:text-2xl">
+          <h2 className="text-2xl">Protección de datos</h2>
+          <p className="max-w-[65ch] text-pretty">
             Para utilizar algunos de los Servicios, el Usuario debe proporcionar
             previamente ciertos datos de carácter personal. El Titular tratará
             de manera automatizada estos datos y aplicará las correspondientes
@@ -487,19 +481,19 @@ export default function Legal(): JSX.Element {
             definidas en la <strong>Política de Privacidad</strong>.
           </p>
         </li>
-        <li>
-          <h2 className="legal-title">Cookies</h2>
-          <p>
+        <li className="list-[square] ml-6 marker:text-2xl">
+          <h2 className="text-2xl">Cookies</h2>
+          <p className="max-w-[65ch] text-pretty">
             El Titular se reserva el derecho de utilizar la tecnología “cookie”
             en el Sitio Web, a fin de reconocerlo como Usuario frecuente y
             personalizar el uso que realice del Sitio Web mediante la
             preselección de su idioma, o contenidos más deseados o específicos.
           </p>
-          <p>
+          <p className="max-w-[65ch] text-pretty">
             Las cookies recopilan la dirección IP del usuario siendo Google el
             responsable del tratamiento de esta información.
           </p>
-          <p>
+          <p className="max-w-[65ch] text-pretty">
             Las cookies son ficheros enviados a un navegador, por medio de un
             servidor Web, para registrar la navegación del Usuario en el Sitio
             Web, cuando el Usuario permita su recepción. Si usted lo desea puede
@@ -508,7 +502,7 @@ export default function Legal(): JSX.Element {
             duro. Por favor consulte las instrucciones y manuales de su
             navegador para ampliar esta información.
           </p>
-          <p>
+          <p className="max-w-[65ch] text-pretty">
             Gracias a las cookies, resulta posible que se pueda reconocer el
             navegador del ordenador utilizado por el Usuario con la finalidad de
             facilitar contenidos y ofrecer las preferencias de navegación u
@@ -517,9 +511,9 @@ export default function Legal(): JSX.Element {
             controlar el progreso y número de entradas.
           </p>
         </li>
-        <li>
-          <h2 className="legal-title">Declaraciones y garantías</h2>
-          <p>
+        <li className="list-[square] ml-6 marker:text-2xl">
+          <h2 className="text-2xl">Declaraciones y garantías</h2>
+          <p className="max-w-[65ch] text-pretty">
             En general, los contenidos y servicios ofrecidos en el Sitio Web
             tienen carácter meramente informativo. Por consiguiente, al
             ofrecerlos, no se otorga garantía ni declaración alguna en relación
@@ -530,9 +524,9 @@ export default function Legal(): JSX.Element {
             garantías.
           </p>
         </li>
-        <li>
-          <h2 className="legal-title">Fuerza mayor</h2>
-          <p>
+        <li className="list-[square] ml-6 marker:text-2xl">
+          <h2 className="text-2xl">Fuerza mayor</h2>
+          <p className="max-w-[65ch] text-pretty">
             El Titular no será responsable en todo en caso de imposibilidad de
             prestar servicio, si ésta se debe a interrupciones prolongadas del
             suministro eléctrico, líneas de telecomunicaciones, conflictos
@@ -541,18 +535,18 @@ export default function Legal(): JSX.Element {
             mayor o de caso fortuito.
           </p>
         </li>
-        <li>
-          <h2 className="legal-title">
+        <li className="list-[square] ml-6 marker:text-2xl">
+          <h2 className="text-2xl">
             Resolución de controversias. Ley aplicable y jurisdicción
           </h2>
-          <p>
+          <p className="max-w-[65ch] text-pretty">
             Las presentes Condiciones Generales de Uso, así como el uso del
             Sitio Web, se regirán por la legislación española. Para la
             resolución de cualquier controversia las partes se someterán a los
             Juzgados y Tribunales del domicilio social del Titular del Sitio
             Web.
           </p>
-          <p>
+          <p className="max-w-[65ch] text-pretty">
             En el supuesto de que cualquier estipulación de las presentes
             Condiciones Generales de Uso resultara inexigible o nula en virtud
             de la legislación aplicable o como consecuencia de una resolución
