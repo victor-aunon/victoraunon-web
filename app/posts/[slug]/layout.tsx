@@ -26,7 +26,7 @@ export async function generateMetadata(
   const params = await props.params
   const { slug } = params
   const { title, imageUrl, description, author, tags, date, videoUrl } =
-    getPostMetadataBySlug(slug)
+    await getPostMetadataBySlug(slug)
 
   const metadata: Metadata = {
     ...commonMetadata,
@@ -63,7 +63,9 @@ export default async function Layout(
 
   const { children } = props
 
-  const { title, imageUrl, author, date } = getPostMetadataBySlug(params.slug)
+  const { title, imageUrl, author, date } = await getPostMetadataBySlug(
+    params.slug
+  )
   return (
     <>
       {/* <!-- Article rich snippet --> */}

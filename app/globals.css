@@ -84,7 +84,7 @@
     font-weight: 600;
     letter-spacing: -0.04em;
     text-wrap: balance;
-    line-heigth: 1.2;
+    line-height: 1.2;
     word-spacing: 0.45rem;
     color: hsl(var(--foreground));
   }
@@ -97,7 +97,7 @@
   .prose h6 {
     font-family: 'Clash Display', sans-serif !important;
     font-weight: 600 !important;
-    line-heigth: 1.2 !important;
+    line-height: 1.2 !important;
     letter-spacing: -0.04em !important;
   }
 

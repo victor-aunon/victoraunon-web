@@ -17,8 +17,12 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = commonMetadata
 
-export default function RootLayout({ children }: LayoutProps): JSX.Element {
+export default async function RootLayout({
+  children,
+}: LayoutProps): Promise<JSX.Element> {
+  const allPosts = await getAllPostsMetadata()
   const { siteImage, website } = siteConfig
+
   return (
     <html lang="en" className={`dark ${openSans.variable}`}>
       <head>
@@ -74,7 +78,7 @@ export default function RootLayout({ children }: LayoutProps): JSX.Element {
           <main className="flex flex-col lg:flex-row gap-6 pb-12">
             <Social parent="main" />
             <section className="flex-1">{children}</section>
-            <SideBar allPosts={getAllPostsMetadata()} />
+            <SideBar allPosts={allPosts} />
           </main>
           <Footer />
           <CookieBanner />

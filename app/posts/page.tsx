@@ -23,10 +23,11 @@ export const metadata: Metadata = {
   },
 }
 
-export default function Posts(): JSX.Element {
+export default async function Posts(): Promise<JSX.Element> {
+  const allPosts = await getAllPostsMetadata()
   return (
     <Suspense>
-      <PostsList allPosts={getAllPostsMetadata()} />
+      <PostsList allPosts={allPosts} />
     </Suspense>
   )
 }
