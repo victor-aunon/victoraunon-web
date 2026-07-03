@@ -7,7 +7,7 @@ import type { JSX } from 'react'
 export default function Header(): JSX.Element {
   const imageSize = 80
   return (
-    <header className="sticky top-0 z-50 w-full bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-6 px-6 py-4 mb-8">
+    <header className="sticky top-0 z-50 w-full bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800 flex flex-col md:flex-row items-center justify-between gap-6 px-6 py-4">
       <div className="flex flex-row items-center gap-6">
         <Image
           src={`https://github.com/victor-aunon.png?size=${imageSize}`}

@@ -15,9 +15,9 @@ interface SocialProps {
 
 export default function Social({ parent }: SocialProps): JSX.Element {
   const linkClass =
-    'text-zinc-400 hover:text-zinc-100 transition-colors flex items-center justify-center'
+    'text-zinc-400 hover:text-indigo-300 transition-colors flex items-center justify-center'
 
-    if (parent === 'main')
+  if (parent === 'main')
     return (
       <aside className="hidden lg:flex flex-col gap-6 sticky top-40 self-start bg-zinc-900 rounded-2xl p-4 text-3xl">
         <a

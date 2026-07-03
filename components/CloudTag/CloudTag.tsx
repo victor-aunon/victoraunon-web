@@ -22,11 +22,9 @@ export default function CloudTag({ posts }: CloudTagProps): JSX.Element {
   }, {})
 
   return (
-    <div className="mt-4">
-      <h2 className="text-lg font-semibold text-zinc-100 mb-3">
-        Tags populares
-      </h2>
-      <div className="flex flex-wrap gap-2 mt-4">
+    <>
+      <h2 className="text-xl font-semibold text-zinc-100">Tags populares</h2>
+      <div className="flex flex-wrap gap-2 mt-2 items-center">
         {/* Sort tags by frequency, take the top 20 */}
         {Object.entries(tags)
           .sort((a, b) => b[1] - a[1])
@@ -42,6 +40,6 @@ export default function CloudTag({ posts }: CloudTagProps): JSX.Element {
             </Link>
           ))}
       </div>
-    </div>
+    </>
   )
 }
