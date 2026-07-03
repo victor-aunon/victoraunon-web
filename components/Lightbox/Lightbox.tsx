@@ -65,8 +65,7 @@ export default function Lightbox(props: LightboxProps): JSX.Element {
           objectFit: 'contain',
           backgroundSize: '70% 70%',
         }}
-        placeholder={imageBlur === undefined ? undefined : 'blur'}
-        blurDataURL={imageBlur}
+        {...(imageBlur ? { placeholder: 'blur', blurDataURL: imageBlur } : {})}
         onPointerDown={toggleLightbox}
         className="cursor-zoom-in"
       />

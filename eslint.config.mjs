@@ -17,6 +17,10 @@ export default defineConfig([
     '.next/**',
     'node_modules/**',
     'next.config.js',
+    'jest.config.js',
+    'postcss.config.js',
+    'cypress.config.ts',
+    'coverage/**'
   ]),
   js.configs.recommended,
   {
@@ -74,6 +78,7 @@ export default defineConfig([
       'no-case-declarations': 'off',
       'no-useless-return': 'off',
       '@next/next/no-html-link-for-pages': 'off',
+      '@next/next/no-img-element': 'off',
     },
   },
 ])

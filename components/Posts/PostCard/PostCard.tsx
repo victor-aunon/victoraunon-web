@@ -45,10 +45,12 @@ export default function PostCard({
                     alt={postInfo.slug}
                     fill={true}
                     style={{ objectFit: 'cover' }}
-                    placeholder={
-                      postInfo.imageBlurUrl === undefined ? undefined : 'blur'
-                    }
-                    blurDataURL={postInfo.imageBlurUrl}
+                    {...(postInfo.imageBlurUrl
+                      ? {
+                          placeholder: 'blur',
+                          blurDataURL: postInfo.imageBlurUrl,
+                        }
+                      : {})}
                     className="group-hover:scale-105 transition-transform duration-300"
                   />
                 ) : (
