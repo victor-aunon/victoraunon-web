@@ -1,11 +1,12 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import { serialize } from 'next-mdx-remote/serialize'
 import readingTime from 'reading-time'
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeHighlight from 'rehype-highlight'
+import { serialize } from 'next-mdx-remote/serialize'
+import sharp from 'sharp'
 import 'highlight.js/styles/atom-one-dark.css'
 // Import all common languages for syntax highlighting
 import 'highlight.js/lib/common'
@@ -13,23 +14,17 @@ import { Post, PostMetadata } from 'types/Post'
 
 const postsDir = path.join(process.cwd(), 'mdposts')
 
-export interface GetAllPostsSlug {
-  slug: PostMetadata['slug']
+interface ProcessedPost {
+  rawContent: string
+  metadata: Post['metadata']
 }
 
-export async function getPostBySlug(slug: string): Promise<Post> {
+async function processPost(slug: string): Promise<ProcessedPost> {
   const fullPath = path.join(postsDir, `${slug}.mdx`)
   const fileContent = fs.readFileSync(fullPath, 'utf-8')
   const { data, content } = matter(fileContent)
-  const source = await serialize(content, {
-    mdxOptions: {
-      rehypePlugins: [
-        rehypeSlug,
-        [rehypeAutolinkHeadings, { behavior: 'wrap' }],
-        rehypeHighlight,
-      ],
-    },
-  })
+
+  // Estimate reading time
   const cleanContent = content
     .replace(/^import\s.+/gm, '')
     .replace(/^export\s.+/gm, '')
@@ -38,8 +33,30 @@ export async function getPostBySlug(slug: string): Promise<Post> {
   const stats = readingTime(cleanContent)
   const readTime = Math.ceil(stats.minutes)
 
+  // Create blur image placeholder
+  let finalImageBlurURL = data.imageBlurUrl
+
+  if (data.imageUrl && !finalImageBlurURL) {
+    const publicDir = path.join(process.cwd(), 'public')
+    const sourceImagePath = path.join(publicDir, data.imageUrl)
+    if (fs.existsSync(sourceImagePath)) {
+      try {
+        const buffer = await sharp(sourceImagePath)
+          .resize(20)
+          .blur(5)
+          .toBuffer()
+
+        finalImageBlurURL = `data:image/jpeg;base64,${buffer.toString(
+          'base64'
+        )}`
+      } catch (error) {
+        console.error(`Error processing blur for post ${slug}`, error)
+      }
+    }
+  }
+
   return {
-    content: source,
+    rawContent: content,
     metadata: {
       slug,
       title: data.title ?? slug,
@@ -50,45 +67,49 @@ export async function getPostBySlug(slug: string): Promise<Post> {
       date: data.date,
       readTime,
       imageUrl: data.imageUrl,
-      imageBlurUrl: data.imageBlurUrl,
+      imageBlurUrl: finalImageBlurURL,
       videoUrl: data.videoUrl,
     },
   }
 }
 
-export function getPostMetadataBySlug(slug: string): PostMetadata {
-  const fullPath = path.join(postsDir, `${slug}.mdx`)
-  const fileContent = fs.readFileSync(fullPath, 'utf-8')
-  const { data, content } = matter(fileContent)
-  const cleanContent = content
-    .replace(/^import\s.+/gm, '')
-    .replace(/^export\s.+/gm, '')
-    .replace(/<\/?[A-Za-z0-9]+(?=\s|>).*?\/?>/g, '')
+export async function getPostBySlug(slug: string): Promise<Post> {
+  const { rawContent, metadata } = await processPost(slug)
+  const content = await serialize(rawContent, {
+    mdxOptions: {
+      rehypePlugins: [
+        rehypeSlug,
+        [rehypeAutolinkHeadings, { behavior: 'wrap' }],
+        rehypeHighlight,
+      ],
+    },
+  })
 
-  const stats = readingTime(cleanContent)
-  const readTime = Math.ceil(stats.minutes)
-
-  return {
-    slug,
-    title: data.title ?? slug,
-    author: data.author ?? 'Víctor Auñón',
-    excerpt: data.excerpt ?? '',
-    description: data.description ?? data.excerpt ?? '',
-    tags: (data.tags ?? []).sort(),
-    date: data.date,
-    readTime,
-    imageUrl: data.imageUrl,
-    imageBlurUrl: data.imageBlurUrl,
-    videoUrl: data.videoUrl,
-  }
+  return { content, metadata }
 }
 
-export function getAllPostsMetadata(): PostMetadata[] {
+export async function getPostMetadataBySlug(
+  slug: string
+): Promise<PostMetadata> {
+  const { metadata } = await processPost(slug)
+  return { ...metadata }
+}
+
+export async function getAllPostsMetadata(): Promise<PostMetadata[]> {
   const postFiles = fs.readdirSync(postsDir)
-  return postFiles
-    .filter((file) => file.match(/.mdx$/))
-    .map((postName) => getPostMetadataBySlug(postName.replace(/\.mdx/g, '')))
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
+  const postsMetaDatas = await Promise.all(
+    postFiles
+      .filter((file) => file.match(/.mdx$/))
+      .map((postName) => getPostMetadataBySlug(postName.replace(/\.mdx/g, '')))
+  )
+
+  return postsMetaDatas.sort((post1, post2) =>
+    post1.date > post2.date ? -1 : 1
+  )
+}
+
+export interface GetAllPostsSlug {
+  slug: PostMetadata['slug']
 }
 
 export function getAllPostsSlug(): GetAllPostsSlug[] {
