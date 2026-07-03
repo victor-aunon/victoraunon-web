@@ -49,7 +49,7 @@ export default function PostsList({ allPosts }: PostsListProps): JSX.Element {
               )}
             </h3>
           )}
-          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 list-none p-0">
+          <ul className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-6 list-none p-0">
             {path === '/posts'
               ? filteredPosts
                   .filter((post) => {
@@ -60,7 +60,11 @@ export default function PostsList({ allPosts }: PostsListProps): JSX.Element {
                     <PostCardSimple {...post} key={index} />
                   ))
               : filteredPosts.map((post, index) => (
-                  <PostCard {...post} key={index} />
+                  <PostCard
+                    postInfo={post}
+                    isAnimated={index === 0}
+                    key={index}
+                  />
                 ))}
           </ul>
         </>
