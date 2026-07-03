@@ -3,7 +3,6 @@
  * After the Scriptora redesign, Providers MUST only provide QueryContext.
  * ThemeContext must be REMOVED.
  */
-import React from 'react'
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { useContext } from 'react'

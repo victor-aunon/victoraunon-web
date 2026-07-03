@@ -8,7 +8,6 @@
  * - Uses next/image when imageUrl is present
  * - Has a dark gradient overlay for legibility
  */
-import React from 'react'
 import { render, screen } from '@testing-library/react'
 
 // Mock next/image
