@@ -3,14 +3,18 @@
 import { useContext, useState, type JSX } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 import { QueryContext } from 'contexts/QueryContext'
-import { Search, X } from 'lucide-react'
+import { Search } from 'lucide-react'
 import { Input } from 'components/ui/input'
 
 interface SearchBarProps {
   parent: 'sideBar' | 'main'
+  className?: string
 }
 
-export default function SearchBar({ parent }: SearchBarProps): JSX.Element {
+export default function SearchBar({
+  parent,
+  className,
+}: SearchBarProps): JSX.Element {
   // If the parent is main, the searchBar is visible on mobile.
   // If the parent is sideBar, it's visible inside the sidebar on tablets+.
 
@@ -35,8 +39,8 @@ export default function SearchBar({ parent }: SearchBarProps): JSX.Element {
 
   const containerClass =
     parent === 'main'
-      ? 'flex items-center gap-2 w-full md:hidden'
-      : 'flex items-center gap-2 w-full hidden md:flex'
+      ? `${className ?? ''} flex items-center gap-2 w-full lg:hidden`
+      : `${className ?? ''} flex items-center gap-2 w-full hidden lg:flex`
 
   return (
     <div className={containerClass}>

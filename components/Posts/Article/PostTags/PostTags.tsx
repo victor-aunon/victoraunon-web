@@ -11,7 +11,7 @@ interface PostTagsProps {
 export default function PostTags({ tags }: PostTagsProps): JSX.Element {
   return (
     <section className="mt-10 pt-8 border-t border-zinc-800">
-      <h3 className="text-sm font-semibold uppercase tracking-widest text-zinc-400 mb-3">
+      <h3 className="text-md font-semibold font-display tracking-tight text-zinc-400 mb-3">
         Tags relacionados:
       </h3>
       <div className="flex flex-wrap gap-2">

@@ -71,11 +71,11 @@ export default async function RootLayout({
       </head>
       <Providers>
         <body
-          className={`flex flex-col min-h-svh w-[90%] max-w-[1500px] mx-auto bg-zinc-950 text-zinc-100`}
+          className={`flex flex-col gap-6 min-h-svh w-[90%] max-w-[1500px] mx-auto bg-zinc-950 text-zinc-100`}
         >
           <Header />
           <SearchBar parent="main" />
-          <main className="flex flex-col lg:flex-row gap-6 pb-12">
+          <main className="flex flex-col lg:flex-row gap-6">
             <Social parent="main" />
             <section className="flex-1">{children}</section>
             <SideBar allPosts={allPosts} />
