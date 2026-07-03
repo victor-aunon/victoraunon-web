@@ -26,8 +26,8 @@ jest.mock('contexts/QueryContext', () => ({
 
 // Mock child card components to isolate PostsList logic
 jest.mock('components/Posts/PostCard', () => ({
-  PostCard: ({ title }: { title: string }) => (
-    <li data-testid="post-card">{title}</li>
+  PostCard: ({ postInfo }: { postInfo: { title: string } }) => (
+    <li data-testid="post-card">{postInfo.title}</li>
   ),
   PostCardSimple: ({ title }: { title: string }) => (
     <li data-testid="post-card-simple">{title}</li>

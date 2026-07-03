@@ -10,14 +10,6 @@ import { render, screen } from '@testing-library/react'
 import Header from 'components/Header/Header'
 
 // Mock next/image to avoid Next.js image optimization in tests
-jest.mock('next/image', () => ({
-  __esModule: true,
-  default: ({ alt, ...props }: { alt: string; [key: string]: unknown }) => (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img alt={alt} {...props} />
-  ),
-}))
-
 // Mock next/link
 jest.mock('next/link', () => ({
   __esModule: true,

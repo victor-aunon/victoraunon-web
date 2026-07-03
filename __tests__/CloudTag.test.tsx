@@ -48,12 +48,12 @@ const mockPosts: PostMetadata[] = [
 
 describe('CloudTag', () => {
   it('renders a section heading "Tags populares"', () => {
-    render(<CloudTag posts={mockPosts} parent="main" />)
+    render(<CloudTag posts={mockPosts} />)
     expect(screen.getByText('Tags populares')).toBeInTheDocument()
   })
 
   it('renders a link for each unique tag', () => {
-    render(<CloudTag posts={mockPosts} parent="main" />)
+    render(<CloudTag posts={mockPosts} />)
     // mockPosts has: react, typescript, next, css (4 unique)
     expect(screen.getByText('react')).toBeInTheDocument()
     expect(screen.getByText('typescript')).toBeInTheDocument()
@@ -62,13 +62,13 @@ describe('CloudTag', () => {
   })
 
   it('links each tag to the correct posts?tag= URL', () => {
-    render(<CloudTag posts={mockPosts} parent="main" />)
+    render(<CloudTag posts={mockPosts} />)
     const reactLink = screen.getByRole('link', { name: 'react' })
     expect(reactLink).toHaveAttribute('href', '/posts?tag=react')
   })
 
   it('renders no tags when posts array is empty', () => {
-    render(<CloudTag posts={[]} parent="sideBar" />)
+    render(<CloudTag posts={[]} />)
     const heading = screen.getByText('Tags populares')
     expect(heading).toBeInTheDocument()
     // No tag links

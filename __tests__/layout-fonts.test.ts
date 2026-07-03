@@ -39,7 +39,7 @@ describe('globals.css — body font-family declaration', () => {
     const css = fs.readFileSync(cssPath, 'utf-8')
 
     // Extract the body block (everything between `body {` and the matching `}`)
-    const bodyBlockMatch = css.match(/body\s*\{([^}]*)\}/s)
+    const bodyBlockMatch = css.match(/body\s*\{([^}]*)\}/)
     expect(bodyBlockMatch).not.toBeNull()
 
     const bodyBlock = bodyBlockMatch![1]

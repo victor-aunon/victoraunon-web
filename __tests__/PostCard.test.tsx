@@ -10,14 +10,6 @@ import { render, screen } from '@testing-library/react'
 import type { PostMetadata } from 'types/Post'
 
 // Mock next/image
-jest.mock('next/image', () => ({
-  __esModule: true,
-  default: ({ alt, ...props }: { alt: string; [key: string]: unknown }) => (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img alt={alt} {...props} />
-  ),
-}))
-
 // Mock next/link
 jest.mock('next/link', () => ({
   __esModule: true,
@@ -65,29 +57,29 @@ const basePost: PostMetadata = {
 
 describe('PostCard', () => {
   it('renders the post title', () => {
-    render(<PostCard {...basePost} />)
+    render(<PostCard postInfo={basePost} />)
     expect(screen.getByText('Test Post Title')).toBeInTheDocument()
   })
 
   it('renders the post excerpt', () => {
-    render(<PostCard {...basePost} />)
+    render(<PostCard postInfo={basePost} />)
     expect(screen.getByText('This is the excerpt text.')).toBeInTheDocument()
   })
 
   it('links to the correct post URL', () => {
-    render(<PostCard {...basePost} />)
+    render(<PostCard postInfo={basePost} />)
     const link = screen.getByRole('link')
     expect(link).toHaveAttribute('href', '/posts/test-post')
   })
 
   it('renders FallbackCover when imageUrl is absent', () => {
-    render(<PostCard {...basePost} />)
+    render(<PostCard postInfo={basePost} />)
     expect(screen.getByTestId('fallback-cover')).toBeInTheDocument()
   })
 
   it('renders an img when imageUrl is present', () => {
     const postWithImage = { ...basePost, imageUrl: '/test-image.jpg' }
-    render(<PostCard {...postWithImage} />)
+    render(<PostCard postInfo={postWithImage} />)
     const img = screen.getByAltText('test-post')
     expect(img).toBeInTheDocument()
     expect(screen.queryByTestId('fallback-cover')).toBeNull()

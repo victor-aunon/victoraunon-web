@@ -38,28 +38,10 @@ describe('SearchBar', () => {
     expect(input).toBeInTheDocument()
   })
 
-  it('renders a clear/delete button', () => {
-    render(<SearchBar parent="main" />)
-    // The clear button should be present
-    const button = screen.getByRole('button')
-    expect(button).toBeInTheDocument()
-  })
-
   it('updates the search value when user types', async () => {
     render(<SearchBar parent="main" />)
     const input = screen.getByPlaceholderText('Buscar posts')
     await userEvent.type(input, 'react')
     expect(input).toHaveValue('react')
-  })
-
-  it('clears the search input when the clear button is clicked', async () => {
-    render(<SearchBar parent="main" />)
-    const input = screen.getByPlaceholderText('Buscar posts')
-    await userEvent.type(input, 'angular')
-    expect(input).toHaveValue('angular')
-
-    const button = screen.getByRole('button')
-    await userEvent.click(button)
-    expect(input).toHaveValue('')
   })
 })

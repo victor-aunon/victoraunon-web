@@ -28,14 +28,6 @@ jest.mock('next/link', () => ({
 }))
 
 // Mock next/image
-jest.mock('next/image', () => ({
-  __esModule: true,
-  default: ({ alt, ...props }: { alt: string; [key: string]: unknown }) => (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img alt={alt} {...props} />
-  ),
-}))
-
 // Mock FallbackCover
 jest.mock('components/Posts/PostCard/FallbackCover', () => ({
   __esModule: true,
