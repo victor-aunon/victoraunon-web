@@ -5,7 +5,6 @@
  * Spec: renders an SVG with organic mesh/lava gradient (radialGradient blobs)
  * + prominent feTurbulence noise. Accepts an optional `seed` prop for per-post variation.
  */
-import React from 'react'
 import { render } from '@testing-library/react'
 import FallbackCover from 'components/Posts/PostCard/FallbackCover'
 import { getGradientConfig } from 'components/Posts/PostCard/FallbackCover'
