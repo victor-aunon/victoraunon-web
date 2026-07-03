@@ -4,7 +4,6 @@
  *
  * Strict TDD — approval tests written before refactoring.
  */
-import React from 'react'
 import { render, screen } from '@testing-library/react'
 import type { PostMetadata } from 'types/Post'
 

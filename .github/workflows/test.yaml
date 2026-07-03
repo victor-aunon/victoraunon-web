@@ -7,14 +7,23 @@ on:
 jobs:
   test-components:
     runs-on: ubuntu-latest
-    container: cypress/included:9.4.1
+    container: cypress/included:15.18.0
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Test using Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
-          node-version: '18.7'
+          node-version: '20'
       - name: Install dependencies
         run: yarn install
-      - name: Run tests
-        run: yarn test:form
+      - name: Run Jest tests
+        run: yarn test
+      - name: Run Cypress tests
+        uses: cypress-io/github-action@v6
+        with:
+          component: true
+          spec: ./cypress/component/ContactForm.cy.tsx
+          browser: firefox
+        env:
+          CYPRESS_SKIP_VERIFY: 'true'
+          ELECTRON_EXTRA_LAUNCH_ARGS: '--disable-gpu --disable-software-rasterizer --no-sandbox --disable-dev-shm-usage --disable-setuid-sandbox'
