@@ -28,7 +28,9 @@ export default function CookieBanner(): JSX.Element {
         <div className="flex flex-col md:flex-row gap-6 fixed bottom-1 left-1/2 -translate-x-1/2 w-[95%] max-w-[1200px] bg-zinc-950 text-zinc-100 p-4 rounded-2xl border border-zinc-700 items-center z-10 opacity-0 animate-[appear_0.5s_linear_0.8s_forwards]">
           <style>{`@keyframes appear { 0% { opacity:0 } 100% { opacity:1 } }`}</style>
           <div>
-            <h3>Esta página utiliza cookies</h3>
+            <h3 className="[word-spacing:0.2rem] text-xl">
+              Esta página utiliza cookies
+            </h3>
             <p>
               Utilizamos cookies propias y de terceros para fines funcionales
               dirigidos a permitir la correcta navegación por nuestra página
@@ -50,7 +52,7 @@ export default function CookieBanner(): JSX.Element {
               Aceptar todas
             </button>
             <button
-              className={btnPrimary}
+              className={btnSecondary}
               onClick={() => setIsPreferencesVisible(true)}
             >
               Configurar
@@ -62,7 +64,9 @@ export default function CookieBanner(): JSX.Element {
         <div className="flex flex-col fixed top-0 left-0 w-screen h-screen bg-black/80 z-20">
           <div className="w-[90%] max-w-[1000px] m-auto min-h-[600px] max-h-[80vh] flex flex-col bg-zinc-950 rounded-2xl border border-zinc-700">
             <div className="flex flex-row items-center p-4 pb-2 justify-between border-b border-zinc-700">
-              <h3>Preferencias de cookies</h3>
+              <h3 className="[word-spacing:0.2rem] text-xl">
+                Preferencias de cookies
+              </h3>
               <button
                 className="bg-transparent border-none text-indigo-400 text-3xl hover:drop-shadow-[0_0_10px_#818cf8] active:scale-90 transition-all"
                 onClick={() => setIsPreferencesVisible(false)}
@@ -71,7 +75,7 @@ export default function CookieBanner(): JSX.Element {
               </button>
             </div>
             <div className="p-4 mb-auto overflow-y-auto">
-              <h3>Uso de cookies</h3>
+              <h3 className="[word-spacing:0.2rem] text-xl">Uso de cookies</h3>
               <p>
                 Aquí puede elegir qué categoría de cookies permitir. Puede
                 obtener más información consultando nuestra{' '}
@@ -91,7 +95,9 @@ export default function CookieBanner(): JSX.Element {
                     className="w-full flex p-4 justify-between items-center cursor-pointer before:content-['\276F'] before:text-indigo-400 before:font-bold before:text-2xl before:transition-all peer-checked/required:before:rotate-90"
                     htmlFor="required-tab"
                   >
-                    <h3 className="m-0 ml-4">Cookies técnicas necesarias</h3>
+                    <h3 className="m-0 ml-4 [word-spacing:0.2rem] text-xl">
+                      Cookies técnicas necesarias
+                    </h3>
                     <label className="relative inline-block w-[60px] h-[34px]">
                       <input
                         type="checkbox"
@@ -127,7 +133,9 @@ export default function CookieBanner(): JSX.Element {
                     className="w-full flex p-4 justify-between items-center cursor-pointer before:content-['\276F'] before:text-indigo-400 before:font-bold before:text-2xl before:transition-all peer-checked/analytics:before:rotate-90"
                     htmlFor="analytics-tab"
                   >
-                    <h3 className="m-0 ml-4">Cookies de análisis o medición</h3>
+                    <h3 className="m-0 ml-4 [word-spacing:0.2rem] text-xl">
+                      Cookies de análisis o medición
+                    </h3>
                     <label className="relative inline-block w-[60px] h-[34px]">
                       <input
                         type="checkbox"
