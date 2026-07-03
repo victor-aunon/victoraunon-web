@@ -57,7 +57,7 @@ export default function PostTOC(): JSX.Element {
 
   return (
     <details className="group w-fit ml-auto -mr-4 px-4 py-2 sticky top-32 bg-zinc-950/90 backdrop-blur-md border border-zinc-800 rounded-xl z-40 max-w-sm shadow-xl">
-      <summary className="text-xl text-zinc-300 hover:text-white transition-colors cursor-pointer list-none flex items-center gap-2 select-none [&::-webkit-details-marker]:hidden">
+      <summary className="text-lg text-zinc-300 hover:text-white transition-colors cursor-pointer list-none flex items-center gap-2 select-none [&::-webkit-details-marker]:hidden">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="20"

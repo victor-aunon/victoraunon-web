@@ -2,6 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import { serialize } from 'next-mdx-remote/serialize'
+import readingTime from 'reading-time'
 import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeHighlight from 'rehype-highlight'
@@ -29,6 +30,13 @@ export async function getPostBySlug(slug: string): Promise<Post> {
       ],
     },
   })
+  const cleanContent = content
+    .replace(/^import\s.+/gm, '')
+    .replace(/^export\s.+/gm, '')
+    .replace(/<\/?[A-Za-z0-9]+(?=\s|>).*?\/?>/g, '')
+
+  const stats = readingTime(cleanContent)
+  const readTime = Math.ceil(stats.minutes)
 
   return {
     content: source,
@@ -40,7 +48,7 @@ export async function getPostBySlug(slug: string): Promise<Post> {
       description: data.description ?? '',
       tags: (data.tags ?? []).sort(),
       date: data.date,
-      readTime: parseInt(data.readTime),
+      readTime,
       imageUrl: data.imageUrl,
       imageBlurUrl: data.imageBlurUrl,
       videoUrl: data.videoUrl,
@@ -51,7 +59,15 @@ export async function getPostBySlug(slug: string): Promise<Post> {
 export function getPostMetadataBySlug(slug: string): PostMetadata {
   const fullPath = path.join(postsDir, `${slug}.mdx`)
   const fileContent = fs.readFileSync(fullPath, 'utf-8')
-  const { data } = matter(fileContent)
+  const { data, content } = matter(fileContent)
+  const cleanContent = content
+    .replace(/^import\s.+/gm, '')
+    .replace(/^export\s.+/gm, '')
+    .replace(/<\/?[A-Za-z0-9]+(?=\s|>).*?\/?>/g, '')
+
+  const stats = readingTime(cleanContent)
+  const readTime = Math.ceil(stats.minutes)
+
   return {
     slug,
     title: data.title ?? slug,
@@ -60,7 +76,7 @@ export function getPostMetadataBySlug(slug: string): PostMetadata {
     description: data.description ?? data.excerpt ?? '',
     tags: (data.tags ?? []).sort(),
     date: data.date,
-    readTime: parseInt(data.readTime),
+    readTime,
     imageUrl: data.imageUrl,
     imageBlurUrl: data.imageBlurUrl,
     videoUrl: data.videoUrl,
