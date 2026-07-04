@@ -6,7 +6,6 @@ import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeHighlight from 'rehype-highlight'
 import { serialize } from 'next-mdx-remote/serialize'
-import sharp from 'sharp'
 import 'highlight.js/styles/atom-one-dark.css'
 // Import all common languages for syntax highlighting
 import 'highlight.js/lib/common'
@@ -37,6 +36,7 @@ async function processPost(slug: string): Promise<ProcessedPost> {
   let finalImageBlurURL = data.imageBlurUrl
 
   if (data.imageUrl && !finalImageBlurURL) {
+    const { default: sharp } = await import('sharp')
     const publicDir = path.join(process.cwd(), 'public')
     const sourceImagePath = path.join(publicDir, data.imageUrl)
     if (fs.existsSync(sourceImagePath)) {
