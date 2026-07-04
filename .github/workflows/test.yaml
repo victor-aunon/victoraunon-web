@@ -23,7 +23,7 @@ jobs:
         with:
           component: true
           spec: ./cypress/component/ContactForm.cy.tsx
-          browser: firefox
+          browser: ${{ env.ACT == 'true' && 'firefox' || 'chrome' }}
         env:
-          CYPRESS_SKIP_VERIFY: 'true'
+          CYPRESS_SKIP_VERIFY: ${{ env.ACT == 'true' && 'true' || 'false' }}
           ELECTRON_EXTRA_LAUNCH_ARGS: '--disable-gpu --disable-software-rasterizer --no-sandbox --disable-dev-shm-usage --disable-setuid-sandbox'
