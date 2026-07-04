@@ -36,21 +36,25 @@ async function processPost(slug: string): Promise<ProcessedPost> {
   let finalImageBlurURL = data.imageBlurUrl
 
   if (data.imageUrl && !finalImageBlurURL) {
-    const { default: sharp } = await import('sharp')
-    const publicDir = path.join(process.cwd(), 'public')
-    const sourceImagePath = path.join(publicDir, data.imageUrl)
-    if (fs.existsSync(sourceImagePath)) {
-      try {
-        const buffer = await sharp(sourceImagePath)
-          .resize(20)
-          .blur(5)
-          .toBuffer()
+    // Avoid Vercel error on build
+    if (process.env.VERCEL) finalImageBlurURL = data.imageUrl
+    else {
+      const { default: sharp } = await import('sharp')
+      const publicDir = path.join(process.cwd(), 'public')
+      const sourceImagePath = path.join(publicDir, data.imageUrl)
+      if (fs.existsSync(sourceImagePath)) {
+        try {
+          const buffer = await sharp(sourceImagePath)
+            .resize(20)
+            .blur(5)
+            .toBuffer()
 
-        finalImageBlurURL = `data:image/jpeg;base64,${buffer.toString(
-          'base64'
-        )}`
-      } catch (error) {
-        console.error(`Error processing blur for post ${slug}`, error)
+          finalImageBlurURL = `data:image/jpeg;base64,${buffer.toString(
+            'base64'
+          )}`
+        } catch (error) {
+          console.error(`Error processing blur for post ${slug}`, error)
+        }
       }
     }
   }
