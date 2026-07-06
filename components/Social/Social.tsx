@@ -6,20 +6,30 @@ import {
   FaArrowCircleUp,
   FaGithub,
 } from 'react-icons/fa'
+import { cn } from 'lib/utils'
 
 import type { JSX } from 'react'
 
 interface SocialProps {
   parent: 'navbar' | 'main'
+  className?: string
 }
 
-export default function Social({ parent }: SocialProps): JSX.Element {
+export default function Social({
+  parent,
+  className,
+}: SocialProps): JSX.Element {
   const linkClass =
     'text-zinc-400 hover:text-indigo-300 transition-colors flex items-center justify-center'
 
+  const mainClass = cn(
+    className,
+    'hidden lg:flex flex-col gap-6 sticky top-40 self-start bg-zinc-900 rounded-2xl p-4 text-3xl'
+  )
+
   if (parent === 'main')
     return (
-      <aside className="hidden lg:flex flex-col gap-6 sticky top-40 self-start bg-zinc-900 rounded-2xl p-4 text-3xl">
+      <aside className={mainClass}>
         <a
           href="https://github.com/victor-aunon"
           target="_blank"
