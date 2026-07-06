@@ -29,50 +29,43 @@ export default function PostsList({ allPosts }: PostsListProps): JSX.Element {
     return allPosts
   }, [query])
 
+  if (filteredPosts.length === 0)
+    return (
+      <div className="text-center text-zinc-400 py-16">
+        No hay posts que coincidan con tu búsqueda 🫂
+      </div>
+    )
+
   return (
     <>
-      {filteredPosts.length > 0 ? (
-        <>
-          {path === '/posts' && (
-            <h3 className="text-sm text-zinc-400 mb-4">
-              {`Posts ${tag !== null ? 'con el tag ' : ' '}`}
-              {tag !== null ? (
-                <span className="text-zinc-100 font-semibold">{tag}</span>
-              ) : (
-                ' '
-              )}
-              {`${query !== '' ? ' y que incluyen ' : ' '}`}
-              {query !== '' ? (
-                <span className="text-zinc-100 font-semibold">{query}</span>
-              ) : (
-                ' '
-              )}
-            </h3>
+      {path === '/posts' && (
+        <h3 className="text-sm text-zinc-400 mb-4">
+          {`Posts ${tag !== null ? 'con el tag ' : ' '}`}
+          {tag !== null ? (
+            <span className="text-zinc-100 font-semibold">{tag}</span>
+          ) : (
+            ' '
           )}
-          <ul className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-6 list-none p-0">
-            {path === '/posts'
-              ? filteredPosts
-                  .filter((post) => {
-                    if (tag === null) return post
-                    else return post.tags.includes(tag)
-                  })
-                  .map((post, index) => (
-                    <PostCardSimple {...post} key={index} />
-                  ))
-              : filteredPosts.map((post, index) => (
-                  <PostCard
-                    postInfo={post}
-                    isAnimated={index === 0}
-                    key={index}
-                  />
-                ))}
-          </ul>
-        </>
-      ) : (
-        <div className="text-center text-zinc-400 py-16">
-          No hay posts que coincidan con tu búsqueda 🫂
-        </div>
+          {`${query !== '' ? ' y que incluyen ' : ' '}`}
+          {query !== '' ? (
+            <span className="text-zinc-100 font-semibold">{query}</span>
+          ) : (
+            ' '
+          )}
+        </h3>
       )}
+      <ul className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-x-0 gap-y-6 list-none p-0">
+        {path === '/posts'
+          ? filteredPosts
+              .filter((post) => {
+                if (tag === null) return post
+                else return post.tags.includes(tag)
+              })
+              .map((post, index) => <PostCardSimple {...post} key={index} />)
+          : filteredPosts.map((post, index) => (
+              <PostCard postInfo={post} isAnimated={index === 0} key={index} />
+            ))}
+      </ul>
     </>
   )
 }

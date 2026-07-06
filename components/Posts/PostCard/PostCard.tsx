@@ -24,13 +24,16 @@ export default function PostCard({
 
   return (
     <li className="list-none">
-      <Link href={`/posts/${postInfo.slug}`} className="block group h-full">
+      <Link
+        href={`/posts/${postInfo.slug}`}
+        className="block group h-full px-4"
+      >
         <BorderGlow
           edgeSensitivity={8}
           glowColor="40 80 80"
           backgroundColor="#120F17"
           borderRadius={8}
-          glowRadius={42}
+          glowRadius={35}
           glowIntensity={3}
           coneSpread={25}
           animated={isAnimated}
